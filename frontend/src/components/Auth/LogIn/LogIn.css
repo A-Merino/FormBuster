@@ -34,8 +34,33 @@
 #login-box h2 {
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+    #login-box {
+        margin-top: 50%;
+        width: 75%;
+        height: 500px;
+    }
 
+    #login-box form {
+        font-size: 50px;
+    }
 
+    #login-box h2 {
+        font-size: 50px;
+    }
 
+    #login-box input {
+        margin: auto;
+        margin-left: 0.5em;
+        width: 300px;
+        font-size: 50px;
+    }
+
+    #login-box label {
+    }
+    
+    #log-note {
+        font-size: 40px;
+        text-align: center;
+    }
 }
