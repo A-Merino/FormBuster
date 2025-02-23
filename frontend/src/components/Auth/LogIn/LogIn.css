@@ -34,7 +34,7 @@
 #login-box h2 {
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     #login-box {
         margin-top: 50%;
         width: 75%;
