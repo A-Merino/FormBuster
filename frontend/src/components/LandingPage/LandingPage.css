@@ -35,3 +35,18 @@
     margin-top:0.1em;
     border-top: 7px solid grey;
 }
+
+@media (max-width: 768px) {
+    #main-blurb {
+        width: 80%;
+        font-size: 35px;
+    }
+
+    #main-blurb h3 {
+        font-size: 50px;
+    }
+
+    #lp-header {
+        font-size: 40px;
+    }
+}

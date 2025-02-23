@@ -11,7 +11,6 @@
 #ln-list {
     /* No bullet points in my household */
     list-style: none;
-
 }
 
 
@@ -31,4 +30,22 @@ when the user hovers over the button - Alex */
     border-radius: 0.3em;
     color: black;
     border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+    #landing-nav {
+        height: 150px;
+    }
+
+    #ln-list li a {
+        padding: 1em;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 35px;
+    }
+
+    #ln-list {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 }
