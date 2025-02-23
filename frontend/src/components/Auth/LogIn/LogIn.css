@@ -1,0 +1,23 @@
+#login-box {
+    background: var(--red);
+    margin: auto;
+    width: 40%;
+    height: 50%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#log-note {
+    color: white;
+
+}
+
+#log-note a {
+    color: var(--yellow);
+}
+
+#login-box h2 {
+}

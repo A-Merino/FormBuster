@@ -9,11 +9,26 @@
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    /* Color Variables, variables start with -- */
+    --red: #770000;
+    --gold: #AB946C;
+    --gray: #CBCCCE;
+    --blue: #084771;
+    --purple:#5d2263;
+    --yellow:#fbc544;
+    --orange:#f49028;
+    --gray-blue:#a3b8bf;
+    --gray-purple:#604974;
+    --teal:#00556b;
+    --alt-gray:#d5d0c9;
 }
 
 
 body {
     width: 100%;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     
 }

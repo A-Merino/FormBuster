@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './LandingPage.css'
-
+import SignBar from './SignBar/SignBar.jsx'
 
 function LandingPage() {
 
     return (
     <>
+        <SignBar/>
         <div id='lp-header'>
             <h1>FORM BUSTER: Web Registration and Track</h1>
         </div>
