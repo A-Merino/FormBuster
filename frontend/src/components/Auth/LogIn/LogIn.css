@@ -8,6 +8,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+}
+
+#login-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#login-box input {
+    margin-left: 1em;
 }
 
 #log-note {
@@ -20,4 +32,10 @@
 }
 
 #login-box h2 {
+}
+
+@media (max-width: 768px) {
+
+
+
 }

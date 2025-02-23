@@ -9,7 +9,7 @@ function LogIn() {
         <div id="login-box">
             <h2>Log In</h2>
             <form>
-                <label htmlFor:> Email: 
+                <label> Email: 
                     <input/>
                 </label>
                 <label> Password: 
