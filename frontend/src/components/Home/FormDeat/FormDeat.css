@@ -4,3 +4,16 @@
     width:40%;
 
 }
+
+@media (max-width: 768px) {
+    #form-det {
+        border: 10px solid var(--red);
+        padding: 0em;
+        margin-top: 0.2em;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        font-size: 50px;
+        text-align: center;
+    }
+}

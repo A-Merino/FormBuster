@@ -6,3 +6,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+/*@media (max-width: 768px) {
+    #home-div {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+}*/

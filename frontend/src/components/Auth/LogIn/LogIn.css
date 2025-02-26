@@ -41,8 +41,9 @@
 @media (max-width: 768px) {
     #login-box {
         margin-top: 50%;
-        width: 75%;
-        height: 500px;
+        width: 85%;
+        height: 40%;
+        padding: 0em;
     }
 
     #login-box form {
@@ -54,10 +55,14 @@
     }
 
     #login-box input {
-        margin: auto;
+        margin-top: 0.2em;
         margin-left: 0.5em;
-        width: 300px;
+        width: 7em;
         font-size: 50px;
+    }
+
+    #login-box input[type="submit"] {
+        margin-left: auto;
     }
 
     #login-box label {

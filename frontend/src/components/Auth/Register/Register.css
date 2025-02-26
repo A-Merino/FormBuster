@@ -49,9 +49,9 @@
 
 @media (max-width: 768px) {
     #reg-box {
-        margin-top: 50%;
-        width: 75%;
-        height: 500px;
+        margin-top: 40%;
+        width: 85%;
+        height: 60%;
     }
 
     #reg-box form {
@@ -63,10 +63,14 @@
     }
 
     #reg-box input {
-        margin: auto;
+        margin-top: 0.2em;
         margin-left: 0.5em;
-        width: 300px;
+        width: 7em;
         font-size: 50px;
+    }
+
+    #reg-box input[type="submit"] {
+        margin-left: auto;
     }
 
     #reg-box label {
