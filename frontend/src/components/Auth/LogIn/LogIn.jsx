@@ -1,20 +1,26 @@
 import { useState } from 'react'
 import './LogIn.css'
-import {Link} from "react-router"
+import {Link, useNavigate} from "react-router"
 
 function LogIn() {
+    const navigate = useNavigate()
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate('/home');
+    }
 
     return (
     <>
         <div id="login-box">
             <h2>Log In</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label> Email: 
                     <input/>
                 </label>
                 <label> Password: 
                     <input/>
                 </label>
+                <input type='Submit'/>
             </form>
 
 

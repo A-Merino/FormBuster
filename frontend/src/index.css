@@ -23,6 +23,9 @@
     --alt-gray:#d5d0c9;
 }
 
+html {
+    height: 100%;
+}
 
 body {
     width: 100%;
@@ -31,4 +34,11 @@ body {
     padding: 0;
     height: 100%;
     
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

@@ -1,0 +1,79 @@
+/*Big red box*/
+#reg-box {
+    background: var(--red);
+    margin: auto;
+    width: 40%;
+    height: 50%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    
+}
+
+
+
+
+/*Form inside of the box*/
+#reg-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/*Input inside form inside box*/
+#reg-box input {
+    border-radius: 0.3em;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+    border: 2px black solid;
+    margin-left: 1em;
+}
+
+
+
+#reg-note {
+    color: white;
+
+}
+
+#reg-note a {
+    color: var(--yellow);
+}
+
+#reg-box h2 {
+}
+
+@media (max-width: 768px) {
+    #reg-box {
+        margin-top: 50%;
+        width: 75%;
+        height: 500px;
+    }
+
+    #reg-box form {
+        font-size: 50px;
+    }
+
+    #reg-box h2 {
+        font-size: 50px;
+    }
+
+    #reg-box input {
+        margin: auto;
+        margin-left: 0.5em;
+        width: 300px;
+        font-size: 50px;
+    }
+
+    #reg-box label {
+    }
+    
+    #reg-note {
+        font-size: 40px;
+        text-align: center;
+    }
+}
