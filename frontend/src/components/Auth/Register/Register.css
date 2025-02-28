@@ -1,20 +1,20 @@
 /*Big red box*/
 #reg-box {
+    color: white;
     background: var(--red);
+    border-radius: 0.5em;
+    
     margin: auto;
+    padding: 0.5em;
+    
     width: 40%;
     height: 50%;
-    padding: 0.5em;
-    border-radius: 0.5em;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
     
 }
-
-
-
 
 /*Form inside of the box*/
 #reg-box form {
@@ -26,14 +26,13 @@
 
 /*Input inside form inside box*/
 #reg-box input {
-    border-radius: 0.3em;
-    padding: 0.2em;
-    margin-bottom: 0.5em;
     border: 2px black solid;
+    border-radius: 0.3em;
+    
+    padding: 0.2em;
     margin-left: 1em;
+    margin-bottom: 0.5em;
 }
-
-
 
 #reg-note {
     color: white;
@@ -45,27 +44,103 @@
 }
 
 #reg-box h2 {
+    margin: 0.3em;
+}
+
+/*Back button in the bottom left of register boxes*/
+#reg-back-button {
+    background: var(--gold);
+    color: black;
+
+    border-radius: 0.3em;
+    border: 2px solid black;
+
+    display:block;
+
+    position: relative;
+    bottom: 0;
+    left: 0;
 }
 
 
 /*Choose user type box*/
 
 #reg-pick {
-    
+    color: white;
     background: var(--red);
-    margin: auto;
-    width: 40%;
-    height: 50%;
-    padding: 0.5em;
     border-radius: 0.5em;
+    
+    margin: auto;
+    
+    width: 60%;
+    height: 70vh;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
 }
 
+#reg-pick h2, #reg-box h2 {
+    font-size: 3vw;
+}
 
+#reg-pick h2 {
+    margin-bottom: 0;
 
+}
+
+/*The div that holds the list of the users*/
+#user-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    width: 80%;
+    height: 17vw;
+    
+    margin-top: 10%;
+}
+
+/*user-type boxes in user-list*/
+.pick-user {
+    background: var(--gray);
+    color: var(--red);
+    border: solid 0.3em var(--gold);
+    border-radius: 0.5em;
+    
+    text-align: center;
+    width: 30%;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    
+    transition: 0.3s;
+
+}
+
+/*Change background and cursor on hover*/
+.pick-user:hover {
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/*Icons for the user picker*/
+.reg-icon {
+    font-size: 9vw;
+
+    margin-bottom: 10%;
+
+}
+
+.pick-user h4{
+    font-size: 1.3vw;
+    
+    margin: 0;
+    margin-bottom: 1em;
+}
 
 
 /*----------------------PHONE STUFF-----------------------------------------------*/

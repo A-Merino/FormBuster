@@ -1,23 +1,30 @@
 import { useState } from 'react'
 import './Register.css'
 import {useNavigate} from 'react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserGraduate, faUserGear, faUserPen } from '@fortawesome/free-solid-svg-icons'
 
 function Register() {
     const navigate = useNavigate()
+    // This var will let us change displays
+    const [disp, setDisp] = useState('')
 
-    let disp = '';
 
+    // Will submit the user information to backend
+    // Currently only navigates the page to the home page
     const handleSubmit = (event) => {
         event.preventDefault();
         navigate('/home');
-    }
+    };
 
+
+   
 
     if (disp === 'student') {
         return (
         <>
         <div id="reg-box">
-                <h2>Register</h2>
+                <h2>Student Registration</h2>
                 <form onSubmit={handleSubmit}>
                     <label> First Name: 
                         <input/>
@@ -45,6 +52,8 @@ function Register() {
                     </label>
                     <input id="reg-sub" type="Submit"/>
                 </form>
+
+                <button id='reg-back-button' onClick={() => setDisp("")}>Return to User Selection</button>
 
             </div>
         </>
@@ -81,6 +90,7 @@ function Register() {
                     </label>
                     <input id="reg-sub" type="Submit"/>
                 </form>
+                <button id='reg-back-button' onClick={() => setDisp("")}>Return to User Selection</button>
 
             </div>
         </>
@@ -117,6 +127,7 @@ function Register() {
                     </label>
                     <input id="reg-sub" type="Submit"/>
                 </form>
+                <button id='reg-back-button' onClick={() => setDisp("")}>Return to User Selection</button>
 
             </div>
         </>
@@ -126,11 +137,21 @@ function Register() {
         return (
         <>
             <div id="reg-pick">
-                <h2>Who are you?</h2>
-                <div class='pick-user'>Student</div>
-                <div class='pick-user'>Staff</div>
-                <div class='pick-user'>Administrator</div>
-
+                <h2>Are you a...</h2>
+                <div id="user-list">
+                <div className='pick-user' onClick={() => setDisp("student")}>
+                    <FontAwesomeIcon className="reg-icon" icon={faUserGraduate} />
+                    <h4>Student</h4>
+                </div>
+                <div className='pick-user' onClick={() => setDisp("staff")}>
+                    <FontAwesomeIcon className="reg-icon" icon={faUserPen} />
+                    <h4>Advisor</h4>
+                </div>
+                <div className='pick-user' onClick={() => setDisp("admin")}>
+                    <FontAwesomeIcon className="reg-icon" icon={faUserGear} />
+                    <h4>Administrator</h4>
+                </div>
+                </div>
             </div>
         </>
         )
