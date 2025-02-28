@@ -8,7 +8,7 @@ function LandingPage() {
     <>
         <SignBar/>
         <div id='lp-header'>
-            <h1>FORM BUSTER: Web Registration and Track</h1>
+            <h1>FORM BUSTER: Web Registration and Tracking</h1>
         </div>
         <div id="main-blurb">
             <p>Welcome to Form Buster, the web application solution to pdf forms at Florida Tech. The goal of our project is to remove any and all .pdf files from registrar forms. Forms such as Class Registration, FERPA, Program Plans for graduates and masters students will be avaiable to be completed.</p>

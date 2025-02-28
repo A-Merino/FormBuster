@@ -1,9 +1,11 @@
+/*The big header at the top of page*/
 #lp-header {
     text-align: center;
 
 }
 
 
+/*The div for the words beneath header*/
 #main-blurb {
     margin: auto;
     display: flex;
@@ -16,25 +18,32 @@
     border-right: 3px gray solid;
     border-left: 3px gray solid;
     padding: 0.5em;
+    align-items: flex-start;
 
 }
 
+/* Any numbered lists in blurb */
 #main-blurb ol {
     text-align: left;
 }
 
+/*Any headers in div*/
 #main-blurb h3 {
     font-size: 30px;
     display: flex;
     flex-direction: column;
 }
 
+/*Creates the underline for titles*/
 #main-blurb h3:after {
     content: "";
-/*    width: 100%;*/
     margin-top:0.1em;
     border-top: 7px solid grey;
 }
+
+
+
+
 
 @media (max-width: 768px) {
     #main-blurb {
