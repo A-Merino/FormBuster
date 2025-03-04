@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LandingPage from "./../LandingPage/LandingPage.jsx"
 import Home from "./../Home/Home.jsx"
+import Inbox from "./../Inbox/Inbox.jsx"
 
 // Imports for authentification components
 import LogIn from "./../Auth/LogIn/LogIn.jsx"
@@ -22,6 +23,7 @@ function App() {
             <Route path="/home" element={<Home/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/sign-in" element={<LogIn/>}/>
+            <Route path="/inbox" element={<Inbox/>}/>
             <Route path="/*" element={<LandingPage/>}/>
         </Routes>
     </BrowserRouter>

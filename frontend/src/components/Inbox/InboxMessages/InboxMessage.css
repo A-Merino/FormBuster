@@ -1,0 +1,18 @@
+#inbox-message {
+    width: auto;
+    height: 5em;
+    border: 3px solid var(--red);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    padding-top: 1em;
+}
+
+#inbox-message h2 {
+    font-size: 20px;
+}
+
+inbox-message text {
+    font-size: 15px;
+}
