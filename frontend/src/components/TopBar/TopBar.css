@@ -1,0 +1,16 @@
+#top-bar {
+    display: block;
+    width: 100%;
+    background: var(--gray);
+    position: sticky;
+    height: 5vh;
+    top: 0;
+    right: 0;
+    border-bottom: 2px solid black; 
+}
+
+#top-bar p{
+    float: right;
+    margin-right: 1vw;  
+}
+
