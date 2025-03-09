@@ -1,18 +1,26 @@
 #inbox-interaction-bar {
     width: auto;
     height: 8em;
+
     background: var(--red);
+    
     display: flex;
     flex-direction: row;
     justify-content: right;
 }
 
 button {
+    cursor: pointer;
+
     min-width: 8em;
     height: 50%;
+
+    background: var(--gold);
+    
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 2em;
-    background: var(--gold);
-    cursor: pointer;
+
+    border: 2px solid var(--gray);
+    border-radius: 0.5em;
 }

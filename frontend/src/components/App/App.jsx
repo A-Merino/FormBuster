@@ -11,6 +11,7 @@ import LogIn from "./../Auth/LogIn/LogIn.jsx"
 import Register from "./../Auth/Register/Register.jsx"
 
 import Account from "./../Account/Account.jsx"
+import FormList from "./../FormList/FormList.jsx"
 
 /*
   The App function holds the routing for the entire web app
@@ -26,6 +27,7 @@ function App() {
             <Route path="/register" element={<Register/>}/>
             <Route path="/sign-in" element={<LogIn/>}/>
             <Route path="/inbox" element={<Inbox/>}/>
+            <Route path="/form-list" element={<FormList/>}/>
             <Route path="/account" element={<Account/>}/>
             <Route path="/settings" element={<Account/>}/>
             <Route path="/*" element={<LandingPage/>}/>
