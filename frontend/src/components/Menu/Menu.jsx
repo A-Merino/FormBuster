@@ -43,7 +43,7 @@ function Menu() {
                         { //<li><Link to="">Home</Link></li>
                         }
                         <li>
-                            <Link to="/settings">
+                            <Link to="/account/settings">
                             <p>Settings</p>
                             <FontAwesomeIcon icon={faGear}/>
                             </Link>

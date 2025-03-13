@@ -11,6 +11,9 @@ import LogIn from "./../Auth/LogIn/LogIn.jsx"
 import Register from "./../Auth/Register/Register.jsx"
 
 import Account from "./../Account/Account.jsx"
+import Settings from "./../Account/Settings/Settings.jsx"
+import Information from "./../Account/Information/Information.jsx"
+
 import FormList from "./../FormList/FormList.jsx"
 
 /*
@@ -28,8 +31,11 @@ function App() {
             <Route path="/sign-in" element={<LogIn/>}/>
             <Route path="/inbox" element={<Inbox/>}/>
             <Route path="/form-list" element={<FormList/>}/>
-            <Route path="/account" element={<Account/>}/>
-            <Route path="/settings" element={<Account/>}/>
+            <Route path="/account" element={<Account/>}>
+                <Route index element={<Information/>}/>
+                <Route path="settings" element={<Settings/>}/>
+
+            </Route>
             <Route path="/*" element={<LandingPage/>}/>
         </Routes>
     </BrowserRouter>
