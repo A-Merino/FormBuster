@@ -14,7 +14,6 @@ function Home() {
     <TopBar/>
     <Menu/>
         <div id="home-div">
-
             <Dashboard/>
             <Digest/>
             <FormDeat/>

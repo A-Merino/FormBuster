@@ -1,0 +1,9 @@
+#ac-side {
+    width: 100%;
+}
+
+li {
+    width: 5em;
+    margin-left: auto;
+    margin-right: auto;
+}
