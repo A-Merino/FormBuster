@@ -20,13 +20,18 @@ function Settings() {
     }
   }
 
-
   return (
     <>
       <ACSide/>
       <div id='setting-list'>
-      <p>Email Notifications:</p>
-      <button onClick={switchEmail}>{en}</button>
+        <h1>Account Settings</h1>
+        <div className="settings-container">
+          <p>Email Notifications:</p>
+          <button onClick={switchEmail}>{en}</button>
+        </div>
+        <div className="settings-container button-only">
+          <button>Edit Account Information</button>
+        </div>
       </div>
     </>
   )
