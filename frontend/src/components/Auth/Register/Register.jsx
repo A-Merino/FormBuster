@@ -9,15 +9,43 @@ function Register() {
     // This var will let us change displays
     const [disp, setDisp] = useState('')
 
+    const [user, setUser] = useState({
+        id: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        role: '',
+        major: '',
+        advisor: '',
+    });
+
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }
 
     // Will submit the user information to backend
-    // Currently only navigates the page to the home page
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+
         event.preventDefault();
+        try {
+            const response = await fetch("http://localhost:3000/api/users/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert("Register successful");
+            } else {
+                alert("Error: " + data.message);
+            }
+        } catch (error) {
+            console.error(error);
+        }
         navigate('/home');
     };
-
-
    
 
     if (disp === 'student') {
@@ -27,25 +55,25 @@ function Register() {
                 <h2>Student Registration</h2>
                 <form onSubmit={handleSubmit}>
                     <label> First Name: 
-                        <input/>
+                        <input value={user.firstName} onChange={handleChange} name="firstName" required />
                     </label>
                     <label> Last Name: 
-                        <input/>
+                        <input value={user.lastName} onChange={handleChange} name="lastName" required />
                     </label>
                     <label> Student ID: 
-                        <input/>
+                        <input type="number" value={user.id} onChange={handleChange} name="id" required />
                     </label>
                     <label> Major: 
-                        <input/>
+                        <input value={user.major} onChange={handleChange} name="major" required />
                     </label>
                     <label> Advisor: 
-                        <input/>
+                        <input value={user.advisor} onChange={handleChange} name="advisor" required />
                     </label>
                     <label> FIT Email: 
-                        <input/>
+                        <input value={user.email} onChange={handleChange} name="email" required />
                     </label>
                     <label> Password: 
-                        <input/>
+                        <input value={user.password} onChange={handleChange} name="password" required />
                     </label>
                     <label> Confirm Password: 
                         <input/>

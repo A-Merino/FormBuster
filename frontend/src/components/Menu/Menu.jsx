@@ -48,6 +48,11 @@ function Menu() {
                             <FontAwesomeIcon icon={faGear}/>
                             </Link>
                         </li>
+                        <li>
+                            <Link to="/form-builder">
+                            <p>Form Builder</p>
+                            </Link>
+                        </li>
                     </ul>
 
                 </div>
