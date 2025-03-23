@@ -15,6 +15,7 @@ import Settings from "./../Account/Settings/Settings.jsx"
 import Information from "./../Account/Information/Information.jsx"
 
 import FormList from "./../FormList/FormList.jsx"
+import FormBuilder from "../FormBuilder/FormBuilder.jsx";
 
 import User from './../User/User.jsx'
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/home" element={<Home/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/sign-in" element={<LogIn/>}/>
+            <Route path="/form-builder" element={<FormBuilder/>}/>
             <Route path="/inbox" element={<Inbox/>}/>
             <Route path="/form-list" element={<FormList/>}/>
             <Route path="/account" element={<Account/>}>
