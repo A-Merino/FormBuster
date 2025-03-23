@@ -1,51 +1,55 @@
 #landing-nav {
     background: var(--red);
-    padding: 0.5em;
 
     /* We want the elements to be on the right 
     so flex-end does that for us */
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
+    padding: 0.5em;
 }
 
 #ln-list {
     /* No bullet points in my household */
+    width: 10em;
     list-style: none;
+    display: flex;
+    padding: 0em;
 }
 
 
 #ln-list li {
     /* horizontal list yippie */
-    display: inline-block;
+    display: flex;
 }
 
 
 /* I really want to add a fun rotating border animation
 when the user hovers over the button - Alex */
 #ln-list li a {
+    white-space: nowrap;
     text-decoration: none;
     background: var(--gold);
     padding: 0.5em;
-    margin: 0.5em;
     border-radius: 0.3em;
     color: black;
     border: 2px solid black;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     #landing-nav {
-        height: 150px;
+        height: 10em;
     }
 
     #ln-list li a {
-        padding: 1em;
         margin-top: auto;
         margin-bottom: auto;
         font-size: 35px;
     }
 
     #ln-list {
-        margin-top: auto;
-        margin-bottom: auto;
+        width: 25em;
+        margin: 0em;
+        margin-right: 2em;
     }
 }

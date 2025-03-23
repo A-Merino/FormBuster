@@ -1,7 +1,7 @@
 /*The big header at the top of page*/
 #lp-header {
     text-align: center;
-
+    margin-top: 1em;
 }
 
 
@@ -19,12 +19,22 @@
     border-left: 3px gray solid;
     padding: 0.5em;
     align-items: flex-start;
-
+    margin-top: 1em;
 }
 
 /* Any numbered lists in blurb */
 #main-blurb ol {
     text-align: left;
+    width: 100%;
+    margin: 0em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#main-blurb li {
+    margin: 0em;
+    margin-left: 2em;
+    width: 80%;
 }
 
 /*Any headers in div*/
@@ -41,11 +51,7 @@
     border-top: 7px solid grey;
 }
 
-
-
-
-
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     #main-blurb {
         width: 80%;
         font-size: 35px;
