@@ -36,7 +36,7 @@ when the user hovers over the button - Alex */
     border: 2px solid black;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     #landing-nav {
         height: 10em;
     }

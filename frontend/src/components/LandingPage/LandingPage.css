@@ -51,7 +51,7 @@
     border-top: 7px solid grey;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     #main-blurb {
         width: 80%;
         font-size: 35px;
