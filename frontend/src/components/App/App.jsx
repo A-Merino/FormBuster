@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
@@ -16,14 +16,46 @@ import Information from "./../Account/Information/Information.jsx"
 
 import FormList from "./../FormList/FormList.jsx"
 
+import User from './../User/User.jsx'
+
+
 /*
   The App function holds the routing for the entire web app
 */
 function App() {
 
+    // Holds the account information
+    const [account, setAccount] = useState({});
+
+    // Boolean to see if the session is sign in or not
+    const [signedIn, setSigned] = useState(false);
+
+
+    // When app is rendered, check if there are cookies
+    useEffect(() => {
+    fetch("/api/get-session", {
+        method: "GET"})
+    .then(
+      res => res.json())
+    .then(d => {
+      if (d.noUser) {
+        return;
+      } else {
+        setUser(d);
+        setSigned(true);
+      }
+    })
+
+
+  },[]);
+
+
+
+
     return (
     <>
     <BrowserRouter>
+    <User.Provider value={{user: [account, setAccount], loggedIn: [signedIn, setSigned]}}>
         <Routes>
             <Route path="/" element={<LandingPage/>}/>
             <Route path="/home" element={<Home/>}/>
@@ -38,6 +70,7 @@ function App() {
             </Route>
             <Route path="/*" element={<LandingPage/>}/>
         </Routes>
+    </User.Provider>
     </BrowserRouter>
     </>
     )

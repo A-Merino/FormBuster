@@ -10,12 +10,106 @@ function Register() {
     const [disp, setDisp] = useState('')
 
 
-    // Will submit the user information to backend
-    // Currently only navigates the page to the home page
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        navigate('/home');
-    };
+    
+
+    // Submits student data to backend to register 
+    const studentSubmit = (event) => {
+    event.preventDefault();
+    // post to api
+    fetch("/api/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // send data from form
+        body: JSON.stringify({
+          'fName':event.target.fName.value,
+          'lName': event.target.lName.value,
+          'sid': event.target.studentID.value,
+          "email": event.target.email.value,
+          'type': 'student',
+          'major': event.target.major.value,
+          'advisor': event.target.advisor.value,
+          "password":event.target.password.value})
+      })
+    .then(data => data.json())
+    .then(d => {
+      if (d.message === "error"){
+        incorrectForm = true;
+      } else {
+        incorrectForm = false;
+      }
+      setUser(d)})
+    .then(() => setSignedIn(true))
+    .then(() => navigate("/sign-in")) // go to sign in after registering to actually sign in
+
+    }
+
+      // when submitted
+  const facultySubmit = (event) => {
+    event.preventDefault();
+    // post to api
+    fetch("/api/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // send data from form
+        body: JSON.stringify({
+          'fName':event.target.fName.value,
+          'lName': event.target.lName.value,
+          'sid': event.target.schoolID.value,
+          "email": event.target.email.value,
+          'type': 'faculty',
+          'major': null,
+          'advisor': null,
+          "password":event.target.password.value})
+      })
+    .then(data => data.json())
+    .then(d => {
+      if (d.message === "error"){
+        incorrectForm = true;
+      } else {
+        incorrectForm = false;
+      }
+      setUser(d)})
+    .then(() => setSignedIn(true))
+    .then(() => navigate("/sign-in")) // go to sign in after registering to actually sign in
+
+    }
+
+      // when submitted
+    const adminSubmit = (event) => {
+    event.preventDefault();
+    // post to api
+    fetch("/api/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // send data from form
+        body: JSON.stringify({
+          'fName':event.target.fName.value,
+          'lName': event.target.lName.value,
+          'sid': event.target.schoolID.value,
+          "email": event.target.email.value,
+          'type': 'admin',
+          'major': null,
+          'advisor': null,
+          "password":event.target.password.value})
+      })
+    .then(data => data.json())
+    .then(d => {
+      if (d.message === "error"){
+        incorrectForm = true;
+      } else {
+        incorrectForm = false;
+      }
+      setUser(d)})
+    .then(() => setSignedIn(true))
+    .then(() => navigate("/sign-in")) // go to sign in after registering to actually sign in
+
+    }
 
 
    
@@ -25,7 +119,7 @@ function Register() {
         <>
         <div id="reg-box">
                 <h2>Student Registration</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={studentSubmit}>
                     <label> First Name: 
                         <input/>
                     </label>
@@ -63,7 +157,7 @@ function Register() {
         <>
         <div id="reg-box">
                 <h2>Register</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={facultySubmit}>
                     <label> First Name: 
                         <input/>
                     </label>
@@ -100,7 +194,7 @@ function Register() {
         <>
         <div id="reg-box">
                 <h2>Register</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={adminSubmit}>
                     <label> First Name: 
                         <input/>
                     </label>

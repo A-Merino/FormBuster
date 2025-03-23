@@ -6,6 +6,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParse = bodyParser.json();
 const session = require('express-session');
+const router = require("./api/routing.js");
+
+
 
 // Create app and set port
 const app = express();
@@ -24,10 +27,13 @@ app.use(session({
 
 // Set all the middleware and files that the app will use
 app.use('/', express.static(root));
+// json serialization and parsing!!!!
 app.use(jsonParse);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-// app.use("/api", router);
+
+// appends /api to each route in the router so we can use that in frontend
+app.use("/api", router);
 
 
 // Always send the static files from server

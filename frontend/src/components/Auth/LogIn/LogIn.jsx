@@ -1,13 +1,36 @@
 import { useState } from 'react'
 import './LogIn.css'
 import {Link, useNavigate} from "react-router"
+import User from "./../../User/User.jsx"
+
 
 function LogIn() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate('/home');
+        fetch("/api/sign-in", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+                body: JSON.stringify({"email": event.target.email.value,
+                                    "password":event.target.password.value})
+              })
+            .then(data => data.json())
+            .then(d => setUser(d))
+            .then(() => setSignedIn(true))
+            .then(() => navigate("/home"))
+
     }
+
+
 
     return (
     <>
