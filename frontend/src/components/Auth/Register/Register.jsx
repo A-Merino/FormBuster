@@ -23,8 +23,6 @@ function Register() {
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
-
-<<<<<<< HEAD
     
 
     // Submits student data to backend to register 
@@ -126,8 +124,6 @@ function Register() {
 
     }
 
-
-=======
     // Will submit the user information to backend
     const handleSubmit = async (event) => {
 
@@ -150,7 +146,6 @@ function Register() {
         }
         navigate('/home');
     };
->>>>>>> a0719fddf54aa7056d21290b9bb353355d57b268
    
 
     if (disp === 'student') {
