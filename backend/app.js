@@ -32,6 +32,7 @@ app.use(session({
 
 // Set all the middleware and files that the app will use
 app.use('/', express.static(root));
+
 // json serialization and parsing!!!!
 app.use(jsonParse);
 app.use(bodyParser.urlencoded({extended: true}));

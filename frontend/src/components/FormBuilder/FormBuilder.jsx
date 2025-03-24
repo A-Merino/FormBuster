@@ -74,7 +74,7 @@ function FormBuilder() {
                     ))}
                 </select>
             </div>
-            <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
+            <div id="mod-form" dangerouslySetInnerHTML={{ __html: form.data }}/>
             {/*{form.name !== "" && (*/}
             {/*<button onClick={handleSubmit}>*/}
             {/*    Save Form*/}

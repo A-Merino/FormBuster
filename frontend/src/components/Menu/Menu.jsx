@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Menu.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faChevronLeft, faGear, faInbox, faHouse, faFile } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faChevronLeft, faGear, faInbox, faHouse, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router'
 
 
@@ -51,6 +51,7 @@ function Menu() {
                         <li>
                             <Link to="/form-builder">
                             <p>Form Builder</p>
+                            <FontAwesomeIcon icon={faPen}/>
                             </Link>
                         </li>
                     </ul>

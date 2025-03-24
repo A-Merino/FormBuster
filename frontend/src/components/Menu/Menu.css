@@ -12,7 +12,7 @@
 
 
 #ham-menu, #menu-button {
-    z-index: 4;
+    z-index: 100;
 
 }
 
@@ -107,7 +107,7 @@
 
 #menu-options ul li {
     text-align: center; 
-    
+    padding: 0;
     border-bottom: 0.3em solid black; 
     width: 100%;
 }

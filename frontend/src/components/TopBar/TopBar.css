@@ -8,6 +8,7 @@
     right: 0;
     border-bottom: 2px solid black;
     min-height: 3em;
+    z-index: 30;
 }
 
 #top-bar p{

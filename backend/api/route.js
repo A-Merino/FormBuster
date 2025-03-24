@@ -3,14 +3,20 @@ const router = express.Router();
 
 // Import functions
 const {saveForm, getForms, getFormByName} = require("./../controllers/formFunctions.js")
-const {register} = require("./../controllers/userFunctions.js")
+const {register, signIn} = require("./../controllers/userFunctions.js")
 const {getSession} = require("./../controllers/cookies.js")
+const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
+
 
 
 // Route
 router.get("/get-session", getSession);
 
-router.post("/register", register);
+// registration and signing in
+router.post("/register", validateUser, register);
+router.post("/sign-in", validateSignIn, signIn);
+
+
 
 router.post("/saveForm", saveForm);
 router.get("/getForms", getForms);
