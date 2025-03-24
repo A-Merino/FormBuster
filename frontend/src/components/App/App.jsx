@@ -19,6 +19,8 @@ import FormBuilder from "../FormBuilder/FormBuilder.jsx";
 
 import User from './../User/User.jsx'
 
+import FerpaForm from "./../SampleForms/FerpaForm.jsx"
+
 
 /*
   The App function holds the routing for the entire web app
@@ -70,7 +72,8 @@ function App() {
                 <Route path="settings" element={<Settings/>}/>
 
             </Route>
-            <Route path="/*" element={<LandingPage/>}/>
+            <Route path="/*" element={<LandingPage />} />
+            <Route path="/ferpa-form" element={<FerpaForm/>}/>
         </Routes>
     </User.Provider>
     </BrowserRouter>
