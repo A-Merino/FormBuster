@@ -1,4 +1,4 @@
-const FormTemplate = require('../Schemas/FormTemplate');
+const FormTemplate = require('../schemas/FormTemplate');
 exports.saveForm = async (req, res) => {
     try {
         const { name, data } = req.body;
