@@ -30,48 +30,48 @@ function FerpaForm() {
         <p className="parent-text">Student Information:</p>
         <div className="input-field-titled">
           <p>Last Name</p>
-          <input placeholder="Last Name"></input>
+          <input name="last-name" placeholder="Last Name"></input>
         </div>
         <div className="input-field-titled">
           <p>First Name</p>
-          <input placeholder="First Name"></input>
+          <input name="first-name" placeholder="First Name"></input>
         </div>
         <div className="input-field-titled">
           <p>Middle Initial</p>
-          <input placeholder="Middle Initial" maxLength="1"></input>
+          <input name="middle-initial" placeholder="Middle Initial" maxLength="1"></input>
         </div>
         <div className="input-field-titled">
           <p>Student ID Number</p>
-          <input placeholder="9XXXXXXXX" type="text" pattern="\d*" maxLength="9"></input>
+          <input name="student-id" placeholder="9XXXXXXXX" type="text" pattern="\d*" maxLength="9"></input>
         </div>
         <br></br>
         <div className="input-field-titled">
-          <input type="checkbox"></input>
+          <input name="authorization-checkbox" type="checkbox"></input>
           <p><b>Yes, I authorize the release of information to the parties listed below:</b></p>
         </div>
         <div className="input-field-titled">
           <p>Third party name</p>
-          <input></input>
+          <input name="third-party-name-1"></input>
           <p>Relationship</p>
-          <input></input>
+          <input name="third-party-relationship-1"></input>
         </div>
         <div className="input-field-titled">
           <p>Third party name</p>
-          <input></input>
+          <input name="third-party-name-2"></input>
           <p>Relationship</p>
-          <input></input>
+          <input name="third-party-relationship-2"></input>
         </div>
         <div className="input-field-titled">
           <p>Third party name</p>
-          <input></input>
+          <input name="third-party-name-3"></input>
           <p>Relationship</p>
-          <input></input>
+          <input name="third-party-relationship-3"></input>
         </div>
         <div className="input-field-titled">
           <p>Student Signature</p>
-          <input></input>
+          <input name="signature-text"></input>
           <p>Date</p>
-          <input type="date"></input>
+          <input name="signature-date" type="date"></input>
         </div>
       </div>
       </form>
