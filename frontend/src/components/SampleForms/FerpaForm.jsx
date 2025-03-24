@@ -41,7 +41,7 @@ function FerpaForm() {
         </div>
         <div className="input-field-titled">
           <p>Student ID Number</p>
-          <input placeholder="9XXXXXXXX" type="number"></input>
+          <input placeholder="9XXXXXXXX" type="text" pattern="\d*" maxLength="9"></input>
         </div>
         <br></br>
         <div className="input-field-titled">
