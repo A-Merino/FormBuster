@@ -24,7 +24,7 @@ function LogIn() {
                                     "password":event.target.password.value})
               })
             .then(data => data.json())
-            .then(d => setUser(d))
+            .then(d => setAccount(d))
             .then(() => setSignedIn(true))
             .then(() => navigate("/home"))
 
