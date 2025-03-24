@@ -38,10 +38,10 @@ function LogIn() {
         <h2>Log In</h2>
         <form onSubmit={handleSubmit}>
             <label> Email:
-                <input/>
+                <input name="email"/>
             </label>
             <label> Password:
-                <input/>
+                <input name="password"/>
             </label>
             <input type='Submit'/>
         </form>
