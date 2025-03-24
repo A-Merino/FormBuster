@@ -2,7 +2,8 @@ const {check, validationResult} = require('express-validator');
 
 
 let mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/movies-group-3");
+mongoose.connect("mongodb://localhost:27017/movies-group-3")
+    .then()
 let db = mongoose.connection;
 const coll = db.collection('users');
 

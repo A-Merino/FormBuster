@@ -1,6 +1,6 @@
 // Import and Connect to mongodb
 let mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/movies-group-3");
+mongoose.connect("mongodb://localhost:27017/Senior_Design");
 
 let db = mongoose.connection;
 
@@ -11,7 +11,7 @@ const salts = 11;
 
 
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
 
     const User = require('./../schemas/User.js');
     const { id, firstName, lastName, email, password, role, major, advisor } = req.body;
@@ -21,6 +21,7 @@ exports.register = (req, res) => {
     }
     try {
         const newUser = new User({
+            id: id,
             firstName: firstName,
             lastName: lastName,
             email: email,

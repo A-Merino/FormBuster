@@ -9,9 +9,8 @@ const {getSession} = require("./../controllers/cookies.js")
 
 // Route
 router.get("/get-session", getSession);
+router.post("/register", register);
 router.post("/saveForm", saveForm);
 router.get("/getForms", getForms);
 
 module.exports = router;
-
-

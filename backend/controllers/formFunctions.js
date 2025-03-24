@@ -1,4 +1,5 @@
-exports.saveForm = (req, res) => {
+const FormTemplate = require('../schemas/FormTemplate');
+exports.saveForm = async (req, res) => {
     try {
         const { name, data } = req.body;
         const newForm = new FormTemplate({ name, data });
@@ -12,7 +13,7 @@ exports.saveForm = (req, res) => {
 };
 
 
-exports.getForms = (req, res) => {
+exports.getForms = async (req, res) => {
     try {
         const forms = await FormTemplate.find();
         res.status(200).json({ forms });

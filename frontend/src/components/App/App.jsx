@@ -6,7 +6,7 @@ import LandingPage from "./../LandingPage/LandingPage.jsx"
 import Home from "./../Home/Home.jsx"
 import Inbox from "./../Inbox/Inbox.jsx"
 
-// Imports for authentification components
+// Imports for authentication components
 import LogIn from "./../Auth/LogIn/LogIn.jsx"
 import Register from "./../Auth/Register/Register.jsx"
 
@@ -31,18 +31,18 @@ function App() {
     // Boolean to see if the session is sign in or not
     const [signedIn, setSigned] = useState(false);
 
-
     // When app is rendered, check if there are cookies
     useEffect(() => {
-    fetch("/api/get-session", {
-        method: "GET"})
+    fetch("http://localhost:3000/api/get-session", {
+        method: "GET"
+    })
     .then(
       res => res.json())
     .then(d => {
       if (d.noUser) {
         return;
       } else {
-        setUser(d);
+        //setUser(d);
         setSigned(true);
       }
     })
