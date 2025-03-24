@@ -5,6 +5,7 @@ function FerpaForm() {
 
     return (
     <>
+      <div id="form-root-div">
       <div id="form-container">
         <h2>FERPA Form</h2>
         <p>Student consent is required for the release of <b>personally identifiable information</b> such as semester grades, academic record, class schedule, current
@@ -72,6 +73,7 @@ function FerpaForm() {
           <input type="date"></input>
         </div>
         <button>Submit</button>
+      </div>
       </div>
     </>
   )

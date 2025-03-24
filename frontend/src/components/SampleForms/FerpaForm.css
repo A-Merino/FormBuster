@@ -1,4 +1,5 @@
-body {
+#form-root-div {
+    margin-top: 5em;
     padding-top: 5em;
     padding-bottom: 5em;
 }
