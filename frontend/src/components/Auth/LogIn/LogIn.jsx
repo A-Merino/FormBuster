@@ -41,7 +41,7 @@ function LogIn() {
                 <input name="email"/>
             </label>
             <label> Password:
-                <input name="password"/>
+                <input type="password" name="password"/>
             </label>
             <input type='Submit'/>
         </form>
