@@ -34,7 +34,7 @@ function App() {
 
     // When app is rendered, check if there are cookies
     useEffect(() => {
-    fetch("http://localhost:3000/api/get-session", {
+    fetch("/api/get-session", {
         method: "GET"
     })
     .then(
@@ -43,7 +43,7 @@ function App() {
       if (d.noUser) {
         return;
       } else {
-        //setUser(d);
+        setUser(d);
         setSigned(true);
       }
     })

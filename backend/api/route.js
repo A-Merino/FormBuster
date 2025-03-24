@@ -9,7 +9,7 @@ const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
 
 
 
-// Route
+// cookies
 router.get("/get-session", getSession);
 
 // registration and signing in
