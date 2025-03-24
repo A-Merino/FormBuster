@@ -10,29 +10,25 @@ function FormBuilder() {
         data: "",
     });
 
-    // const handleChange = (e) => {
-    //     setForm({ ...form, [e.target.name]: e.target.value });
-    // };
-
-    // const handleSubmit = async e => {
-    //     e.preventDefault();
-    //     try {
-    //         form.data = document.getElementById("form-builder").innerHTML;
-    //         const response = await fetch('http://localhost:3000/api/forms/save', {
-    //             method: 'POST',
-    //             headers: {'Content-Type': 'application/json'},
-    //             body: JSON.stringify(form),
-    //         });
-    //         const data = await response.json();
-    //         if (response.ok) {
-    //             alert(data.message);
-    //         } else {
-    //             alert(data.error);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error saving form:', error);
-    //     }
-    // }
+    const handleSubmit = async e => {
+        e.preventDefault();
+        try {
+            form.data = document.getElementById("form").innerHTML;
+            const response = await fetch('http://localhost:3000/api/saveForm', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(form),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert(data.message);
+            } else {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('Error saving form:', error);
+        }
+    }
 
     const handleSelect = (e) => {
         const selectedFormName = e.target.value;
@@ -59,7 +55,7 @@ function FormBuilder() {
             }
         }
         fetchForms();
-    });
+    }, []);
 
 
     return (
@@ -78,7 +74,12 @@ function FormBuilder() {
                     ))}
                 </select>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: form.data }}/>
+            <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
+            {/*{form.name !== "" && (*/}
+            {/*<button onClick={handleSubmit}>*/}
+            {/*    Save Form*/}
+            {/*</button>*/}
+            {/*)}*/}
         </div>
         </>
     );
