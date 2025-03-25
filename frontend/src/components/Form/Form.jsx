@@ -15,23 +15,6 @@ function Form() {
         data: "",
     });
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (!formRef.current) {
-            return;
-        }
-
-        const inputs = formRef.current.querySelectorAll('input');
-        const formData = {};
-
-        inputs.forEach(input => {
-            formData[input.name] = input.value;
-            console.log(input.name + ": " + input.value);
-        });
-
-        navigate("/home")
-    }
-
     useEffect(() => {
         const fetchForm = async () => {
             try {
@@ -48,11 +31,25 @@ function Form() {
         fetchForm();
     }, [formName]);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const formElement = formRef.current;
+        const formData = new FormData(formElement);
+        const data = Object.fromEntries(formData.entries());
+
+        const parsedData = JSON.stringify(data);
+        console.log('Test: ', parsedData);
+        //navigate("/home");
+    };
+
     return (
         <>
             <TopBar/>
             <Menu/>
-            <div ref={formRef} id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
+            <form ref={formRef} id="currentForm">
+            <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
+            </form>
             <button onClick={handleSubmit}>Submit</button>
             <div id="bottom-padding"></div>
         </>
