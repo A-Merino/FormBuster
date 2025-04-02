@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './Dashboard.css'
 
-function Dashboard() {
+function Dashboard(props) {
 
-  return (
+    return (
     <>
-      <div id="dashboard">
-        <h2>Dashboard</h2>
-      </div>
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+        </div>
     </>
   )
 }
