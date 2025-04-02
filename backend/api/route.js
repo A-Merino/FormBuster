@@ -16,8 +16,7 @@ router.get("/get-session", getSession);
 router.post("/register", validateUser, register);
 router.post("/sign-in", validateSignIn, signIn);
 
-
-
+// Form api calls
 router.post("/saveForm", saveForm);
 router.get("/getForms", getForms);
 router.get("/getFormByName/:name", getFormByName);

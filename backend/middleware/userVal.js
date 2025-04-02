@@ -23,9 +23,9 @@ Checks:
 */
 
 exports.validateUser = [
-    check('fName').trim().not().isEmpty()
+    check('firstName').trim().not().isEmpty()
         .withMessage("First Name is required").bail(),
-    check('lName').trim().not().isEmpty()
+    check('lastName').trim().not().isEmpty()
         .withMessage("Last Name is required").bail(),
     check('email').trim().not().isEmpty()
         .withMessage('Email is required').bail()
