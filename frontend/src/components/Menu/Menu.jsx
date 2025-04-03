@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './Menu.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faChevronLeft, faGear, faInbox, faHouse, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router'
+import User from "./../User/User.jsx"
 
 
 function Menu() {
 
     const [open, setOpen] = useState(false);
+    
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
 
-    // const showMenu = (event) => {
-    //     setOpen(!open);
-    // }
 
     if (open) {
         return (
@@ -40,20 +43,22 @@ function Menu() {
                             <FontAwesomeIcon icon={faFile}/>
                             </Link>
                         </li>
-                        { //<li><Link to="">Home</Link></li>
-                        }
+                       
                         <li>
                             <Link to="/account/settings">
                             <p>Settings</p>
                             <FontAwesomeIcon icon={faGear}/>
                             </Link>
                         </li>
+                        {account.role === 'admin' &&
+
                         <li>
                             <Link to="/form-builder">
                             <p>Form Builder</p>
                             <FontAwesomeIcon icon={faPen}/>
                             </Link>
                         </li>
+                        }
                     </ul>
 
                 </div>

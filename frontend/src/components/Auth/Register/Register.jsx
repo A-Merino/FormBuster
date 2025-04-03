@@ -1,15 +1,22 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './Register.css'
 import {useNavigate} from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGraduate, faUserGear, faUserPen } from '@fortawesome/free-solid-svg-icons'
+import User from "./../../User/User.jsx"
 
 function Register() {
     const navigate = useNavigate()
     // This var will let us change displays
     const [disp, setDisp] = useState('')
 
-    const [user, setUser] = useState({
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
+
+
+    const [daUser, setUser] = useState({
         id: '',
         firstName: '',
         lastName: '',
@@ -22,28 +29,29 @@ function Register() {
     });
 
     const handleChange = (e) => {
-        setUser({ ...user, [e.target.name]: e.target.value })
+        setUser({ ...daUser, [e.target.name]: e.target.value })
     }
 
     // Will submit the user information to backend
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (user.confPassword !== user.password) {
+        if (daUser.confPassword !== daUser.password) {
             alert("Passwords don't match");
             return;
         }
 
         try {
-            user.role = disp;
+            daUser.role = disp;
             const response = await fetch("http://localhost:3000/api/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(user),
+                body: JSON.stringify(daUser),
             });
 
             const data = await response.json();
             if (response.ok) {
+                
                 alert("Register successful");
             } else {
                 alert("Error: " + data.message);
@@ -54,7 +62,7 @@ function Register() {
         } catch (error) {
             console.error(error);
         }
-        navigate('/home');
+        navigate('/sign-in');
     };
    
 
@@ -65,10 +73,10 @@ function Register() {
             <h2>Student Registration</h2>
             <form onSubmit={handleSubmit}>
                 <label> First Name:
-                    <input value={user.firstName} onChange={handleChange} name="firstName" required />
+                    <input value={daUser.firstName} onChange={handleChange} name="firstName" required />
                 </label>
                 <label> Last Name:
-                    <input value={user.lastName} onChange={handleChange} name="lastName" required />
+                    <input value={daUser.lastName} onChange={handleChange} name="lastName" required />
                 </label>
                 <label> Student ID:
                     <input
@@ -77,26 +85,26 @@ function Register() {
                         minLength="9"
                         maxLength="9"
                         placeholder="9XXXXXXX"
-                        value={user.id}
+                        value={daUser.id}
                         onChange={handleChange}
                         name="id"
                         required
                     />
                 </label>
                 <label> Major:
-                    <input value={user.major} onChange={handleChange} name="major" required />
+                    <input value={daUser.major} onChange={handleChange} name="major" required />
                 </label>
                 <label> Advisor:
-                    <input value={user.advisor} onChange={handleChange} name="advisor" required />
+                    <input value={daUser.advisor} onChange={handleChange} name="advisor" required />
                 </label>
                 <label> FIT Email:
-                    <input placeholder="example@fit.edu" value={user.email} onChange={handleChange} name="email" required />
+                    <input placeholder="example@fit.edu" value={daUser.email} onChange={handleChange} name="email" required />
                 </label>
                 <label> Password:
-                    <input type="password" value={user.password} onChange={handleChange} name="password" required />
+                    <input type="password" value={daUser.password} onChange={handleChange} name="password" required />
                 </label>
                 <label> Confirm Password:
-                    <input type="password" value={user.confPassword} onChange={handleChange} name="confPassword" required/>
+                    <input type="password" value={daUser.confPassword} onChange={handleChange} name="confPassword" required/>
                 </label>
                 <input id="reg-sub" type="Submit"/>
             </form>
@@ -113,10 +121,10 @@ function Register() {
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <label> First Name:
-                    <input value={user.firstName} onChange={handleChange} name="firstName" required />
+                    <input value={daUser.firstName} onChange={handleChange} name="firstName" required />
                 </label>
                 <label> Last Name:
-                    <input value={user.lastName} onChange={handleChange} name="lastName" required />
+                    <input value={daUser.lastName} onChange={handleChange} name="lastName" required />
                 </label>
                 <label> School ID:
                     <input
@@ -124,19 +132,19 @@ function Register() {
                         pattern="\d*"
                         minLength="9"
                         maxLength="9"
-                        value={user.id}
+                        value={daUser.id}
                         onChange={handleChange}
                         name="id" required
                     />
                 </label>
                 <label> FIT Email:
-                    <input value={user.email} onChange={handleChange} name="email" required />
+                    <input value={daUser.email} onChange={handleChange} name="email" required />
                 </label>
                 <label> Password:
-                    <input type="password" value={user.password} onChange={handleChange} name="password" required />
+                    <input type="password" value={daUser.password} onChange={handleChange} name="password" required />
                 </label>
                 <label> Confirm Password:
-                    <input type="password" value={user.confPassword} onChange={handleChange} name="confPassword" required/>
+                    <input type="password" value={daUser.confPassword} onChange={handleChange} name="confPassword" required/>
                 </label>
                 <input id="reg-sub" type="Submit"/>
             </form>

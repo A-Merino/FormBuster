@@ -43,7 +43,7 @@ function App() {
       if (d.noUser) {
         return;
       } else {
-        setUser(d);
+        setAccount(d);
         setSigned(true);
       }
     })
