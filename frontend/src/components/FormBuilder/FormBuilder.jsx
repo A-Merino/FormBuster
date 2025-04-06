@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import './FormBuilder.css'
 import TopBar from "../TopBar/TopBar.jsx";
 import Menu from "../Menu/Menu.jsx";
-
+import Editor from "./Editor/Editor.jsx";
 function FormBuilder() {
     const [forms, setForms] = useState([]);
     const [form, setForm] = useState({
@@ -57,7 +57,6 @@ function FormBuilder() {
         fetchForms();
     }, []);
 
-
     return (
         <>
         <TopBar/>
@@ -74,6 +73,9 @@ function FormBuilder() {
                     ))}
                 </select>
             </div>
+            <Editor>
+
+            </Editor>
             <div id="mod-form" dangerouslySetInnerHTML={{ __html: form.data }}/>
             {/*{form.name !== "" && (*/}
             {/*<button onClick={handleSubmit}>*/}
