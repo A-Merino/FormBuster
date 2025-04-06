@@ -1,0 +1,31 @@
+#tracker {
+/*    border: 3px solid var(--red);*/
+    padding: 0em 2em;
+    width: 100%;
+
+}
+
+#track-holder {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#tracker h2 {
+    text-align: center;
+    font-size: 3em;
+    margin: 0.3em;
+}
+
+@media (max-width: 768px) {
+    #tracker {
+        border: 10px solid var(--red);
+        padding: 0em;
+        margin-top: 2em;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        font-size: 50px;
+        text-align: center;
+    }
+}
