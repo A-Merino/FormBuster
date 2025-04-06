@@ -11,8 +11,6 @@ function TopBar() {
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
-    console.log(account)
-
     return (
         <>
             <div id="top-bar">

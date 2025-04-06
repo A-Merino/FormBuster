@@ -1,0 +1,68 @@
+.signedCheck {
+    background: green;
+}
+
+.unsignedCheck {
+    background: lightgrey;
+}
+
+.rejectedCheck {
+    background: red;
+}
+
+.naCheck {
+    background: darkgrey;
+}
+
+.naCheck, .signedCheck, .unsignedCheck, .rejectedCheck {
+    display: inline-block;
+
+    border-radius: 100%;
+    padding: 1.5em;
+    border: 1px solid black;
+    margin: 0.3em;
+}
+
+
+.trackerHeader {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-decoration: underline;
+
+    margin: 0.3em 0em 0em 1em;
+/*    margin-left: 1em;*/
+
+}
+
+.form-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.trackedForm {
+    border-radius: 0.7em;
+    border: 3px solid black;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 0.3em;
+    padding: 0.4em 0em;
+
+
+}
+
+
+.trackedForm a{
+    color: var(--blue);
+    margin-right: 1em;
+}
+
+.signatures {
+    height: 100%;
+
+}
