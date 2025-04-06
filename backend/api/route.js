@@ -14,7 +14,7 @@ router.get("/get-session", getSession);
 
 // registration and signing in
 router.post("/register", validateUser, register);
-router.post("/sign-in", validateSignIn, signIn);
+router.post("/sign-in", signIn);
 
 // Form api calls
 router.post("/saveForm", saveForm);
