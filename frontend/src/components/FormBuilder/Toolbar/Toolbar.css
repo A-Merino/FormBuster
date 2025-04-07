@@ -1,0 +1,44 @@
+#toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1px;
+    padding: 6px;
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#toolbar button {
+    width: auto;
+    height: auto;
+    padding: 4px 6px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 5px;
+    margin: auto 1vw auto 1vw;
+}
+
+#toolbar-left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#toolbar-right {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#toolbar #insert {
+    font-size: 22px;
+    font-family: "Inter Semi Bold", sans-serif;
+}
