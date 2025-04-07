@@ -1,6 +1,6 @@
 #tracker {
 /*    border: 3px solid var(--red);*/
-    padding: 0em 2em;
+    padding: 0rem 2rem;
     width: 100%;
 
 }
@@ -13,15 +13,15 @@
 
 #tracker h2 {
     text-align: center;
-    font-size: 3em;
-    margin: 0.3em;
+    font-size: 3rem;
+    margin: 0.3rem;
 }
 
 @media (max-width: 768px) {
     #tracker {
         border: 10px solid var(--red);
-        padding: 0em;
-        margin-top: 2em;
+        padding: 0rem;
+        margin-top: 2rem;
         margin-left: auto;
         margin-right: auto;
         width: 80%;

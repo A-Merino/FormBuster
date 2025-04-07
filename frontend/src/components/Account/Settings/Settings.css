@@ -4,21 +4,21 @@
     background-color: lightgray;
     width: 60%;
     margin: auto;
-    padding: 1em;
+    padding: 1rem;
 }
 
 button {
-    margin-left: 2em;
-    height: 2.5em;
+    margin-left: 2rem;
+    height: 2.5rem;
 }
 
 .settings-container {
     display: flex;
     flex-direction: row;
-    margin-left: -1em;
-    padding-bottom: 1em;
+    margin-left: -1rem;
+    padding-bottom: 1rem;
 }
 
 .button-only button {
-    margin-left: 1em;
+    margin-left: 1rem;
 }

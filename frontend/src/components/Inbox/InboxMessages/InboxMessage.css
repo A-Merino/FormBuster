@@ -1,12 +1,12 @@
 #inbox-message {
     width: auto;
-    height: 5em;
+    height: 5rem;
     border: 3px solid var(--red);
     text-align: left;
     display: flex;
     flex-direction: column;
-    padding: 2em;
-    padding-top: 1em;
+    padding: 2rem;
+    padding-top: 1rem;
 }
 
 #inbox-message h2 {

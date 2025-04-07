@@ -1,6 +1,6 @@
 #inbox-interaction-bar {
     width: auto;
-    height: 8em;
+    height: 8rem;
 
     background: var(--red);
     
@@ -12,15 +12,15 @@
 button {
     cursor: pointer;
 
-    min-width: 8em;
+    min-width: 8rem;
     height: 50%;
 
     background: var(--gold);
     
     margin-top: auto;
     margin-bottom: auto;
-    margin-right: 2em;
+    margin-right: 2rem;
 
     border: 2px solid var(--gray);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 }

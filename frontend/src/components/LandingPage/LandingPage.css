@@ -1,7 +1,7 @@
 /*The big header at the top of page*/
 #lp-header {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 
@@ -14,12 +14,12 @@
     font-size: 20px;
     width: 50%;
 /*    background: #d7c693;*/
-/*    border-radius: 2em;*/
+/*    border-radius: 2rem;*/
     border-right: 3px gray solid;
     border-left: 3px gray solid;
-    padding: 0.5em;
+    padding: 0.5rem;
     align-items: flex-start;
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 /* Any numbered lists in blurb */
@@ -27,13 +27,13 @@
     text-align: left;
     width: 100%;
     margin: 0em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #main-blurb li {
     margin: 0em;
-    margin-left: 2em;
+    margin-left: 2rem;
     width: 80%;
 }
 
@@ -47,7 +47,7 @@
 /*Creates the underline for titles*/
 #main-blurb h3:after {
     content: "";
-    margin-top:0.1em;
+    margin-top:0.1rem;
     border-top: 7px solid grey;
 }
 

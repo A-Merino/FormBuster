@@ -10,14 +10,14 @@
 
 #inbox-main-div h2 {
     font-size: 30px;
-    max-height: 3em;
+    max-height: 3rem;
 }
 
 #inbox-window-div {
     width: 80%;
     height: 70%;
     margin: auto;
-    margin-top: 0em;
+    margin-top: 0rem;
     display: flex;
     flex-direction: column;
 }

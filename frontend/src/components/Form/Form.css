@@ -1,41 +1,41 @@
 #bottom-padding {
-    padding-bottom: 2em;
+    padding-bottom: 2rem;
 }
 
 #form-root-div {
-    margin-top: 5em;
-    padding-top: 5em;
-    padding-bottom: 5em;
+    margin-top: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #form-container {
-    margin: 20em auto 2em auto;
+    margin: 20rem auto 2rem auto;
     width: 80%;
     display: flex;
     flex-direction: column;
     background-color: lightgray;
     border: 2px solid black;
-    padding: 1em;
-    border-radius: 1em;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
 #form-container li {
-    margin-left: 0em;
-    padding: 0.25em;
+    margin-left: 0rem;
+    padding: 0.25rem;
     width: 90%;
 }
 
 #form-container h2 {
-    margin-top: 0em;
+    margin-top: 0rem;
 }
 
 #form-container p {
-    padding: 0em;
+    padding: 0rem;
 }
 
 #form-container input {
-    padding: 0.5em;
-    margin: 0.5em;
+    padding: 0.5rem;
+    margin: 0.5rem;
     width: 20%;
 }
 
@@ -44,11 +44,11 @@
 }
 
 #form-container button {
-    padding: 0em;
-    margin: 0em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    max-width: 2em;
+    padding: 0rem;
+    margin: 0rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 2rem;
 }
 
 .input-field-titled {

@@ -7,7 +7,7 @@
     top: 0;
     right: 0;
     border-bottom: 2px solid black;
-    min-height: 3em;
+    min-height: 3rem;
     z-index: 30;
 }
 
@@ -15,6 +15,6 @@
     height: 50%;
     float: right;
     margin-right: 1vw;
-    padding-top: 0.75em;
+    padding-top: 0.75rem;
 }
 

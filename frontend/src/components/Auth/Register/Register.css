@@ -2,10 +2,10 @@
 #reg-box {
     color: white;
     background: var(--red);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     
     margin: auto;
-    padding: 0.5em;
+    padding: 0.5rem;
     
     width: 40%;
     height: 50%;
@@ -27,11 +27,11 @@
 /*Input inside form inside box*/
 #reg-box input {
     border: 2px black solid;
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     
-    padding: 0.2em;
-    margin-left: 1em;
-    margin-bottom: 0.5em;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 #reg-note {
@@ -44,7 +44,7 @@
 }
 
 #reg-box h2 {
-    margin: 0.3em;
+    margin: 0.3rem;
 }
 
 /*Back button in the bottom left of register boxes*/
@@ -52,7 +52,7 @@
     background: var(--gold);
     color: black;
 
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     border: 2px solid black;
 
     display:block;
@@ -68,7 +68,7 @@
 #reg-pick {
     color: white;
     background: var(--red);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     
     margin: auto;
     
@@ -105,8 +105,8 @@
 .pick-user {
     background: var(--gray);
     color: var(--red);
-    border: solid 0.3em var(--gold);
-    border-radius: 0.5em;
+    border: solid 0.3rem var(--gold);
+    border-radius: 0.5rem;
     
     text-align: center;
     width: 30%;
@@ -139,7 +139,7 @@
     font-size: 1.3vw;
     
     margin: 0;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 
@@ -162,7 +162,7 @@
     #reg-box input {
         margin-top: 0.2em;
         margin-left: 0.5em;
-        width: 7em;
+        width: 7rem;
         font-size: 50px;
     }
 

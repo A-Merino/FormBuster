@@ -25,11 +25,11 @@
     align-items: center;
 
     border: 2px solid black;
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
 
     padding: 0.3em;
-    width: 2em;
-    height: 2em;
+    width: 2rem;
+    height: 2rem;
 
     position: relative;
     top: 1vw;
@@ -50,10 +50,10 @@
 
 
 
-    border-radius: 0.3em; 
+    border-radius: 0.3rem; 
 
     /* Size of div */
-    padding: 0.4em;
+    padding: 0.4rem;
 
     /* Position on page */
     position: fixed;
@@ -62,8 +62,8 @@
 }
 
 #menu-button svg, #menu-back svg {
-    height: 2em;
-    width: 2em;
+    height: 2rem;
+    width: 2rem;
 }
 
 #menu-button:hover, #menu-back:hover {
@@ -101,14 +101,14 @@
 
 /*Grab only the first li in list and add a top border*/
 #menu-options ul > :first-child {
-    border-top: 0.3em solid black; 
+    border-top: 0.3rem solid black; 
 
 }
 
 #menu-options ul li {
     text-align: center; 
     padding: 0;
-    border-bottom: 0.3em solid black; 
+    border-bottom: 0.3rem solid black; 
     width: 100%;
 }
 
@@ -148,7 +148,7 @@
 
 /*Pictures (svgs really) in menu list*/
 #menu-options ul li a svg {
-    padding-right: 1em;
+    padding-right: 1rem;
     float: right;
 
 
