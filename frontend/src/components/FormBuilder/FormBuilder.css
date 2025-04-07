@@ -1,6 +1,6 @@
 #form-builder {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: baseline;
     justify-content: left;
 
@@ -13,7 +13,18 @@
     box-sizing: border-box;
 }
 
-#mod-form #form-container {
-    margin: 3em auto;
-    
+#form-selector {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    margin: 5vh auto 2vh auto;
+}
+
+#form-editor {
+    flex: 75%;
+    margin: 5vh 2vh 2vh 2vh;
+}
+
+#editor {
+    flex: 75%;
 }
