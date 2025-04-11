@@ -5,6 +5,11 @@ import {Link} from 'react-router'
 function TrackedItem(props) {
 
 
+    const colorSignatures = (sign) => {
+
+    }
+
+
     return (
         <>
             <div className="trackedForm">
@@ -16,7 +21,6 @@ function TrackedItem(props) {
 
                 <div className="signatures">
                 {props.data.signatures.map((sign) => {
-
                     if (sign.isSigned === "signed"){
                         return <span className="signedCheck"></span> 
 
@@ -30,6 +34,7 @@ function TrackedItem(props) {
                         return <span className="naCheck"></span> 
 
                     }
+
                 })}
                 </div>
 
