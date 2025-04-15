@@ -47,10 +47,14 @@ function FormTracker() {
 
             <div id='track-holder'>
             {f.forms.map((form) => {
-                console.log(form);
                 return <TrackedItem key={form.id} data={form}/>
             }
             )
+            
+            /*account.forms.map((form) => {
+                return <TrackedItem key={form.id} data={form}/>
+            }
+            )*/
 
             }
             </div>

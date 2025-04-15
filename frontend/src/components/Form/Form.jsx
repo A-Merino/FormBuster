@@ -31,14 +31,25 @@ function Form() {
         fetchForm();
     }, [formName]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formElement = formRef.current;
+        const formElement = document.querySelector('#currentForm');
         const formData = new FormData(formElement);
         const data = Object.fromEntries(formData.entries());
-
         const parsedData = JSON.stringify(data);
+
+        const response = await fetch('/api/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: {
+                formData: parsedData,
+                formType: form.name,
+                origin: account
+
+            }
+        })
+
         console.log('Test: ', parsedData);
         //navigate("/home");
     };

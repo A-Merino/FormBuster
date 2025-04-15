@@ -17,7 +17,7 @@ function FormList(props) {
     useEffect(() => {
         const fetchForms = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/getForms', {
+                const response = await fetch('/api/getForms', {
                     method: 'GET',
                     headers: {'Content-Type': 'application/json'},
                 });
