@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './FerpaForm.css'
 
 function FerpaForm() {
 
