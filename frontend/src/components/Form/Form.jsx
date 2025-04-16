@@ -58,11 +58,13 @@ function Form() {
         <>
             <TopBar/>
             <Menu/>
-            <form ref={formRef} id="currentForm">
-            <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
-            </form>
-            <button onClick={handleSubmit}>Submit</button>
-            <div id="bottom-padding"></div>
+            <div id="form-submission-container">
+                <form ref={formRef} id="currentForm">
+                    <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
+                </form>
+                <button onClick={handleSubmit}>Submit</button>
+                <div id="bottom-padding"></div>
+            </div>
         </>
     );
 }
