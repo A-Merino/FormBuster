@@ -15,7 +15,7 @@
 }
 
 #password-info h3 {
-    padding: 0rem;
+    padding: 0;
     height: 20px;
 }
 
@@ -29,19 +29,19 @@
     font-weight: 500;
 }
 
-h1 {
-    margin-top: 0rem;
+#information-div h1 {
+    margin-top: 0;
 }
 
-h3 {
+#information-div h3 {
     font-weight: normal;
 }
 
-h4 {
+#information-div h4 {
     font-weight: 600;
 }
 
-p {
+#information-div p {
     padding-left: 1rem;
     margin-top: auto;
     margin-bottom: auto;

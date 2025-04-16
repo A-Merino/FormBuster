@@ -74,7 +74,7 @@ function FormBuilder() {
                 console.error(error);
             }
         }
-        fetchForms();
+        fetchForms().catch();
     }, []);
 
     return (

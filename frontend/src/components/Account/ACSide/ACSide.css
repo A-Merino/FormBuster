@@ -2,8 +2,8 @@
     width: 100%;
 }
 
-li {
-    width: 5em;
+#ac-side li {
+    width: 5rem;
     margin-left: auto;
     margin-right: auto;
 }
