@@ -9,7 +9,7 @@
     justify-content: right;
 }
 
-button {
+#inbox-interaction-bar button {
     cursor: pointer;
 
     min-width: 8rem;

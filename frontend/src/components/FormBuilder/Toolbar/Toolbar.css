@@ -11,8 +11,8 @@
 }
 
 #toolbar button {
-    width: auto;
-    height: auto;
+    width: 2rem;
+    height: 2rem;
     padding: 4px 6px;
     background: white;
     border: 1px solid #ccc;
@@ -20,8 +20,8 @@
     display: inline-flex;
     justify-content: center;
     cursor: pointer;
-    font-size: 5px;
     margin: auto 1vw auto 1vw;
+    align-items: center;
 }
 
 #toolbar-left {
@@ -39,6 +39,7 @@
 }
 
 #toolbar #insert {
-    font-size: 22px;
+    font-size: 1rem;
+    width: 8rem;
     font-family: "Inter Semi Bold", sans-serif;
 }
