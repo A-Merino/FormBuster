@@ -70,10 +70,9 @@ const Editor = forwardRef(({ initialValue}, ref) => {
         // if (type === "") {
         //
         // }
-        const inputHTML = `<span className = 'custom-input'` +
-            `datatype={insertData.type}>` +
-            `[Name:${insertData.name} Type:${insertData.type} Placeholder:${insertData.placeholder}]` +
-            `</span>`;
+        const inputHTML = `<p class="custom-input" data-name="${insertData.name.replace(/\s+/g, '')}"` +
+            ` data-type="${insertData.type}" data-placeholder="${insertData.placeholder}">` +
+            `&lt${insertData.name} Input Placeholder&gt</p>`;
         const quill = quillRef.current.getEditor();
         if (range) {
             quill.deleteText(range.index, range.length)

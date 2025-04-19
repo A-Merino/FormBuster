@@ -2,17 +2,19 @@ export function convertToDB (data) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
 
-    const customInputs = doc.querySelectorAll("span.custom-input");
+    const customInputs = doc.querySelectorAll("p.custom-input");
 
     customInputs.forEach((element) => {
-        const name = element.getAttribute("name");
-        const type = element.getAttribute("type");
-        const placeholder = element.getAttribute("placeholder") || "";
+        const name = element.getAttribute('data-name');
+        const type = element.getAttribute('data-type');
+        const placeholder = element.getAttribute('data-placeholder');
 
-        const input = document.createElement("input");
-        input.name = name;
-        input.type = type;
-        input.placeholder = placeholder;
+        const input = document.createElement('input');
+
+        input.setAttribute('name', name);
+        input.setAttribute('type', type || 'text');
+        input.setAttribute('placeholder', placeholder || '');
+        input.setAttribute('id', 'custom-input');
 
         element.parentNode.replaceChild(input, element);
     })
@@ -24,22 +26,23 @@ export function convertToEditor (data) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
 
-    const inputs = doc.querySelectorAll("input");
+    const inputs = doc.querySelectorAll("input.custom-input");
 
     inputs.forEach((element) => {
-        const name = element.getAttribute("name");
-        const type = element.getAttribute("type");
-        const placeholder = element.getAttribute("placeholder") || "";
+        const name = element.getAttribute('name');
+        const type  = element.getAttribute('type');
+        const placeholder = element.getAttribute('placeholder');
 
-        const span = document.createElement("span");
-        span.setAttribute("name", name);
-        span.setAttribute("datatype", type);
-        span.setAttribute("placeholder", placeholder);
-        span.className = "custom-input";
+        const p = document.createElement('p');
 
-        span.textContent = `[Name:${name} Type:${type} Placeholder:${placeholder}]`
+        p.setAttribute('data-name', name);
+        p.setAttribute('data-type', type);
+        p.setAttribute('data-placeholder', placeholder);
+        p.setAttribute('class', 'custom-input');
 
-        element.parentNode.replaceChild(span, element);
+        p.textContent = '<${name} Input Placeholder>';
+
+        element.parentNode.replaceChild(p, element);
     })
 
     return doc.body.innerHTML;
