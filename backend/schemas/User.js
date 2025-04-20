@@ -12,7 +12,7 @@ const User = new mongoose.Schema({
     role: {type:String, required:false},
     major: {type:String, required:false},
     advisor: {type:String, required:false},
-    forms : [mongoose.Schema.Types.ObjectId]
+    forms : {type:[String]}
     });
 
 

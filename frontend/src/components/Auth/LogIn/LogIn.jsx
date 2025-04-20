@@ -14,8 +14,8 @@ function LogIn() {
 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        fetch("/api/sign-in", {
+        event.preventDefault(); 
+        fetch(`http://localhost:3000/api/sign-in`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

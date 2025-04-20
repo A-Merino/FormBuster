@@ -1,11 +1,16 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState,useContext} from 'react'
 import './Form.css'
 import TopBar from "../TopBar/TopBar.jsx";
 import Menu from "../Menu/Menu.jsx";
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router";
+import User from "./../User/User.jsx"
+
 
 function Form() {
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
     const navigate = useNavigate();
 
     const formRef = useRef(null);
@@ -20,7 +25,7 @@ function Form() {
             try {
                 const response = await fetch(`http://localhost:3000/api/getFormByName/${formName}`, {
                     method: "GET",
-                    headers: {'Content-Type': 'application/json'},
+                    headers: {'Content-Type': 'application/json'}
                 });
                 const data = await response.json();
                 setForm(data.form);
@@ -37,20 +42,20 @@ function Form() {
         const formElement = document.querySelector('#currentForm');
         const formData = new FormData(formElement);
         const data = Object.fromEntries(formData.entries());
-        const parsedData = JSON.stringify(data);
+        const parsedData = {
+            formData: data,
+            formType: form.name,
+            origin: account
+        }
 
-        const response = await fetch('/api/', {
+
+        const response = await fetch(`http://localhost:3000/api/createActive`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: {
-                formData: parsedData,
-                formType: form.name,
-                origin: account
+            body: JSON.stringify(parsedData)
+        });
 
-            }
-        })
-
-        console.log('Test: ', parsedData);
+        //console.log('Test: ', parsedData);
         //navigate("/home");
     };
 

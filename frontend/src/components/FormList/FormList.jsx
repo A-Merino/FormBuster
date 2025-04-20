@@ -11,17 +11,21 @@ function FormList(props) {
 
     const [forms, setForms] = useState([]);
 
+    // go through each form and 
     const formsAndLinks = forms.map((form) =>
         [form.name, '/forms/' + form.name.toLowerCase().replaceAll(" ", "-")]);
 
     useEffect(() => {
         const fetchForms = async () => {
             try {
-                const response = await fetch('/api/getForms', {
+                // get all the forms from the database
+                const response = await fetch(`http://localhost:3000/api/getForms`, {
                     method: 'GET',
                     headers: {'Content-Type': 'application/json'},
                 });
+                // turn into json
                 const data = await response.json();
+                // set the useState variable
                 setForms(data.forms);
             } catch (error) {
                 console.error(error);

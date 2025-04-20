@@ -1,4 +1,4 @@
-const User = require('/User');
+const User = require('./User.js');
 const mongoose = require('mongoose');
 
 /*
@@ -12,9 +12,10 @@ const mongoose = require('mongoose');
 */
 
 const Signature = new mongoose.Schema({
-    user: {type:User, required:true},
+    form: {type:String, required:true},
+    user: {type:Object, required:true},
     signatureDate: {type:Date, required:false},
-    isSigned: {type:String, required:false, default:'unsigned'}
+    isSigned: {type:String, required:true, default:'unsigned'}
 })
 
 module.exports = mongoose.model('Signature', Signature);

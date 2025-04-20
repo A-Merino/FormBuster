@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const User = require('/User');
-const Signature = require('/Signature');
-const FormTemplate = require('/FormTemplate');
+const User = require('./User.js');
+const Signature = require('./Signature.js');
+const FormTemplate = require('./FormTemplate.js');
 /*
     id: The id of the active form
     status: The status of the form, type should be of value:
@@ -14,12 +14,12 @@ const FormTemplate = require('/FormTemplate');
 
 const CurrentForm = new mongoose.Schema({
     id: {type:String, required:true},
-    formType: {type:FormTemplate, required: true},
+    formType: {type:Object, required: true},
     formData: {type:Object, required:true},
     status: {type:String, required:true},
     comments: {type:[String], required:false},
     creationDate: {type:Date, required:true},
-    signatures: {type:[Signature], required:false}
+    signatures: {type:[Object], required:false}
 
 });
 

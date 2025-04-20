@@ -29,8 +29,8 @@ const dbConnect = async () => {
             db.createCollection("formtemplates");
         }
 
-        if (!names.includes('activeforms')) {
-            db.createCollection("activeforms");
+        if (!names.includes('currentforms')) {
+            db.createCollection("currentforms");
         }
 
 }
