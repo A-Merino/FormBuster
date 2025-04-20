@@ -6,7 +6,7 @@ const {saveForm, getForms, getFormByName} = require("./../controllers/formFuncti
 const {register, signIn} = require("./../controllers/userFunctions.js")
 const {getSession} = require("./../controllers/cookies.js")
 const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
-const {submitForm, getActive} = require("./../controllers/formSubmission.js")
+const {submitForm, getActive} = require("./../controllers/currentFormFunctions.js")
 
 
 // cookies
@@ -16,7 +16,7 @@ router.get("/get-session", getSession);
 router.post("/register", validateUser, register);
 router.post("/sign-in", signIn);
 
-// active form stuff
+// current form stuff
 router.post("/createActive", submitForm)
 router.post("/getActive", getActive)
 

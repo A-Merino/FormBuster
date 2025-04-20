@@ -56,7 +56,7 @@ function Form() {
         });
 
         //console.log('Test: ', parsedData);
-        //navigate("/home");
+        navigate("/home");
     };
 
     return (

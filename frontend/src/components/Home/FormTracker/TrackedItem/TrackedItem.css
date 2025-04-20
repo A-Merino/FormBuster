@@ -24,6 +24,12 @@
 }
 
 
+.naCheck:hover~.sig-box, .signedCheck:hover~.sig-box, .unsignedCheck:hover~.sig-box, .rejectedCheck:hover~.sig-box {
+    display: block;
+}
+
+
+
 .trackerHeader {
     font-size: 2.5rem;
     font-weight: bold;
@@ -63,4 +69,13 @@
 .signatures {
     height: 100%;
 
+
 }
+
+.sig-circle {
+    display: inline;
+    position: relative;
+}
+
+
+

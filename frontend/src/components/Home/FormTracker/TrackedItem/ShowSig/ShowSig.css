@@ -1,0 +1,11 @@
+.sig-box {
+    position: fixed;
+    background: var(--gray);
+    
+    border: 2px solid black;
+    border-radius: 0.4em;
+    z-index: 50;
+    display: none;
+}
+
+
