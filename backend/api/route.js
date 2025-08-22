@@ -17,13 +17,14 @@ router.post("/register", validateUser, register);
 router.post("/sign-in", signIn);
 
 // current form stuff
-router.post("/createActive", submitForm)
-router.post("/getActive", getActive)
+router.post("/createActive", submitForm) // submits a Form
+router.post("/getActive", getActive) // gets a form by ID
 
 
 // Form api calls
-router.post("/saveForm", saveForm);
-router.get("/getForms", getForms);
+router.post("/saveForm", saveForm); // save a form
+router.get("/getForms", getForms); // get mutiple forms
 router.get("/getFormByName/:name", getFormByName);
+
 
 module.exports = router;

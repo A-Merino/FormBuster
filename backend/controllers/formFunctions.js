@@ -1,4 +1,6 @@
 const FormTemplate = require('../schemas/FormTemplate');
+
+// saves req form to the database
 exports.saveForm = async (req, res) => {
     try {
         const { name, data } = req.body;
@@ -12,7 +14,8 @@ exports.saveForm = async (req, res) => {
     }
 };
 
-
+// Gets all Form Templates from the database
+// Mainly used for /form-list
 exports.getForms = async (req, res) => {
     try {
         const forms = await FormTemplate.find();
@@ -23,6 +26,7 @@ exports.getForms = async (req, res) => {
     }
 };
 
+// gets a form from the database by the name
 exports.getFormByName = async (req, res) => {
     try {
         const { name } = req.params;

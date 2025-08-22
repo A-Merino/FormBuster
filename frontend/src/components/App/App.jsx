@@ -17,6 +17,8 @@ import Information from "./../Account/Information/Information.jsx"
 import FormList from "./../FormList/FormList.jsx"
 import Form from "./../Form/Form.jsx"
 import FormBuilder from "../FormBuilder/FormBuilder.jsx";
+import FullForm from "./../Home/FullForm/FullForm.jsx";
+
 
 import User from './../User/User.jsx'
 
@@ -69,7 +71,8 @@ function App() {
                 <Route path="settings" element={<Settings/>}/>
 
             </Route>
-            <Route path="/*" element={<LandingPage />} />
+            <Route path="/*" element={<LandingPage/>} />
+            <Route path="/form/*" element={<FullForm/>}/>
         </Routes>
     </User.Provider>
     </BrowserRouter>

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import './TrackedItem.css'
 import {Link} from 'react-router'
 import ShowSig from './ShowSig/ShowSig.jsx'
+import FullForm from "./../../FullForm/FullForm.jsx";
 
 function TrackedItem(props) {
 
@@ -47,7 +48,7 @@ function TrackedItem(props) {
                     Maybe we use some type of time comparison function
                     as well as if you are a user who hasn't signed*/}
 
-                <Link to="/home">More Details</Link>
+                <Link to={`/form/${props.data.id}`}>More Details</Link>
             </div>
         </>
     )
