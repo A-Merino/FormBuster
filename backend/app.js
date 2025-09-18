@@ -9,15 +9,13 @@ const session = require('express-session');
 const dbConnect = require('./config/db');
 const router = require('./api/route');
 
-module.exports = router
 
 dbConnect();
 
 // Create app and set port
 const app = express();
-
-app.use(cors());
 const port = 3000;
+
 
 // create root to index.html
 const root = path.join(__dirname, "client", "dist")
@@ -25,8 +23,8 @@ const root = path.join(__dirname, "client", "dist")
 // create a session for cookies
 app.use(session({
     secret:"verySecretSecret",
-    resave: true,
-    saveUninitialized: true,   
+    resave: false,
+    saveUninitialized: false,   
 }))
 
 
@@ -36,7 +34,7 @@ app.use('/', express.static(root));
 // json serialization and parsing!!!!
 app.use(jsonParse);
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cors());
 app.use("/api", router);
 
 // Always send the static files from server

@@ -58,12 +58,17 @@ exports.validateUser = [
 /*
 
 Checks:
+    Password:
+        - if empty
     Email:
         - is not empty
         - if it is in database
 */
 
 exports.validateSignIn = [
+
+    check('password').trim().not().isEmpty()
+        .withMessage("Password is required").bail(),
     check('email').trim().not().isEmpty()
         .withMessage('Email is required').bail()
         .escape().isEmail()

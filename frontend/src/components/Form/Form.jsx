@@ -44,7 +44,7 @@ function Form() {
         const data = Object.fromEntries(formData.entries());
         const parsedData = {
             formData: data,
-            formType: form.name,
+            formType: form.id,
             origin: account
         }
 

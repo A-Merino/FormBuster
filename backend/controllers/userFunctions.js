@@ -9,6 +9,7 @@ const us = db.collection('users');
 // encryption stuff
 const bcrypt = require('bcrypt');
 const salts = 11;
+const User = require('./../schemas/User.js');
 
 
 
@@ -18,7 +19,7 @@ exports.register = async (req, res) => {
     // get information
     const { id, firstName, lastName, email, password, role, major, advisor } = req.body;
     // find if there is an existing user
-    const existingUser = await User.findOne({ id });
+    const existingUser = await User.findOne({'id': id});
     // if exists then error
     if (existingUser) {
         return res.status(400).json({ message: 'ID already registered.' });
@@ -47,9 +48,17 @@ exports.register = async (req, res) => {
 
 
 exports.signIn = (req, res) => {
+
+
     // finds a matching email in the database
     let account = us.findOne({'email': req.body.email})
     .then(result => {
+        if (!result) {
+
+            res.status(400).json({
+                    message: "Email is not registered"
+            })
+        }
         // Compares the password given to the one stored
         bcrypt.compare(req.body.password, result.password, function (err, ress) {
             if (err) {
@@ -60,7 +69,7 @@ exports.signIn = (req, res) => {
                 req.session.user = result;
                 res.json(result);
             } else {
-                res.json({
+                res.status(400).json({
                     message: "Incorrect Password"
                 })
 
@@ -69,4 +78,17 @@ exports.signIn = (req, res) => {
 
 
     })
+}
+
+exports.findUser = async (req, res) => {
+    try {
+        let account = await User.findOne({'id': req.body.id})
+        res.status(200).json({account})
+
+        
+    } catch (error) {
+        res.status(500).json({ message: "Server error occurred", error: error.message });
+
+    }
+
 }

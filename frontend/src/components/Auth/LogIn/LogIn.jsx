@@ -12,6 +12,7 @@ function LogIn() {
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
+    const [dia, sDia] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
@@ -24,7 +25,13 @@ function LogIn() {
                                     "password":event.target.password.value})
               })
             .then(data => data.json())
-            .then(d => setAccount(d))
+            .then(d => {
+                if (d.message === "Incorrect Password") {
+                    alert("Incorrect Password")
+                } else {
+                    setAccount(d)
+                }
+            })
             .then(() => setSignedIn(true))
             .then(() => navigate("/home"))
 
@@ -35,13 +42,15 @@ function LogIn() {
     return (
     <>
     <div id="login-box">
+        
         <h2>Log In</h2>
+
         <form onSubmit={handleSubmit}>
             <label> Email:
-                <input name="email"/>
+                <input name="email" required/>
             </label>
             <label> Password:
-                <input type="password" name="password"/>
+                <input type="password" name="password" required/>
             </label>
             <input type='Submit'/>
         </form>

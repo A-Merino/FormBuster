@@ -14,12 +14,12 @@ const FormTemplate = require('./FormTemplate.js');
 
 const CurrentForm = new mongoose.Schema({
     id: {type:String, required:true},
-    formType: {type:Object, required: true},
+    formType: {type:String, required: true},
     formData: {type:Object, required:true},
     status: {type:String, required:true},
     comments: {type:[String], required:false},
     creationDate: {type:Date, required:true},
-    signatures: {type:[Object], required:false}
+    signatures: {type:[String], required:false}
 
 });
 

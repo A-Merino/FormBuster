@@ -12,8 +12,9 @@ const mongoose = require('mongoose');
 */
 
 const Signature = new mongoose.Schema({
+    id: {type:String, required:true},
     form: {type:String, required:true},
-    user: {type:Object, required:true},
+    user: {type:Number, required:true},
     signatureDate: {type:Date, required:false},
     isSigned: {type:String, required:true, default:'unsigned'}
 })

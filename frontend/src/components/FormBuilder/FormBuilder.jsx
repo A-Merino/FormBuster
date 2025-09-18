@@ -11,6 +11,7 @@ function FormBuilder() {
     });
     const [forms, setForms] = useState([]);
     const [form, setForm] = useState({
+        id:"",
         name: "",
         data: "",
     });
@@ -31,7 +32,7 @@ function FormBuilder() {
             const content = editorRef.current.getValue();
 
             form.data = convertToDB(content);
-            const response = await fetch('http://localhost:3000/api/saveForm', {
+            const response = await fetch(`http://localhost:3000/api/saveForm`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(form),

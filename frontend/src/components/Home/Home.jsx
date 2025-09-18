@@ -1,13 +1,30 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import {useNavigate} from 'react-router';
 import './Home.css'
 import FormTracker from './FormTracker/FormTracker.jsx'
-import Digest from './Digest/Digest.jsx'
-import FormDeat from './FormDeat/FormDeat.jsx'
 
 import Menu from "./../Menu/Menu.jsx"
 import TopBar from "./../TopBar/TopBar.jsx"
 
+import User from "./../User/User.jsx"
+
 function Home() {
+    const nav = useNavigate();
+
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
+
+
+    useEffect(() => {
+        if (!signedIn) {
+            nav("/sign-in")
+        }
+
+    },[])
+
+
 
     return (
     <>
@@ -15,8 +32,6 @@ function Home() {
     <Menu/>
         <div id="home-div">
             <FormTracker/>
-            <Digest/>
-            <FormDeat/>
         </div>
     </>
   )

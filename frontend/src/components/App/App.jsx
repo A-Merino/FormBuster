@@ -39,8 +39,7 @@ function App() {
     fetch("/api/get-session", {
         method: "GET"
     })
-    .then(
-      res => res.json())
+    .then(res => res.json())
     .then(d => {
       if (d.noUser) {
         return;

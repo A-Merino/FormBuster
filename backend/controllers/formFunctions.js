@@ -38,3 +38,15 @@ exports.getFormByName = async (req, res) => {
         res.status(500).json({ message: "Server error occurred", error: error.message });
     }
 }
+
+
+exports.getFormName = async (req, res) => {
+    try {
+        const form = await FormTemplate.findOne({id: req.body.formid});
+        // console.log(req.)
+        const name = form.name
+        res.status(200).json({name})
+    } catch (e) {
+        console.error(e);
+    }
+}

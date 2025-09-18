@@ -1,11 +1,21 @@
 // react imports
-import { useState, useEffect } from 'react'
-import {useLocation} from "react-router-dom";
-
+import { useState, useEffect, useContext } from 'react'
+import {useLocation, useNavigate} from "react-router-dom";
 
 import './FullForm.css'
+import SigTree from './SigTree/SigTree.jsx'
+
+import User from "./../../User/User.jsx"
+
+
 
 function FullForm() {
+    const nav = useNavigate();
+
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
 
     const [form, setForm] = useState({});
     const [good, setGood] = useState(false);
@@ -13,13 +23,19 @@ function FullForm() {
     // Form id from url
     const FID = useLocation().pathname.split('/').at(-1);
 
-    const nodes = [
-        {x:10, y:40},{x:40, y:10}
-    ]
 
     useEffect( () => {
+        if (!signedIn) {
+            nav("/sign-in")
+        }
+        if (!user.forms.contains(FID)) {
+            nav('/home')
+        }
+
         // get form id from url
         fetchForm(FID);
+
+
     }, []);
 
     // calls api and sets response to form var
@@ -47,6 +63,7 @@ function FullForm() {
 
             <h3>Created at: {new Date(form.creationDate).toLocaleString()}</h3>
 
+            <SigTree data={form.signatures}/>
 
 
             </>
