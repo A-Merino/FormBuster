@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import './ShowSig.css'
+import './SigNode.css'
 
-function ShowSig(props) {
+function SigNode(props) {
+
+
     const [ui, setui] = useState({});
     const [red, setRed] = useState(false);
     const [sig, setSig] = useState();
@@ -32,27 +34,23 @@ function ShowSig(props) {
         fetchSig(uid);
     }, []);
 
+    if (red){
 
-
-
-
-
-    if (red) {
         return (
             <>
             <div className='sig-circle'>
-                <span className={sig.isSigned+'Check'}></span>
-                    <div className='sig-box'>
-                        <p>User: {ui.firstName + " " + ui.lastName}</p>
-                        <p>Status: {sig.isSigned}</p>
-                        {/*I Find this so disturbing for some reason still*/
-                            sig.signatureDate && <p>Date: {new Date(sig.signatureDate).toLocaleString()}</p>
-                        }
+                    <span className={sig.isSigned+'Check'}></span>
+                        <div className='sig-box'>
+                            <p>User: {ui.firstName + " " + ui.lastName}</p>
+                            <p>Status: {sig.isSigned}</p>
+                            {/*I Find this so disturbing for some reason still*/
+                                sig.signatureDate && <p>Date: {new Date(sig.signatureDate).toLocaleString()}</p>
+                            }
+                    </div>
                 </div>
-            </div>
             </>
         )
     }
 }
 
-export default ShowSig
+export default SigNode

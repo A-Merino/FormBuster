@@ -83,10 +83,11 @@ exports.signIn = (req, res) => {
 exports.findUser = async (req, res) => {
     try {
         let account = await User.findOne({'id': req.body.id})
-        res.status(200).json({account})
+        res.status(201).json({account})
 
         
     } catch (error) {
+        console.log(error)
         res.status(500).json({ message: "Server error occurred", error: error.message });
 
     }

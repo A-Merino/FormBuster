@@ -11,35 +11,34 @@ function FormTracker() {
     const [signedIn, setSignedIn] = loggedIn;
 
     // hold the tracked forms for the account
-    const [tracks, setTracks] = useState([]);
+    // const [forms, setForms] = useState([]);
 
     // get all forms connected to the account
-    useEffect(() => {
-    // fetches all the current forms from database 
-    const fetchForms = async (forms) => {
+    // useEffect(() => {
+    // // fetches all the current forms from database 
+    // const fetchForms = async (forms) => {
 
-        try {
-            // for each form string id 
-            forms.map(async form => {
-                // get the data of the form
-                const response = await fetch(`http://localhost:3000/api/getActive`, {
-                    method :"POST",
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id:form})
-                });
-                const data = await response.json(); // json the data
-                setTracks([...tracks, data.form]); // append to end of list
-            });
-        } catch (error) {
-            // if error then print
-            console.error(error);
-        }
-    }
+    //     try {
+    //         // for each form string id 
+    //         forms.map(async form => {
+    //             // get the data of the form
+    //             const response = await fetch(`http://localhost:3000/api/getActive`, {
+    //                 method :"POST",
+    //                 headers: {'Content-Type': 'application/json'},
+    //                 body: JSON.stringify({id:form})
+    //             });
+    //             const data = await response.json(); // json the data
+    //             setTracks([...tracks, data.form]); // append to end of list
+    //         });
+    //     } catch (error) {
+    //         // if error then print
+    //         console.error(error);
+    //     }
+    // }
 
-        fetchForms(account.forms)
+    //     fetchForms(account.forms)
         
-    }, []);
-
+    // }, []);
 
 
   return (
@@ -50,9 +49,9 @@ function FormTracker() {
 
             <div id='track-holder'>
             
-            {tracks.length > 0 && tracks.map((form) => {
+            {account.forms.length > 0 && account.forms.map((formid) => {
                 
-                return <TrackedItem key={form.id} data={form}/>
+                return <TrackedItem key={formid} data={formid}/>
             })}
             </div>
 
