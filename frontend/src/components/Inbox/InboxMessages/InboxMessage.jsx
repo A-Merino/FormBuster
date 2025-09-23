@@ -3,14 +3,15 @@ import './InboxMessage.css'
 
 function InboxMessage() {
 
-  return (
+    /* RENDER ------------------------*/
+    return (
     <>
-      <div id="inbox-message">
-        <h2>Inbox Message</h2>
-        <text>Description of message</text>
-      </div>
+        <div id="inbox-message">
+            <h2>Inbox Message</h2>
+            <text>Description of message</text>
+        </div>
     </>
-  )
+    )
 }
 
 export default InboxMessage

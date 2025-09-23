@@ -2,6 +2,8 @@ import "./Toolbar.css"
 
 // eslint-disable-next-line react/prop-types
 function Toolbar({ onInsertClick, insertButtonRef }) {
+
+    /* RENDER ------------------------------ */
     return(
         <>
         <div id='toolbar'>

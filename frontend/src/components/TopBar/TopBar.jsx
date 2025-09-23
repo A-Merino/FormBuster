@@ -1,16 +1,17 @@
+// imports
 import { useState, useContext } from 'react'
-import './TopBar.css'
 import {Link} from 'react-router'
 import User from "./../User/User.jsx"
+import './TopBar.css'
 
 function TopBar() {
-
 
     // Get the user context
     const {user, loggedIn} = useContext(User);
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
+    /* RENDER ------------------------*/
     return (
         <>
             <div id="top-bar">

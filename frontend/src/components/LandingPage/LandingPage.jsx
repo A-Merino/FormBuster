@@ -1,9 +1,10 @@
-import { useState } from 'react'
+// imports
 import './LandingPage.css'
 import SignBar from './SignBar/SignBar.jsx'
 
 function LandingPage() {
 
+    /* RENDER ------------------------*/
     return (
     <>
         <SignBar/>

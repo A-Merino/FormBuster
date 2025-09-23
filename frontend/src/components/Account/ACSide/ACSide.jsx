@@ -1,10 +1,11 @@
+//imports 
 import { useState } from 'react'
 import './ACSide.css'
-
 import {Link} from 'react-router'
 
 function ACSide() {
-
+    
+    /* RENDER ------------------------------ */
     return (
         <>
         <div id="ac-side">

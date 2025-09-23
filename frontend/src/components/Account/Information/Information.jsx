@@ -1,34 +1,37 @@
+// imports
 import { useState, useContext } from 'react'
-import './Information.css'
+import { Link } from 'react-router'
 import ACSide from "./../ACSide/ACSide.jsx"
 import User from "./../../User/User.jsx"
-import { Link } from 'react-router'
+import './Information.css'
 
 function Information() {
-
+    // collect user context
     const {user, loggedIn} = useContext(User);
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
-
+    // passd states
     const [showPass, setEn] = useState('Show Password');
     const [thePassword, setPass] = useState('*********');
 
 
     // Here we would also switch boolean in database for user
     const switchPasswordVisibility = (event) => {
-    event.preventDefault();
-
-    if (showPass === "Show Password") {
-        setEn("Hide Password");
-        setPass(account.password)
-    } else {
-        setEn("Show Password");
-        setPass('*********')
+        event.preventDefault();
+        // switch visibility
+        if (showPass === "Show Password") {
+            setEn("Hide Password");
+            setPass(account.password)  // DECRYPT HERE, ADD FUNCTION
+        } else {
+            setEn("Show Password");
+            setPass('*********')
+        }
     }
-  }
 
-  return (
+
+    /* RENDER ------------------------------ */
+    return (
         <>
         <ACSide/>
         <div id="information-div">
@@ -46,7 +49,7 @@ function Information() {
             <h4>Advisor: {account.advisor}</h4>
         </div>
         </>
-  )
+    )
 }
 
 export default Information

@@ -1,42 +1,46 @@
+// imports
 import {useEffect, useRef, useState} from 'react'
-import './FormBuilder.css'
 import TopBar from "../TopBar/TopBar.jsx";
 import Menu from "../Menu/Menu.jsx";
 import Editor from "./Editor/Editor.jsx";
 import {convertToEditor, convertToDB} from "./Util/Util.jsx";
+import './FormBuilder.css'
 
 function FormBuilder() {
-    const [newForm, setNewFrom] = useState({
-        name: "",
-    });
-    const [forms, setForms] = useState([]);
-    const [form, setForm] = useState({
-        id:"",
-        name: "",
-        data: "",
-    });
 
+    // create form state variables
+    const [newForm, setNewFrom] = useState({});
+    const [forms, setForms] = useState([]);
+    const [form, setForm] = useState({});
+
+    // update form on change (From???)
     const handleChange = (e) => {
         setNewFrom({ ...newForm, [e.target.name]: e.target.value });
     }
 
+    //  add new form to forms
     const handleNewForm = () => {
         setForms([...forms, newForm]);
     }
 
+    // create an editor reference
     const editorRef = useRef(null);
 
+    // on the submission of saving a form
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // get content of editor and convert to html tags 
             const content = editorRef.current.getValue();
-
             form.data = convertToDB(content);
+
+            // post to backend which saves to database
             const response = await fetch(`http://localhost:3000/api/saveForm`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(form),
             });
+            // if all good then it will have saved
             const data = await response.json();
             if (response.ok) {
                 alert(data.message);
@@ -63,9 +67,10 @@ function FormBuilder() {
     }
 
     useEffect(() => {
+        // Collect all forms from database
         const fetchForms = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/getForms', {
+                const response = await fetch(`http://localhost:3000/api/getForms`, {
                     method: 'GET',
                     headers: {'Content-Type': 'application/json'},
                 });
@@ -78,6 +83,7 @@ function FormBuilder() {
         fetchForms().catch();
     }, []);
 
+    /* RENDER ------------------------------ */
     return (
         <>
         <TopBar/>

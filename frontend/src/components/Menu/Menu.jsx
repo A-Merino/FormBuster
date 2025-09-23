@@ -1,13 +1,15 @@
+// react + fontawesome imports
 import { useState, useContext } from 'react'
-import './Menu.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faChevronLeft, faGear, faInbox, faHouse, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router'
-import User from "./../User/User.jsx"
 
+// module imports
+import User from "./../User/User.jsx"
+import './Menu.css'
 
 function Menu() {
-
+    // state varaible to see if menu is open
     const [open, setOpen] = useState(false);
     
     // Get the user context
@@ -16,6 +18,7 @@ function Menu() {
     const [signedIn, setSignedIn] = loggedIn;
 
 
+    /* OPEN RENDER ------------------------*/
     if (open) {
         return (
             <>
@@ -66,7 +69,8 @@ function Menu() {
             </>
         )
 
-    } else {
+    } else { 
+    /* CLOSED RENDER ------------------------*/
         return (
             <>
             <div onClick={() => {setOpen(!open)}} id="menu-button">

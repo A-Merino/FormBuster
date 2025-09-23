@@ -1,11 +1,16 @@
+// react and fontawesome imports
 import { useState, useContext } from 'react'
-import './Register.css'
 import {useNavigate} from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGraduate, faUserGear, faUserPen } from '@fortawesome/free-solid-svg-icons'
+
+// module imports
 import User from "./../../User/User.jsx"
+import './Register.css'
 
 function Register() {
+
+    // create navigator
     const navigate = useNavigate()
     // This var will let us change displays
     const [disp, setDisp] = useState('')
@@ -15,7 +20,7 @@ function Register() {
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
-
+    // create a user variable
     const [daUser, setUser] = useState({
         id: '',
         firstName: '',
@@ -28,6 +33,7 @@ function Register() {
         advisor: '',
     });
 
+    // add data to user state variabe
     const handleChange = (e) => {
         setUser({ ...daUser, [e.target.name]: e.target.value })
     }
@@ -36,11 +42,13 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // check if passwords match
         if (daUser.confPassword !== daUser.password) {
             alert("Passwords don't match");
             return;
         }
 
+        // register the user information to database
         try {
             daUser.role = disp;
             const response = await fetch(`http://localhost:3000/api/register`, {
@@ -49,10 +57,12 @@ function Register() {
                 body: JSON.stringify(daUser),
             });
 
+            // wait for response
             const data = await response.json();
+            // if good go to sign-in
             if (response.ok) {
-                
                 alert("Register successful");
+                navigate('/sign-in');
             } else {
                 alert("Error: " + data.message);
                 if (data.status === 400) {
@@ -62,10 +72,9 @@ function Register() {
         } catch (error) {
             console.error(error);
         }
-        navigate('/sign-in');
     };
-   
 
+    /* RENDER ------------------------------ */
     if (disp === 'student') {
         return (
         <>

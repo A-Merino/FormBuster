@@ -1,22 +1,26 @@
+// react imports
 import { useState } from 'react'
 import {Outlet} from 'react-router'
-import './Account.css'
 
+// module imports
+import './Account.css'
 import Menu from "./../Menu/Menu.jsx"
 import TopBar from "./../TopBar/TopBar.jsx"
 
+
 function Account() {
 
-  return (
+    /* RENDER ------------------------------ */
+    return (
     <>
-    <TopBar/>
-    <Menu/>
-    <Outlet/>
-    <div id="main-div">
-      
-    </div>
+        <TopBar/>
+        <Menu/>
+        <Outlet/>
+        <div id="main-div">
+        
+        </div>
     </>
-  )
+    )
 }
 
 export default Account

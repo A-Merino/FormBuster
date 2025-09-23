@@ -1,2 +1,33 @@
 # FormBuster
 Source Code for the Form Buster Senior project http://a-merino.github.io/FormBusterSite/
+
+## Need To Do (Most to Least Important)
+
+1. **Inbox.jsx**
+    - Make it so only the necessary messages show up
+        - delete hard code and connect to backend
+1. **Inbox/InboxMessage.jsx** 
+    - Connect the Inbox Messages to database
+1. **Form.jsx**
+    - Standardize form format
+    - Remove submit buttons from inside of forms (the ones that dont work)
+1. **Inbox/InboxInteractionbar.jsx**
+    - Make the *refresh* and *mark all* buttons do something
+1. **Home/Warning.jsx**
+    - Determine logic for when the warning sign is shown
+        - time based
+        - 1/2/3 days?
+        - doesnt show up if already signed
+1. **FormBuilder/Editor.jsx**
+    - Luka, document your code and explain what is going on
+1. **Auth/Login.jsx**
+    - Add catch statement to stop navigator from moving past sign-in page
+1. **Account/Information.jsx**
+    - Decrypt the password on Show Password
+1. **Auth/Register.jsx**
+    - possibly better way to store input data in *handleChange()*
+1. **LandingPage.jsx**
+    - Describe our product better
+        - More Features
+        - More words for each feature
+    - make it prettier

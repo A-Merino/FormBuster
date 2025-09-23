@@ -1,26 +1,29 @@
+// react imports
 import { useState, useEffect } from 'react'
-import './App.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
+// main page imports
 import LandingPage from "./../LandingPage/LandingPage.jsx"
 import Home from "./../Home/Home.jsx"
-import Inbox from "./../Inbox/Inbox.jsx"
 
 // Imports for authentication components
 import LogIn from "./../Auth/LogIn/LogIn.jsx"
 import Register from "./../Auth/Register/Register.jsx"
 
+// account page imports
 import Account from "./../Account/Account.jsx"
 import Settings from "./../Account/Settings/Settings.jsx"
 import Information from "./../Account/Information/Information.jsx"
 
+// Requirement imports
+import Inbox from "./../Inbox/Inbox.jsx"
 import FormList from "./../FormList/FormList.jsx"
 import Form from "./../Form/Form.jsx"
 import FormBuilder from "../FormBuilder/FormBuilder.jsx";
 import FullForm from "./../Home/FullForm/FullForm.jsx";
 
-
 import User from './../User/User.jsx'
+import './App.css'  // root css
 
 
 /*
@@ -52,6 +55,8 @@ function App() {
 
   },[]);
 
+    /* RENDER ------------------------------ */
+    // render with routes
     return (
     <>
     <BrowserRouter>

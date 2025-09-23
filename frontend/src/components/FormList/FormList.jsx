@@ -1,17 +1,19 @@
+// react imports
 import {useEffect, useState} from 'react'
-import './FormList.css'
-
 import {Link} from 'react-router'
 
+// module imports
+import './FormList.css'
 import Menu from "./../Menu/Menu.jsx"
 import TopBar from "./../TopBar/TopBar.jsx"
 
 
 function FormList(props) {
 
+    // state variable to hold forms
     const [forms, setForms] = useState([]);
 
-    // go through each form and 
+    // go through each form and create link for them
     const formsAndLinks = forms.map((form) =>
         [form.name, '/forms/' + form.name.toLowerCase().replaceAll(" ", "-")]);
 
@@ -25,7 +27,7 @@ function FormList(props) {
                 });
                 // turn into json
                 const data = await response.json();
-                // set the useState variable
+                // set the state variable
                 setForms(data.forms);
             } catch (error) {
                 console.error(error);
@@ -34,7 +36,7 @@ function FormList(props) {
         fetchForms();
     }, []);
 
-
+    /* RENDER ------------------------*/
     return (
         <>
             <TopBar/>
@@ -42,7 +44,9 @@ function FormList(props) {
             <div id="form-list">
                 <h2>Start a New Form</h2>
                 <ul>
-                    {formsAndLinks.map(f => {
+                    {
+                        // go through each form and create a link
+                        formsAndLinks.map(f => {
                         return <li key={f[1]}><Link to={f[1]}>{f[0]}</Link></li>
                     })}
                 </ul>

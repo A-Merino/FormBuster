@@ -1,16 +1,20 @@
 export function convertToDB (data) {
+    // create a document parser and document from data
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
 
+    // get all custom inputs
     const customInputs = doc.querySelectorAll("p.custom-input");
 
+    // go through each input
     customInputs.forEach((element) => {
+        // get the name, type, and data
         const name = element.getAttribute('data-name');
         const type = element.getAttribute('data-type');
         const placeholder = element.getAttribute('data-placeholder');
 
         const input = document.createElement('input');
-
+        // save it as an html input tag 
         input.setAttribute('name', name);
         input.setAttribute('type', type || 'text');
         input.setAttribute('placeholder', placeholder || '');
@@ -19,15 +23,19 @@ export function convertToDB (data) {
         element.parentNode.replaceChild(input, element);
     })
 
+    // return as html
     return doc.body.innerHTML;
 }
 
 export function convertToEditor (data) {
+    // create parser and document
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
 
+    // grab inputs from doc
     const inputs = doc.querySelectorAll("input.custom-input");
 
+    // go through each input and get name, type, placeholder
     inputs.forEach((element) => {
         const name = element.getAttribute('name');
         const type  = element.getAttribute('type');
@@ -41,7 +49,7 @@ export function convertToEditor (data) {
         p.setAttribute('class', 'custom-input');
 
         p.textContent = '<${name} Input Placeholder>';
-
+        
         element.parentNode.replaceChild(p, element);
     })
 

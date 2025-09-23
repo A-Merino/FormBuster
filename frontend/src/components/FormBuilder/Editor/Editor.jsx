@@ -1,14 +1,17 @@
+// react imports
 import {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react"
-
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 
-import './Editor.css'
+// other imports
 import Toolbar from "../Toolbar/Toolbar.jsx";
 import {faXmarkCircle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import './Editor.css'
 
 // eslint-disable-next-line react/display-name,react/prop-types
+// what is this^? also why is Editor a Constant, not Function?
+
 const Editor = forwardRef(({ initialValue}, ref) => {
     const [showInsertMenu, setShowInsertMenu] = useState(false);
     const [insertData, setInsertData] = useState({

@@ -1,26 +1,28 @@
-import {useEffect, useRef, useState,useContext} from 'react'
-import './Form.css'
-import TopBar from "../TopBar/TopBar.jsx";
-import Menu from "../Menu/Menu.jsx";
+// react imports
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router";
-import User from "./../User/User.jsx"
+import {useEffect, useRef, useState,useContext} from 'react'
 
+// module imports
+import TopBar from "../TopBar/TopBar.jsx";
+import Menu from "../Menu/Menu.jsx";
+import User from "./../User/User.jsx"
+import './Form.css'
 
 function Form() {
+    // user context and navigator init
     const {user, loggedIn} = useContext(User);
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
     const navigate = useNavigate();
 
+    // create form state variables
     const formRef = useRef(null);
     const { formName } = useParams();
-    const [form, setForm] = useState({
-        name: "",
-        data: "",
-    });
+    const [form, setForm] = useState({});
 
     useEffect(() => {
+        // collect the form information from api 
         const fetchForm = async () => {
             try {
                 const response = await fetch(`http://localhost:3000/api/getFormByName/${formName}`, {
@@ -36,9 +38,11 @@ function Form() {
         fetchForm();
     }, [formName]);
 
+    // on submit of form
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // create variables from web document
         const formElement = document.querySelector('#currentForm');
         const formData = new FormData(formElement);
         const data = Object.fromEntries(formData.entries());
@@ -48,17 +52,18 @@ function Form() {
             origin: account
         }
 
-
+        // post the data to the backend
         const response = await fetch(`http://localhost:3000/api/createActive`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(parsedData)
         });
-
-        //console.log('Test: ', parsedData);
+        // go back to home
         navigate("/home");
     };
 
+
+    /* RENDER ------------------------------ */
     return (
         <>
             <TopBar/>

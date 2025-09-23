@@ -1,10 +1,12 @@
+// imports
 import { useState, useContext } from 'react'
-import './LogIn.css'
 import {Link, useNavigate} from "react-router"
 import User from "./../../User/User.jsx"
+import './LogIn.css'
 
 
 function LogIn() {
+    // create naviagtor
     const navigate = useNavigate();
 
     // Get the user context
@@ -12,10 +14,10 @@ function LogIn() {
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
-    const [dia, sDia] = useState(false);
-
+    // on submit we conduct a sign-in attempt
     const handleSubmit = (event) => {
         event.preventDefault(); 
+        // Post the information
         fetch(`http://localhost:3000/api/sign-in`, {
             method: "POST",
             headers: {
@@ -23,22 +25,24 @@ function LogIn() {
             },
                 body: JSON.stringify({"email": event.target.email.value,
                                     "password":event.target.password.value})
-              })
-            .then(data => data.json())
-            .then(d => {
-                if (d.message === "Incorrect Password") {
-                    alert("Incorrect Password")
-                } else {
-                    setAccount(d)
-                }
-            })
-            .then(() => setSignedIn(true))
-            .then(() => navigate("/home"))
+        })
+        // jsonify our response
+        .then(data => data.json())
+        .then(d => {
+            // if incorrect then throw alert
+            if (d.message === "Incorrect Password") {
+                alert("Incorrect Password")
+            } else {
+                setAccount(d)
+            }
+        })
+        // say we are signed in and go to /home
+        .then(() => setSignedIn(true))
+        .then(() => navigate("/home"))
 
     }
 
-
-
+    /* RENDER ------------------------------ */
     return (
     <>
     <div id="login-box">
@@ -54,7 +58,6 @@ function LogIn() {
             </label>
             <input type='Submit'/>
         </form>
-
 
         <p id='log-note'>If you don't have an account you can <Link to="/register">create one here</Link>.</p>
     </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// imports
 import './SignBar.css'
 import {Link} from 'react-router'
 
@@ -7,7 +7,7 @@ function SignBar() {
     // specifically the landing page. The bar holds the
     // links to the LogIn and Register components
 
-
+    /* RENDER ------------------------*/
     return (
         <>
         <nav id="landing-nav">

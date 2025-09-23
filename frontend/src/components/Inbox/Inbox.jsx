@@ -1,3 +1,4 @@
+// imports
 import { useState } from 'react'
 import './Inbox.css'
 import InboxMessage from './InboxMessages/InboxMessage.jsx'
@@ -7,26 +8,29 @@ import TopBar from "./../TopBar/TopBar.jsx"
 
 function Inbox() {
 
-  return (
+    /* RENDER ------------------------*/
+    return (
     <>
-      <TopBar/>
-      <Menu/>
-      <div id="inbox-main-div">
-        <h2>Inbox</h2>
-        <div id="inbox-window-div">
-          <InboxInteractionBar/>
-          <div id="inbox-scroll-window">
-            <InboxMessage/>
-            <InboxMessage/>
-            <InboxMessage/>
-            <InboxMessage/>
-            <InboxMessage/>
-            <InboxMessage/>
-          </div>
+        <TopBar/>
+        <Menu/>
+        <div id="inbox-main-div">
+            <h2>Inbox</h2>
+            <div id="inbox-window-div">
+                <InboxInteractionBar/>
+                <div id="inbox-scroll-window">
+                {// Need to do something here
+                }
+                    <InboxMessage/>
+                    <InboxMessage/>
+                    <InboxMessage/>
+                    <InboxMessage/>
+                    <InboxMessage/>
+                    <InboxMessage/>
+                </div>
+            </div>
         </div>
-      </div>
     </>
-  )
+    )
 }
 
 export default Inbox 
