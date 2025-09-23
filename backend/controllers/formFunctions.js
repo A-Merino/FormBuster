@@ -1,11 +1,12 @@
+// imports
 const FormTemplate = require('../schemas/FormTemplate');
 
 // saves req form to the database
 exports.saveForm = async (req, res) => {
     try {
-        const { name, data } = req.body;
+        const { name, data } = req.body; // get data
         const newForm = new FormTemplate({ name, data });
-        await newForm.save();
+        await newForm.save(); // save as new template in db
 
         res.status(201).json({ msg: "Save successful" });
     } catch (error) {

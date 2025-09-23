@@ -1,17 +1,13 @@
 // Import and Connect to mongodb
 let mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/Senior_Design");
-
 let db = mongoose.connection;
-
 const us = db.collection('users');
 
-// encryption stuff
+// encryption inits
 const bcrypt = require('bcrypt');
 const salts = 11;
 const User = require('./../schemas/User.js');
-
-
 
 exports.register = async (req, res) => {
     // get user model
@@ -75,21 +71,17 @@ exports.signIn = (req, res) => {
 
             }
         })
-
-
     })
 }
 
 exports.findUser = async (req, res) => {
     try {
+        // find account
         let account = await User.findOne({'id': req.body.id})
-        res.status(201).json({account})
-
+        res.status(201).json({account}) // return if found
         
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: "Server error occurred", error: error.message });
-
     }
-
 }

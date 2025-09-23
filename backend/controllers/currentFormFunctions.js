@@ -1,3 +1,4 @@
+// imports
 const FormTemplate = require('./../schemas/FormTemplate');
 const ActForm = require('./../schemas/CurrentForm.js');
 const Signature = require('./../schemas/Signature.js');
@@ -31,6 +32,7 @@ async function getHash(size) {
 async function defaultSignature(user, formID) {
     const pends = [];
     // some sort of logic to determine the form goes to the correct people
+    
     /*
         Logic Here
 

@@ -3,12 +3,15 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 ## Need To Do (Most to Least Important)
 
-1. **Inbox.jsx**
+### Frontend
+1. **Form/Form.jsx**
+    - Autofill of user information
+1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
         - delete hard code and connect to backend
 1. **Inbox/InboxMessage.jsx** 
     - Connect the Inbox Messages to database
-1. **Form.jsx**
+1. **Form/Form.jsx**
     - Standardize form format
     - Remove submit buttons from inside of forms (the ones that dont work)
 1. **Inbox/InboxInteractionbar.jsx**
@@ -26,8 +29,16 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Decrypt the password on Show Password
 1. **Auth/Register.jsx**
     - possibly better way to store input data in *handleChange()*
-1. **LandingPage.jsx**
+1. **LandingPage/LandingPage.jsx**
     - Describe our product better
         - More Features
         - More words for each feature
     - make it prettier
+
+
+### Backend
+1. **controllers/currentFormFunctions.js *defaultSignature()***
+    - Create logic to determine which faculty/admin have to sign a particular form
+    - also mean that the forms templates themselves would have to carry that data possibly
+1. **schemas/User.js**
+    - Determine what new attributes we might have to add to make the signatures go to the right people

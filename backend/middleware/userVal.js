@@ -1,9 +1,7 @@
+// imports and mongodb connection
 const {check, validationResult} = require('express-validator');
-
-
 let mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/Senior_Design")
-    .then()
 let db = mongoose.connection;
 const coll = db.collection('users');
 
@@ -40,8 +38,6 @@ exports.validateUser = [
                     return Promise.reject('Email Exists');
                 } 
             })
-
-
         }).withMessage("Email in Use").bail(),
     (req, res, next) => {
         const errors = validationResult(req);
@@ -50,9 +46,7 @@ exports.validateUser = [
         }
         next();
     },
-
-
-    ];
+];
 
 
 /*
@@ -82,8 +76,6 @@ exports.validateSignIn = [
                     return Promise.reject('No Account Associated with Email');
                 } 
             })
-
-
         }).withMessage("No Account Associated with Email").bail(),
     (req, res, next) => {
         const errors = validationResult(req);

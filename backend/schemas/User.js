@@ -1,5 +1,5 @@
+// imports
 const mongoose = require('mongoose');
-
 const bcrypt = require('bcrypt');
 const salts = 11;
 
@@ -14,7 +14,6 @@ const User = new mongoose.Schema({
     advisor: {type:String, required:false},
     forms : {type:[String]}
     });
-
 
 // turns the given password into a hashed password
 // before storing it in the database

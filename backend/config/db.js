@@ -1,6 +1,8 @@
+// import
 const mongoose = require("mongoose");
 
 const dbConnect = async () => {
+    // establish connection
     await mongoose.connect('mongodb://localhost:27017/Senior_Design', {
             useNewUrlParser: true,
             useUnifiedTopology: true
@@ -19,7 +21,7 @@ const dbConnect = async () => {
             names.push(c.name);
         })
 
-        // We need 3 databases, check if they are already made
+        // We need 4 databases, check if they are already made
         // if not then create them on open
         if (!names.includes('users')) {
             db.createCollection("users");
@@ -31,6 +33,8 @@ const dbConnect = async () => {
 
         if (!names.includes('currentforms')) {
             db.createCollection("currentforms");
+        } if (!names.includes('signatures')) {
+            dc.createCollection("signatures");
         }
 
 }
