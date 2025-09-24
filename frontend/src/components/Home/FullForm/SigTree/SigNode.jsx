@@ -38,16 +38,17 @@ function SigNode(props) {
 
         return (
             <>
-            <div className='sig-circle'>
+                <circle className={sig.isSigned+'Node'}></circle>
+            {/*<div className='sig-circle'>
                     <span className={sig.isSigned+'Check'}></span>
                         <div className='sig-box'>
                             <p>User: {ui.firstName + " " + ui.lastName}</p>
                             <p>Status: {sig.isSigned}</p>
-                            {/*I Find this so disturbing for some reason still*/
+                            {I Find this so disturbing for some reason still
                                 sig.signatureDate && <p>Date: {new Date(sig.signatureDate).toLocaleString()}</p>
                             }
                     </div>
-                </div>
+                </div>*/}
             </>
         )
     }
