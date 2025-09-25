@@ -40,7 +40,7 @@ function SigLink(props) {
 
 
     if (ready){
-    const goClass = src.isSigned[0].toUpperCase() + 'to' + src.isSigned[0].toUpperCase()
+    const goClass = src.isSigned[0].toUpperCase() + 'to' + des.isSigned[0].toUpperCase()
 
         return (
             <>

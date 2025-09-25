@@ -4,6 +4,7 @@ import { Graph, DefaultLink, DefaultNode } from '@visx/network';
 import './SigTree.css'
 import SigNode from './SigNode.jsx'
 import SigLink from './SigLink.jsx'
+import SigSide from './SigSide.jsx'
 
 function SigTree(props) {
 
@@ -28,9 +29,32 @@ function SigTree(props) {
     })
 
     const links = [];
+    if (nodes.length === 4) {
+        for (let i = 1; i < nodes.length; i++) {
+            if (i === 1) {
+                nodes[i].x = -100
+                links.push({source: nodes[i-1], target: nodes[i]})
+                // nodes[i].x = -100
+                // links.push({source: nodes[i], target: nodes[i+1]})
 
-    for (let i = 0; i < nodes.length - 1; i++) {
-        links.push({source: nodes[i], target: nodes[i+1]})
+            } else if (i===2) {
+                nodes[i].x = 100
+                nodes[i].y -= 100
+                links.push({source: nodes[0], target: nodes[i]})
+
+            } else if (i===3) {
+                nodes[i].x = 100
+                nodes[i].y -= 100
+                links.push({source: nodes[i-1], target: nodes[i]})
+
+            } else {
+            }
+        }
+    } else {
+        for (let i = 1; i < nodes.length; i++) {
+            links.push({source: nodes[i-1], target: nodes[i]})
+        }
+
     }
 
 
@@ -55,20 +79,13 @@ function SigTree(props) {
         return <SigLink source={link.link.source} dest={link.link.target}/>
     }
 
-        // nodeComponent={(node: {x, y, data}) => <SigNode key={data} data={data}/>} 
     return (
         <>
-        <svg>
-        <Graph graph={graph} top={100} left={500} linkComponent={goLink} 
-        nodeComponent={goNode} 
-        />
+        <svg className="graph">
+            <Graph graph={graph} top={50} left={'translate(0, 50%)'} linkComponent={goLink} 
+            nodeComponent={goNode}/>
         </svg>
-        {/*sigs.map(sig => {
-            return <div>
-                <SigNode key={sig} data={sig}/>
-
-            </div>
-        })*/}
+        <SigSide/>
         </>
     )
 }
