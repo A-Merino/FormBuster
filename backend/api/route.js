@@ -6,7 +6,7 @@ const {saveForm, getForms, getFormByName, getFormName} = require("./../controlle
 const {register, signIn, findUser} = require("./../controllers/userFunctions.js")
 const {getSession} = require("./../controllers/cookies.js")
 const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
-const {submitForm, getActive, getSigUser, getSig} = require("./../controllers/currentFormFunctions.js")
+const {submitForm, getActive, getSigUser, getSig, getAllActive, deleteForm} = require("./../controllers/currentFormFunctions.js")
 
 
 // cookies
@@ -25,6 +25,9 @@ router.post("/createActive", submitForm); // submits a Form
 router.post("/getActive", getActive); // gets a form by ID
 router.post("/getSigAndUser", getSigUser); // get a sinature from sigID
 router.post("/getSig", getSig); // get a sinature from sigID
+// adim current forms
+router.post("/deleteForm", deleteForm);
+router.get("/getAllActive", getAllActive);
 
 // Form api calls
 router.post("/saveForm", saveForm); // save a form

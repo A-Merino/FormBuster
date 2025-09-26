@@ -74,8 +74,8 @@ function FullForm() {
         }
     }
 
-
     if(good){
+        // get the form name
         getFormName()
         return (
             <>

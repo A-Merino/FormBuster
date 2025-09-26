@@ -22,7 +22,6 @@ function TrackedItem(props) {
     useEffect(() => {
         // collects the active form data from api 
         const fetchForm = async (formid) => {
-
             try {
                 // get the data of the form
                 const response = await fetch(`http://localhost:3000/api/getActive`, {
@@ -59,6 +58,25 @@ function TrackedItem(props) {
         }
     }
 
+    const deleteForm = async () => {
+        try {
+            const resp = await fetch(`http://localhost:3000/api/deleteForm`, {
+                        method :"POST",
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({id:formid})
+                    })
+            const data = await resp.json();
+            console.log(data.msg)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    let delButton
+    if (account.role === 'admin') {
+        delButton = <button onClick={deleteForm} className="deleter">Delete Form</button>
+    }
+
     /* RENDER ------------------------------ */
     if (ready) { 
         getFormName() // if api call is done, get the form name
@@ -84,7 +102,7 @@ function TrackedItem(props) {
                     Maybe we use some type of time comparison function
                     as well as if you are a user who hasn't signed*/}
                 <Warning data={new Date() - new Date(form.creationDate)}/>
-
+                {delButton}
 
                 <Link to={`/form/${formid}`}>More Details</Link>
             </div>

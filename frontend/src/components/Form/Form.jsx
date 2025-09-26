@@ -20,6 +20,7 @@ function Form() {
     const formRef = useRef(null);
     const { formName } = useParams();
     const [form, setForm] = useState({});
+    const [ready, setReady] = useState(false);
 
     useEffect(() => {
         // collect the form information from api 
@@ -31,6 +32,7 @@ function Form() {
                 });
                 const data = await response.json();
                 setForm(data.form);
+                setReady(true);
             } catch (error) {
                 console.error(error);
             }
@@ -62,8 +64,45 @@ function Form() {
         navigate("/home");
     };
 
+    // completing autofill
+    const autoFill = () => {
+        let inputs = document.querySelectorAll('input');
+
+        inputs = [...inputs]
+
+        inputs.map(input => {
+            // const tag  = input.querySelector('input');
+            switch (input.name) {
+                case 'lname':
+                    input.value = account.firstName;
+                    break;
+                case 'fname':
+                    input.value = account.lastName;
+                    break;
+                case 'sid':
+                    input.value = account.id;
+                    break;
+                case 'advisor':
+                    input.value = account.advisor;
+                    break;
+                case 'major':
+                    input.value = account.major;
+                    break;
+                case 'date':
+                    input.value = getDate();
+                    break;    
+                default:
+                    break;
+            };        });
+    }
+
+    const getDate = () => {
+        const date = new Date();
+        return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2,'0')}-${date.getDate().toString().padStart(2,'0')}`
+    }
 
     /* RENDER ------------------------------ */
+    if (ready) {
     return (
         <>
             <TopBar/>
@@ -75,8 +114,10 @@ function Form() {
                 <button onClick={handleSubmit}>Submit</button>
                 <div id="bottom-padding"></div>
             </div>
+        {autoFill()}
         </>
     );
+    }
 }
 
 export default Form

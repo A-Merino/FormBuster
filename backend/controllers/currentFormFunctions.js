@@ -54,11 +54,10 @@ async function defaultSignature(user, formID) {
 
     // just calls all faculty users atm
     const facs = await User.find({'role':'staff'})
-    let c = 1
     await Promise.all(
     facs.map(async account => { 
         const newSig = new Signature({
-            id:`${formID}_${c}`,
+            id:`${formID}_${account.id}`,
             form: formID,
             user: account.id
         });
@@ -68,7 +67,7 @@ async function defaultSignature(user, formID) {
 
         // update the user account
         await User.updateOne({'email': account.email}, {$push: {forms: formID}})
-        c += 1;
+
     })
         );
 
@@ -76,7 +75,39 @@ async function defaultSignature(user, formID) {
 
 }
 
+exports.deleteForm = async (req, res) => {
+    try {
+        const formID = req.body.id;
+        const result = await ActForm.deleteOne({'id':formID});
+        const sigs = await Signature.find({'form': formID});
+        sigs.map(async sig => {
+            const user = await User.updateOne({'id': sig.user}, {$pull: {forms: formID}});
+        });
 
+        const res2 = await Signature.deleteMany({'form': formID});
+        res.status(201).json({msg: "Form Deleted Successfully"})
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({msg: "An Error has occurred", error: error.message});
+    }
+}
+
+exports.getAllActive = async (req, res) => {
+    try {
+        const forms = await ActForm.find({});
+        let fids = []
+        forms.map(form => {
+            fids.push(form.id);
+        })
+
+        res.status(201).json({fids})
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({msg: "An Error has occurred", error: err.message});
+    }
+}
 
 exports.submitForm = async (req, res) => {
     try {

@@ -28,6 +28,7 @@ function SigTree(props) {
         nodes.push(node) // add to list
     })
 
+    // THIS IS HARD CODED, NEED TO FIND LOGIC BASED SOLUTION
     const links = [];
     if (nodes.length === 4) {
         for (let i = 1; i < nodes.length; i++) {
@@ -57,32 +58,25 @@ function SigTree(props) {
 
     }
 
+    // create the graph
+    const graph = {nodes, links}
 
-//     const links = [
-
-//     { source: nodes[0], target: nodes[1] },
-//     { source: nodes[1], target: nodes[2] },
-// ];
-
-
-    const graph = {
-        nodes, links
-    }
-
-
+    // function to return a SigNode with appropriate data
     const goNode = (node) => {
 
         return <SigNode key={node.node.data} data={node.node.data}/>
     } 
 
+    // function to return a SigLink with appropriate data
     const goLink = (link) => {
         return <SigLink source={link.link.source} dest={link.link.target}/>
     }
 
+    /* RENDER-------------------------------------*/
     return (
         <>
         <svg className="graph">
-            <Graph graph={graph} top={50} left={'translate(0, 50%)'} linkComponent={goLink} 
+            <Graph graph={graph} top={50} left={500} linkComponent={goLink} 
             nodeComponent={goNode}/>
         </svg>
         <SigSide/>

@@ -1,3 +1,4 @@
+// imports
 import { useState, useEffect } from 'react'
 import './SigSide.css'
 
@@ -36,12 +37,13 @@ function SigSide() {
     // }, []);
 
 
+    /* RENDER --------------------*/
     if (ready){
 
         return (
             <>
                 <div className="form-side-bar">
-                    <p>Hey im herer</p>
+                    <p>Show node information on hover</p>
                 </div>
             </>
         )
