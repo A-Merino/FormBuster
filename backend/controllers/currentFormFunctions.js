@@ -3,6 +3,8 @@ const FormTemplate = require('./../schemas/FormTemplate');
 const ActForm = require('./../schemas/CurrentForm.js');
 const Signature = require('./../schemas/Signature.js');
 const User = require('./../schemas/User.js');
+const InboxMessage = require('../schemas/InboxMessage.js');
+const UserInboxes = require('./../schemas/UserInboxes.js');
 
 
 async function getHash(size) {
@@ -65,11 +67,26 @@ async function defaultSignature(user, formID) {
         // add to signature list
         pends.push(newSig.id);
 
-        // update the user account
-        await User.updateOne({'email': account.email}, {$push: {forms: formID}})
+        // Send notification to recipient's inboxes
+        const newNotif = new InboxMessage({
+            id: `${formID}_${account.id}`,
+            formID: formID,
+            rejected: "False",
+            reason: "",
+            read: "False"
+        })
+        await newNotif.save();
 
+        // update the user account
+        await User.updateOne({'email': account.email}, {$push: {forms: formID}}, {$push: {notifs: newNotif.id}})
+
+        // await UserInboxes.updateOne(
+        //     {'id': account.id}, 
+        //     {$push: {messageIDs: newNotif.id}},
+        //     {upsert: true}
+        // )
     })
-        );
+    );
 
     return pends
 

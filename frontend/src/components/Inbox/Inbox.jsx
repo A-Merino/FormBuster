@@ -1,30 +1,39 @@
-// imports
-import { useState, useEffect } from 'react'
+// react imports
+import { useState, useContext, useEffect } from 'react'
 import './Inbox.css'
 import InboxMessage from './InboxMessages/InboxMessage.jsx'
 import InboxInteractionBar from './InboxInteractionBar/InboxInteractionBar.jsx'
 import Menu from './../Menu/Menu.jsx'
 import TopBar from "./../TopBar/TopBar.jsx"
+import User from "./../User/User.jsx"
 
-function Inbox({ userId }) {
+function Inbox() {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Get the user context
+    const {user, loggedIn} = useContext(User);
+    const [account, setAccount] = user;
+    const [signedIn, setSignedIn] = loggedIn;
+
     useEffect(() => {
-        async function fetchMessages() {
+        const fetchInbox = async (userID) => {
             try {
-                const res = await fetch(`http://localhost:3000/api/findInboxMessages/${userId}`);
-                const data = await res.json();
+                const resp = await fetch("http://localhost:3000/api/findInboxMessages", {
+                            method :"POST",
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({id:userID})
+                        })
+                const data = await resp.json();
                 console.log(data);
                 setMessages(data);
-            } catch (err) {
-                console.error("Error fetching inbox messages:", err);
-            } finally {
                 setLoading(false);
+            } catch (err) {
+                console.log(err);
             }
         }
-        fetchMessages();
-    }, [userId]);
+        fetchInbox(account.id);
+    }, []);
 
     /* RENDER ------------------------*/
     return (
@@ -43,6 +52,7 @@ function Inbox({ userId }) {
                         ) : (
                             messages.map((msg) => (
                                 <InboxMessage
+                                    key={msg.id}
                                     formID={msg.formID}
                                     rejected={msg.rejected}
                                     reason={msg.reason}
