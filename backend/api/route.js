@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 // Import functions
-const {saveForm, getForms, getFormByName, getFormName} = require("./../controllers/formFunctions.js")
-const {register, signIn, findUser} = require("./../controllers/userFunctions.js")
-const {getSession} = require("./../controllers/cookies.js")
+const {saveForm, getForms, getFormByName, getFormName} = require("./../controllers/formFunctions.js");
+const {register, signIn, findUser} = require("./../controllers/userFunctions.js");
+const {getSession} = require("./../controllers/cookies.js");
 const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
-const {submitForm, getActive, getSigUser} = require("./../controllers/currentFormFunctions.js")
+const {submitForm, getActive, getSigUser} = require("./../controllers/currentFormFunctions.js");
+const {findInboxMessages} = require("./../controllers/inboxFunctions.js");
 
 
 // cookies
@@ -30,5 +31,8 @@ router.post("/saveForm", saveForm); // save a form
 router.get("/getForms", getForms); // get mutiple forms
 router.get("/getFormByName/:name", getFormByName);
 router.post('/getFormName', getFormName);
+
+// Inbox api calls
+router.post('/findInboxMessages', findInboxMessages);
 
 module.exports = router;
