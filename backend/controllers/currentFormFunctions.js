@@ -78,13 +78,13 @@ async function defaultSignature(user, formID) {
         await newNotif.save();
 
         // update the user account
-        await User.updateOne({'email': account.email}, {$push: {forms: formID}}, {$push: {notifs: newNotif.id}})
+        await User.updateOne({'email': account.email}, {$push: {forms: formID}})
 
-        // await UserInboxes.updateOne(
-        //     {'id': account.id}, 
-        //     {$push: {messageIDs: newNotif.id}},
-        //     {upsert: true}
-        // )
+        await UserInboxes.updateOne(
+            {'id': account.id}, 
+            {$push: {messageIDs: newNotif.id}},
+            {upsert: true}
+        )
     })
     );
 
