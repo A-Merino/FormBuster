@@ -4,14 +4,20 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 ## Need To Do (Most to Least Important)
 
 ### Frontend
-1. **Form/Form.jsx**
-    - Autofill of user information
 1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
         - delete hard code and connect to backend
 1. **Inbox/InboxMessage.jsx** 
     - Connect the Inbox Messages to database
+1. **Home/FullForm/SigSide.jsx**
+    - Figure out how to implement the information to show in this component when the graph is hovered
+    - Add the rest of the classes for *SigLink* component
+1. **Home/FullForm/SigTree.jsx**
+    - Find a way to mathematically center the graph in the svg
+    - Also to mathematically determine x and y coords of a node based on parent and amount of children
+        - logic dependent still
 1. **Form/Form.jsx**
+    - Standardize inputs for autofill of user information
     - Standardize form format
     - Remove submit buttons from inside of forms (the ones that dont work)
 1. **Inbox/InboxInteractionbar.jsx**

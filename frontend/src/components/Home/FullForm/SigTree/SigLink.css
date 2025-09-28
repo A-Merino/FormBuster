@@ -1,0 +1,16 @@
+line {
+    stroke: lightgray;
+}
+
+.UtoU {
+    stroke-dasharray: 5;
+
+}
+
+.StoS {
+    stroke: green;
+}   
+
+.StoU {
+    
+}

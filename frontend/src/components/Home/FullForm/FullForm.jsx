@@ -5,6 +5,8 @@ import {useLocation, useNavigate} from "react-router-dom";
 import './FullForm.css'
 import SigTree from './SigTree/SigTree.jsx'
 
+import Menu from "./../../Menu/Menu.jsx"
+import TopBar from "./../../TopBar/TopBar.jsx"
 import User from "./../../User/User.jsx"
 
 
@@ -72,19 +74,22 @@ function FullForm() {
         }
     }
 
-
     if(good){
+        // get the form name
         getFormName()
         return (
             <>
+            <TopBar/>
+            <Menu/>
+            <div className='full-form'>
             <h1>{fn}</h1>
-
-            <h3>Created at: {new Date(form.creationDate).toLocaleString()}</h3>
-
-            <SigTree data={form.signatures}/>
-
-
-            </>
+            <h3>Form ID: {FID}</h3>
+            <h3>Date created: {new Date(form.creationDate).toLocaleString()}</h3>
+                <div className='canvas-n-hover'>
+                    <SigTree data={form.signatures}/>
+                </div>
+            </div>
+            </> 
         )
 
     } else {

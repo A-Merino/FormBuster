@@ -34,12 +34,15 @@ function LogIn() {
                 alert("Incorrect Password")
             } else {
                 setAccount(d)
+                setSignedIn(true)
+                navigate("/home")
             }
         })
+        /*
         // say we are signed in and go to /home
         .then(() => setSignedIn(true))
         .then(() => navigate("/home"))
-
+*/
     }
 
     /* RENDER ------------------------------ */

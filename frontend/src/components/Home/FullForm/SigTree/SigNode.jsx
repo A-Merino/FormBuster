@@ -1,9 +1,10 @@
+// imports
 import { useState, useEffect } from 'react'
 import './SigNode.css'
 
 function SigNode(props) {
 
-
+    // state variables for this component
     const [ui, setui] = useState({});
     const [red, setRed] = useState(false);
     const [sig, setSig] = useState();
@@ -12,7 +13,7 @@ function SigNode(props) {
 
 
     useEffect(() => {
-
+        // get the signature information
         const fetchSig = async (uid) => {
             
                 // post call
@@ -23,7 +24,6 @@ function SigNode(props) {
                 })
                 .then(data => data.json())
                 .then(res => {
-                    // fetchUser(res.sig.user)
                     setSig(res.sig)
                     setui(res.user)
                     setRed(true)
@@ -34,20 +34,23 @@ function SigNode(props) {
         fetchSig(uid);
     }, []);
 
+    // if data is loaded show
     if (red){
-
         return (
             <>
-            <div className='sig-circle'>
+                <circle className={sig.isSigned+'Node'}></circle>
+                    {/*
+                    NEED TO FIGURE OUT WHERE TO PUT THIS AND HOW TO IMPLEMENT WITH HOVER OF CIRCLE
+                    <div className='sig-circle'>
                     <span className={sig.isSigned+'Check'}></span>
                         <div className='sig-box'>
                             <p>User: {ui.firstName + " " + ui.lastName}</p>
                             <p>Status: {sig.isSigned}</p>
-                            {/*I Find this so disturbing for some reason still*/
+                            {/*I Find this so disturbing for some reason still
                                 sig.signatureDate && <p>Date: {new Date(sig.signatureDate).toLocaleString()}</p>
                             }
                     </div>
-                </div>
+                </div>*/}
             </>
         )
     }
