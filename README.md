@@ -6,9 +6,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 ### Frontend
 1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
-        - delete hard code and connect to backend
-1. **Inbox/InboxMessage.jsx** 
-    - Connect the Inbox Messages to database
+1, **CREATE NEW PAGE FOR SIGNING A FORM AND ADDING COMMENTS**
 1. **Home/FullForm/SigSide.jsx**
     - Figure out how to implement the information to show in this component when the graph is hovered
     - Add the rest of the classes for *SigLink* component
@@ -29,8 +27,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
         - doesnt show up if already signed
 1. **FormBuilder/Editor.jsx**
     - Luka, document your code and explain what is going on
-1. **Auth/Login.jsx**
-    - Add catch statement to stop navigator from moving past sign-in page
 1. **Account/Information.jsx**
     - Decrypt the password on Show Password
 1. **Auth/Register.jsx**

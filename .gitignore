@@ -12,6 +12,8 @@ LocalTestingOnly.meta
 # Remove all IDEA
 .idea/*
 
+.vscode/*
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
@@ -244,4 +246,4 @@ sysinfo.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,rider,jetbrains
 
-.node_modules
+.node_modules/*
