@@ -21,6 +21,7 @@ import FormList from "./../FormList/FormList.jsx"
 import Form from "./../Form/Form.jsx"
 import FormBuilder from "../FormBuilder/FormBuilder.jsx";
 import FullForm from "./../Home/FullForm/FullForm.jsx";
+import SignForm from './../SignForm/SignForm.jsx';
 
 import User from './../User/User.jsx'
 import './App.css'  // root css
@@ -77,6 +78,7 @@ function App() {
             </Route>
             <Route path="/*" element={<LandingPage/>} />
             <Route path="/form/*" element={<FullForm/>}/>
+            <Route path="/sign/*" element={<SignForm/>}/>
         </Routes>
     </User.Provider>
     </BrowserRouter>

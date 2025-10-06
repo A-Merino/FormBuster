@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // Import functions
-const {saveForm, getForms, getFormByName, getFormName} = require("./../controllers/formFunctions.js");
+const {saveForm, getForms, getFormByName, getFormName, getFormTemplate} = require("./../controllers/formFunctions.js");
 const {register, signIn, findUser} = require("./../controllers/userFunctions.js");
 const {getSession} = require("./../controllers/cookies.js");
 const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
 const {submitForm, getActive, getSigUser, getSig, getAllActive, deleteForm} = require("./../controllers/currentFormFunctions.js")
 const {findInboxMessages} = require("./../controllers/inboxFunctions.js");
-
+const {updateSig} = require('./../controllers/sigFunctions.js')
 
 // cookies
 router.get("/get-session", getSession);
@@ -26,7 +26,11 @@ router.post("/createActive", submitForm); // submits a Form
 router.post("/getActive", getActive); // gets a form by ID
 router.post("/getSigAndUser", getSigUser); // get a sinature from sigID
 router.post("/getSig", getSig); // get a sinature from sigID
-// adim current forms
+
+// update signature
+router.post("/updateSignature", updateSig);
+
+// admin current forms
 router.post("/deleteForm", deleteForm);
 router.get("/getAllActive", getAllActive);
 
@@ -35,6 +39,7 @@ router.post("/saveForm", saveForm); // save a form
 router.get("/getForms", getForms); // get mutiple forms
 router.get("/getFormByName/:name", getFormByName);
 router.post('/getFormName', getFormName);
+router.post('/getFormTemp', getFormTemplate);
 
 // Inbox api calls
 router.post('/findInboxMessages', findInboxMessages);

@@ -1,6 +1,6 @@
 // react imports
 import { useState, useEffect, useContext } from 'react'
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, Link} from "react-router-dom";
 
 import './FullForm.css'
 import SigTree from './SigTree/SigTree.jsx'
@@ -85,6 +85,7 @@ function FullForm() {
             <h1>{fn}</h1>
             <h3>Form ID: {FID}</h3>
             <h3>Date created: {new Date(form.creationDate).toLocaleString()}</h3>
+            <Link to={`/sign/${FID}`}>Sign Here</Link>
                 <div className='canvas-n-hover'>
                     <SigTree data={form.signatures}/>
                 </div>

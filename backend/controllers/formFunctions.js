@@ -50,3 +50,13 @@ exports.getFormName = async (req, res) => {
         console.error(e);
     }
 }
+
+exports.getFormTemplate = async (req, res) => {
+    try {
+        const form = await FormTemplate.findOne({id: req.body.formid});
+        const temp = form.data
+        res.status(200).json({temp})
+    } catch (e) {
+        console.error(e);
+    }
+}

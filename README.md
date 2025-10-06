@@ -6,7 +6,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 ### Frontend
 1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
-1, **CREATE NEW PAGE FOR SIGNING A FORM AND ADDING COMMENTS**
 1. **Home/FullForm/SigSide.jsx**
     - Figure out how to implement the information to show in this component when the graph is hovered
     - Add the rest of the classes for *SigLink* component
@@ -29,6 +28,9 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Luka, document your code and explain what is going on
 1. **Account/Information.jsx**
     - Decrypt the password on Show Password
+1. **SignForm/SignForm.jsx**
+    - make disabled inputs look better (checkbox in specific)
+    - check if Signature matches first and last name
 1. **Auth/Register.jsx**
     - possibly better way to store input data in *handleChange()*
 1. **LandingPage/LandingPage.jsx**
@@ -44,3 +46,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - also mean that the forms templates themselves would have to carry that data possibly
 1. **schemas/User.js**
     - Determine what new attributes we might have to add to make the signatures go to the right people
+
+
+### Completed Tasks

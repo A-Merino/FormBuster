@@ -104,6 +104,7 @@ function TrackedItem(props) {
                 <Warning data={new Date() - new Date(form.creationDate)}/>
                 {delButton}
 
+                <Link to={`/sign/${formid}`}>Sign Here</Link>
                 <Link to={`/form/${formid}`}>More Details</Link>
             </div>
         </>

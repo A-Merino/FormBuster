@@ -1,0 +1,41 @@
+.new-sig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50%;
+
+    margin: auto; 
+}
+
+/*For inputs in the form */
+.new-sig form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* for 'Comment' text*/
+.new-sig form label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em; 
+/*    align-items: center;*/
+
+}
+
+.new-sig input[type='text'] {
+/*    border-radius: 1em;*/
+    padding: 1em;
+    width: 100%;  
+}
+
+.new-sig button {
+    margin: 1em 0;
+    padding: 1em 2em;
+    background: var(--gray);
+    border: 2px solid black;
+
+    width: 70%;
+}
