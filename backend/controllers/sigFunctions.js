@@ -73,3 +73,28 @@ exports.updateSig = async (req, res) => {
         res.status(500).json({msg: "There was an error in the backend, please try again", error: e.message})
     }
 }
+
+/*
+    Function that returns the signature from an active form 
+
+    req is in the form of 
+        method: "POST"
+        headers: 
+        body: {
+            id: <SIGNATURE_ID>
+        }
+*/
+exports.getSig = async (req, res) => {
+    try {
+        // get the active form from the database 
+        const sig = await Signature.findOne({'id': req.body.id});
+        // return it
+
+        res.status(201).json({sig});
+    } catch (error){
+        console.error(error);
+        res.status(500).json({ message: "Could not find Signature", error: error.message });
+    }
+}
+
+

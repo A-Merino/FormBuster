@@ -14,6 +14,7 @@ function TrackedItem(props) {
     // save props as a constant
     const formid = props.data;
 
+
     // state variables
     const [ready, setReady] = useState(false);
     const [formName, setFormName] = useState("");
@@ -31,6 +32,7 @@ function TrackedItem(props) {
                 });
                 const data = await response.json(); // jsonify
                 setForm(data.form); // set as state variable
+                // setDate(new Date() - new Date(form.creationDate))
                 setReady(true); // ready to display
             } catch (error) {
                 // if error then print
@@ -77,8 +79,10 @@ function TrackedItem(props) {
         delButton = <button onClick={deleteForm} className="deleter">Delete Form</button>
     }
 
+
+
     /* RENDER ------------------------------ */
-    if (ready) { 
+    if (ready) {
         getFormName() // if api call is done, get the form name
     return (
         <>
@@ -101,10 +105,10 @@ function TrackedItem(props) {
                 {/*Here is where the exclamation mark thingy is 
                     Maybe we use some type of time comparison function
                     as well as if you are a user who hasn't signed*/}
-                <Warning data={new Date() - new Date(form.creationDate)}/>
+
+                <Warning formID={formid} data={new Date() - new Date(form.creationDate)}/>
                 {delButton}
 
-                <Link to={`/sign/${formid}`}>Sign Here</Link>
                 <Link to={`/form/${formid}`}>More Details</Link>
             </div>
         </>

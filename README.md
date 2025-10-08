@@ -19,11 +19,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Remove submit buttons from inside of forms (the ones that dont work)
 1. **Inbox/InboxInteractionbar.jsx**
     - Make the *refresh* and *mark all* buttons do something
-1. **Home/Warning.jsx**
-    - Determine logic for when the warning sign is shown
-        - time based
-        - 1/2/3 days?
-        - doesnt show up if already signed
 1. **FormBuilder/Editor.jsx**
     - Luka, document your code and explain what is going on
 1. **Account/Information.jsx**
@@ -49,3 +44,8 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 
 ### Completed Tasks
+1. **Home/Warning.jsx**
+    - Determine logic for when the warning sign is shown
+        - time based
+        - 1/2/3 days?
+        - doesnt show up if already signed
