@@ -7,7 +7,7 @@ const {register, signIn, findUser} = require("./../controllers/userFunctions.js"
 const {getSession} = require("./../controllers/cookies.js");
 const {validateUser, validateSignIn} = require("./../middleware/userVal.js");
 const {submitForm, getActive, getSigUser, getAllActive, deleteForm} = require("./../controllers/currentFormFunctions.js")
-const {findInboxMessages} = require("./../controllers/inboxFunctions.js");
+const {findInboxMessages, markAllRead, deleteAllRead} = require("./../controllers/inboxFunctions.js");
 const {getSig, updateSig} = require('./../controllers/sigFunctions.js')
 
 // cookies
@@ -43,5 +43,7 @@ router.post('/getFormTemp', getFormTemplate);
 
 // Inbox api calls
 router.post('/findInboxMessages', findInboxMessages);
+router.post('/markAllRead', markAllRead);
+router.post('/deleteAllRead', deleteAllRead);
 
 module.exports = router;

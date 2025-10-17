@@ -17,23 +17,23 @@ function Inbox() {
     const [signedIn, setSignedIn] = loggedIn;
 
     useEffect(() => {
-        const fetchInbox = async (userID) => {
-            try {
-                const resp = await fetch("http://localhost:3000/api/findInboxMessages", {
-                            method :"POST",
-                            headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({id:userID})
-                        })
-                const data = await resp.json();
-                console.log(data);
-                setMessages(data);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
-        }
         fetchInbox(account.id);
     }, []);
+
+    const fetchInbox = async (userID) => {
+        try {
+            const resp = await fetch("http://localhost:3000/api/findInboxMessages", {
+            method :"POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id:userID})
+            });
+            const data = await resp.json();
+            setMessages(data);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     /* RENDER ------------------------*/
     return (
@@ -43,7 +43,25 @@ function Inbox() {
             <div id="inbox-main-div">
                 <h2>Inbox</h2>
                 <div id="inbox-window-div">
-                    <InboxInteractionBar/>
+                    <InboxInteractionBar
+                        onRefresh={() => fetchInbox(account.id)}
+                        onMarkAllRead={async () => {
+                            await fetch("http://localhost:3000/api/markAllRead", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ userId: account.id }),
+                            });
+                            fetchInbox(account.id); // refresh after marking read
+                        }}
+                        onDeleteAllRead={async () => {
+                            await fetch("http://localhost:3000/api/deleteAllRead", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ userId: account.id }),
+                            });
+                            fetchInbox(account.id); // refresh after deletion
+                        }}
+                    />
                     <div id="inbox-scroll-window">
                         {loading ? (
                             <p>Loading messages...</p>

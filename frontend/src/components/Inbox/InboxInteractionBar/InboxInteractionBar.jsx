@@ -2,17 +2,14 @@
 import { useState } from 'react'
 import './InboxInteractionBar.css'
 
-function InboxInteractionBar() {
-
-    /* RENDER ------------------------*/
-    return (
-    <>
-        <div id="inbox-interaction-bar">
-            <button>Refresh</button>
-            <button>Mark All Read</button>
-        </div>
-    </>
-    )
+function InboxInteractionBar({ onRefresh, onMarkAllRead, onDeleteAllRead }) {
+  return (
+    <div id="inbox-interaction-bar">
+      <button onClick={onRefresh}>Refresh</button>
+      <button onClick={onMarkAllRead}>Mark All Read</button>
+      <button onClick={onDeleteAllRead}>Delete All Read</button>
+    </div>
+  );
 }
 
-export default InboxInteractionBar 
+export default InboxInteractionBar;
