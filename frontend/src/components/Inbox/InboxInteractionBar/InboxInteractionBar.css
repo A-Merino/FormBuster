@@ -1,26 +1,41 @@
 #inbox-interaction-bar {
-    width: auto;
-    height: 8rem;
-
+    height: 6rem;
     background: var(--red);
-    
+
     display: flex;
-    flex-direction: row;
-    justify-content: right;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0 2rem;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--gray);
+    border-radius: 0.75rem 0.75rem 0 0;
 }
 
 #inbox-interaction-bar button {
     cursor: pointer;
-
     min-width: 8rem;
-    height: 50%;
+    height: 2.8rem;
 
     background: var(--gold);
-    
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 2rem;
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 1rem;
 
     border: 2px solid var(--gray);
-    border-radius: 0.5rem;
+    border-radius: 0.6rem;
+
+    transition: all 0.2s ease-in-out;
+}
+
+#inbox-interaction-bar button:hover {
+    background: #f1c232; /* lighter gold shade for hover */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#inbox-interaction-bar button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }

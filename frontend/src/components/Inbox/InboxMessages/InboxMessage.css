@@ -1,18 +1,71 @@
-#inbox-message {
-    width: auto;
-    height: 5rem;
-    border: 3px solid var(--red);
-    text-align: left;
+.inbox-message {
+    background: #fff;
+    background-color: #e7e7e7;
+    border-left: 6px solid var(--red);
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Highlight unread messages */
+.inbox-message.unread {
+    background-color: #ffffff;
+    border-left: 4px solid var(--red);
+}
+
+.inbox-message h3 {
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.inbox-message p {
+    color: #000000;
+}
+
+/* Header layout */
+.inbox-header {
     display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    padding-top: 1rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#inbox-message h2 {
-    font-size: 20px;
+/* Form name/title */
+.form-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-gray);
 }
 
-inbox-message text {
-    font-size: 15px;
+/* Status badges */
+.status {
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status.rejected {
+    background-color: #ffe5e5;
+    color: #c62828;
+}
+
+.status.approved {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Reason text */
+.reason {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-top: 0.5rem;
+}
+
+.inbox-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
