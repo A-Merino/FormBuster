@@ -27,6 +27,7 @@ function InboxMessage({ formID, rejected, reason, read, formName, type }) {
             </div>
 
             <div className="inbox-body">
+                <p className="summary"><strong>{title}</strong></p>
                 <p className="details">{details}</p>
                 <p className="form-id">Form ID: {formID}</p>
             </div>
