@@ -84,7 +84,7 @@ function SigBox(props) {
             if (msg[0] === "S") {
                 nav('/home');
             } else { // reload page and pop alert that something went wrong
-                alert(msg.msg);
+                alert(msg);
                 nav(useLocation().pathname);
             }
         }

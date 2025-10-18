@@ -21,7 +21,7 @@ function InboxMessage({ formID, rejected, reason, read, formName, type }) {
         <div className={`inbox-message ${isUnread ? 'unread' : ''}`}>
             <div className="inbox-header">
                 <h3 className="form-name">{formName}</h3>
-                <span className={`status ${type}`}>
+                <span className={`status ${rejected === "True" ? "rejected" : "approved"}`}>
                     {type === "signature" ? "Signature Needed" : rejected === "True" ? "Rejected" : "Approved"}
                 </span>
             </div>
