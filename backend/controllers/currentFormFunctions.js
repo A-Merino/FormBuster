@@ -72,8 +72,9 @@ async function defaultSignature(user, formID) {
             id: `${formID}_${account.id}`,
             formID: formID,
             rejected: "False",
-            reason: "",
-            read: "False"
+            reason: "Signature Required",
+            read: "False",
+            type: "signature"
         })
         await newNotif.save();
 

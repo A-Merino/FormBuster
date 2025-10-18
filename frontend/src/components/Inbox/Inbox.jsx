@@ -105,6 +105,7 @@ function Inbox() {
                                     rejected={msg.rejected}
                                     reason={msg.reason}
                                     read={msg.read}
+                                    type={msg.type}
                                 />
                             ))
                         )}

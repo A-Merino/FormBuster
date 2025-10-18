@@ -7,7 +7,13 @@ const InboxMessage = new mongoose.Schema({
     formID: String,
     rejected: String,
     reason: String,
-    read: String
-    });
+    read: String,
+    type: {
+        type: String,
+        enum: ['approval', 'signature'], // restricts possible values
+        required: true,
+        default: 'signature'
+    }
+});
 
 module.exports = mongoose.model('InboxMessage', InboxMessage);

@@ -53,9 +53,29 @@
     color: #c62828;
 }
 
-.status.approved {
+.status.approval {
     background-color: #e8f5e9;
     color: #2e7d32;
+}
+
+/* Type badges */
+.status.signature {
+    background-color: #fff3e0;
+    color: #ef6c00; /* orange accent */
+}
+
+.status.approval {
+    background-color: #e3f2fd;
+    color: #1565c0; /* blue accent */
+}
+
+/* Different border highlights */
+.inbox-message.signature {
+    border-left: 6px solid #ef6c00;
+}
+
+.inbox-message.approval {
+    border-left: 6px solid var(--red);
 }
 
 /* Reason text */
