@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import './SigLink.css'
 
 function SigLink(props) {
-
     // grab props data
     const source = props.source;
     const dest = props.dest;
+    console.log(source)
 
     // create state variables
     const [ready, setReady] = useState(false);

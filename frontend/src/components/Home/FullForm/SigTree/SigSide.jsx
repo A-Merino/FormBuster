@@ -2,13 +2,14 @@
 import { useState, useEffect } from 'react'
 import './SigSide.css'
 
-function SigSide() {
+function SigSide(props) {
 
     // create state variables
     const [ready, setReady] = useState(true);
     const [src, setSrc] = useState();
     const [des, setDes] = useState({});
 
+    const sig = props.data;
 
 
     // useEffect(() => {
@@ -38,13 +39,13 @@ function SigSide() {
 
 
     /* RENDER --------------------*/
+    console.log(props)
     if (ready){
 
         return (
             <>
-                <div className="form-side-bar">
-                    <p>Show node information on hover</p>
-                </div>
+                <rect className="pop-back" x={props.x} y={props.y} width={200} height={200}></rect>
+                <text className='pop-text' x={props.x} y={props.y}>{sig.user}</text>
             </>
         )
     }

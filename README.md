@@ -5,7 +5,9 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 ### Frontend
 1. **Inbox/Inbox.jsx**
-    - Make it so only the necessary messages show up
+    - Hook the inbox up to the new Signing system
+    - Display comments when clicking on a message (outlook style)
+    - Add notification popup on menu
 1. **Home/FullForm/SigSide.jsx**
     - Figure out how to implement the information to show in this component when the graph is hovered
     - Add the rest of the classes for *SigLink* component
@@ -13,6 +15,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Find a way to mathematically center the graph in the svg
     - Also to mathematically determine x and y coords of a node based on parent and amount of children
         - logic dependent still
+    - Add user role to Graph in the node/ beside node
 1. **Form/Form.jsx**
     - Standardize inputs for autofill of user information
     - Standardize form format
@@ -36,6 +39,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 
 ### Backend
+1. **Add 
 1. **controllers/currentFormFunctions.js *defaultSignature()***
     - Create logic to determine which faculty/admin have to sign a particular form
     - also mean that the forms templates themselves would have to carry that data possibly
@@ -49,3 +53,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
         - time based
         - 1/2/3 days?
         - doesnt show up if already signed
+1. **Inbox/Inbox.jsx**
+    - Make it so only the necessary messages show up
+

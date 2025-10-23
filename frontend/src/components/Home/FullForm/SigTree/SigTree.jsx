@@ -4,7 +4,6 @@ import { Graph, DefaultLink, DefaultNode } from '@visx/network';
 import './SigTree.css'
 import SigNode from './SigNode.jsx'
 import SigLink from './SigLink.jsx'
-import SigSide from './SigSide.jsx'
 
 function SigTree(props) {
 
@@ -64,22 +63,29 @@ function SigTree(props) {
     // function to return a SigNode with appropriate data
     const goNode = (node) => {
 
-        return <SigNode key={node.node.data} data={node.node.data}/>
+        return <SigNode key={node.data} data={node}/>
     } 
 
     // function to return a SigLink with appropriate data
     const goLink = (link) => {
-        return <SigLink source={link.link.source} dest={link.link.target}/>
+        return <SigLink source={link.source} dest={link.target}/>
     }
+    console.log(links.length)
 
     /* RENDER-------------------------------------*/
+
     return (
         <>
         <svg className="graph">
-            <Graph graph={graph} top={50} left={500} linkComponent={goLink} 
-            nodeComponent={goNode}/>
+            <g>
+                {nodes.map(node => {
+                    return goNode(node)
+                })}
+                {links.map(link => {
+                    return goLink(link)
+                })}
+            </g>
         </svg>
-        <SigSide/>
         </>
     )
 }

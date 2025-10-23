@@ -1,15 +1,17 @@
 // imports
 import { useState, useEffect } from 'react'
 import './SigNode.css'
+import SigSide from './SigSide.jsx'
 
 function SigNode(props) {
-
     // state variables for this component
     const [ui, setui] = useState({});
     const [red, setRed] = useState(false);
     const [sig, setSig] = useState();
-
-    const uid = props.data
+    const [disp, setDisp] = useState(false);
+    const uid = props.data.data;
+    const x = props.data.x;
+    const y = props.data.y;
 
 
     useEffect(() => {
@@ -34,11 +36,24 @@ function SigNode(props) {
         fetchSig(uid);
     }, []);
 
+    const changeDisp = (e) => {
+        if (!disp) {
+            e.target.parentNode.parentNode.appendChild(e.target.parentNode);
+        }
+        setDisp(!disp);
+        
+
+    };
+
+    // console.log(sig)
+    /* --------------- RENDER -------------------------*/
     // if data is loaded show
     if (red){
         return (
-            <>
-                <circle className={sig.isSigned+'Node'}></circle>
+            <>  
+            <g>
+                <circle className={sig.isSigned+'Node'} onClick={changeDisp}></circle>
+                
                     {/*
                     NEED TO FIGURE OUT WHERE TO PUT THIS AND HOW TO IMPLEMENT WITH HOVER OF CIRCLE
                     <div className='sig-circle'>
@@ -51,6 +66,9 @@ function SigNode(props) {
                             }
                     </div>
                 </div>*/}
+            </g>
+            {disp && 
+                <SigSide data={sig} x={x} y={y}/>}
             </>
         )
     }

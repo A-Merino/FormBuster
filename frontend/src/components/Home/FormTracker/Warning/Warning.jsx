@@ -30,7 +30,6 @@ function Warning(props) {
                     body: JSON.stringify({id:sigID})
                 });
                 const data = await response.json(); // jsonify
-                console.log(data);
                 if (data.sig.isSigned === 'unsigned') {
                     setSign(true);
                 }                
@@ -41,7 +40,6 @@ function Warning(props) {
         getSignStatus()
     }, []);
 
-    console.log(days, signed)
 
     /* RENDER ------------------------------ */
     if (days > 2 && signed) {

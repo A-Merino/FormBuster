@@ -1,3 +1,7 @@
-.form-side-bar {
-    width: 19%;
+.pop-text {
+
+}
+
+.pop-back {
+    fill: var(--gray);
 }
