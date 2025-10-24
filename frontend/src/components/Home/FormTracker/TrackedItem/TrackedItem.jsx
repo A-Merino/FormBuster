@@ -4,34 +4,42 @@ import {Link} from 'react-router'
 import ShowSig from './ShowSig/ShowSig.jsx'
 import Warning from './../Warning/Warning.jsx'
 import User from "./../../../User/User.jsx"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faEllipsis,faExclamation } from '@fortawesome/free-solid-svg-icons'
+
 
 function TrackedItem(props) {
     // Get the user context
     const {user, loggedIn} = useContext(User);
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
-
     // save props as a constant
-    const formid = props.data;
+    const formID = props.data;
 
 
     // state variables
     const [ready, setReady] = useState(false);
     const [formName, setFormName] = useState("");
     const [form, setForm] = useState({});
+    const [disp, setDisp] = useState(false);
+    const [signed, setSign] = useState(false);
+
+    const sigID = formID + "_" + account.id;
+   
 
     useEffect(() => {
         // collects the active form data from api 
-        const fetchForm = async (formid) => {
+        const fetchForm = async () => {
             try {
                 // get the data of the form
                 const response = await fetch(`http://localhost:3000/api/getActive`, {
                     method :"POST",
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id:formid})
+                    body: JSON.stringify({id:formID})
                 });
                 const data = await response.json(); // jsonify
                 setForm(data.form); // set as state variable
+                
                 // setDate(new Date() - new Date(form.creationDate))
                 setReady(true); // ready to display
             } catch (error) {
@@ -39,11 +47,28 @@ function TrackedItem(props) {
                 console.error(error);
             }
         }
+        const getSignStatus = async () => {
+            try {
+                // get the user's signature status of current form
+                const response = await fetch(`http://localhost:3000/api/getSig`, {
+                    method :"POST",
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({id:sigID})
+                });
+                const data = await response.json(); // jsonify
+                if (data.sig.isSigned === 'unsigned') {
+                    setSign(true);
+                }                
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        fetchForm();
+        getSignStatus();
         
-        fetchForm(formid);
         
     },[])
-    
     // Gets the Form name from the database, using the form ID
     const getFormName = async () => {
         try {
@@ -54,7 +79,11 @@ function TrackedItem(props) {
                 body: JSON.stringify({formid: form.formType})
             });
             const data = await response.json();
-            setFormName(data.name) // set name to state variable
+            if (data.name[0] === 'P') {
+                let sides = data.name.split(" To Take ");
+                data.name = sides[0].split(" ")[1] + " -> " + sides[1];
+            }
+            setFormName(data.name); // set name to state variable
         } catch (e) {
             console.log(e)
         }
@@ -65,7 +94,7 @@ function TrackedItem(props) {
             const resp = await fetch(`http://localhost:3000/api/deleteForm`, {
                         method :"POST",
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({id:formid})
+                        body: JSON.stringify({id:formID})
                     })
             const data = await resp.json();
             console.log(data.msg)
@@ -76,12 +105,23 @@ function TrackedItem(props) {
 
     let delButton
     if (account.role === 'admin') {
-        delButton = <button onClick={deleteForm} className="deleter">Delete Form</button>
+        delButton = <li onClick={deleteForm}><a>Delete Form</a></li>
     }
 
+    let signButton
+    if (signed) {
+        signButton = <li>
+            <Link to={`/sign/${formID}`}>Sign Here</Link></li>
+    }
 
+    let warning
+    warning = <FontAwesomeIcon className='warn' icon={faExclamation}/>
 
-    /* RENDER ------------------------------ */
+    const showNav = (e) => {
+        setDisp(!disp)
+    }
+
+    /* RENDER -------------------------------------------------------------------------------- */
     if (ready) {
         getFormName() // if api call is done, get the form name
     return (
@@ -106,10 +146,27 @@ function TrackedItem(props) {
                     Maybe we use some type of time comparison function
                     as well as if you are a user who hasn't signed*/}
 
-                <Warning formID={formid} data={new Date() - new Date(form.creationDate)}/>
-                {delButton}
 
-                <Link to={`/form/${formid}`}>More Details</Link>
+                {/*<Warning formID={formID} data={new Date() - new Date(form.creationDate)}/>*/}
+                {warning}
+                <div className='ellip'>
+                <FontAwesomeIcon onClick={showNav} icon={faEllipsis}/>
+            {disp && <div className="end-bar">
+                <ul>
+                    <li>
+                        <Link to={`/form/${formID}`}>More Details</Link>
+                        
+                    </li>
+                    {signButton}
+                    
+                    {delButton}
+
+                </ul>
+
+            </div>
+            }
+                </div>
+
             </div>
         </>
     )

@@ -1,12 +1,8 @@
-.warn {
 
-    font-size: 2em;
-    color: red;
-
-}
 
 .warn-box {
     display: flex;
     flex-direction: column;
+    align-items: center;
     align-content: center;
 }

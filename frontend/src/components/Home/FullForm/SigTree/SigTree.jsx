@@ -12,8 +12,9 @@ function SigTree(props) {
 
     // init vars for nodes
     const nodes = [];
-    let x = 0;
-    let y = 0;
+    const windth = 0.8 * window.innerWidth;
+    let x = windth/2;
+    let y = 30;
 
     // go through each signature and create a node
     sigs.map(sig => {
@@ -32,18 +33,18 @@ function SigTree(props) {
     if (nodes.length === 4) {
         for (let i = 1; i < nodes.length; i++) {
             if (i === 1) {
-                nodes[i].x = -100
+                nodes[i].x = nodes[i].x-100
                 links.push({source: nodes[i-1], target: nodes[i]})
                 // nodes[i].x = -100
                 // links.push({source: nodes[i], target: nodes[i+1]})
 
             } else if (i===2) {
-                nodes[i].x = 100
+                nodes[i].x = nodes[i].x + 100
                 nodes[i].y -= 100
                 links.push({source: nodes[0], target: nodes[i]})
 
             } else if (i===3) {
-                nodes[i].x = 100
+                nodes[i].x = nodes[i].x + 100
                 nodes[i].y -= 100
                 links.push({source: nodes[i-1], target: nodes[i]})
 
@@ -72,17 +73,18 @@ function SigTree(props) {
     }
     console.log(links.length)
 
-    /* RENDER-------------------------------------*/
+      
 
+    /* RENDER-------------------------------------*/
     return (
         <>
-        <svg className="graph">
+        <svg width={windth} className="graph">
             <g>
-                {nodes.map(node => {
-                    return goNode(node)
-                })}
                 {links.map(link => {
                     return goLink(link)
+                })}
+                {nodes.map(node => {
+                    return goNode(node)
                 })}
             </g>
         </svg>

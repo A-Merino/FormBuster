@@ -1,15 +1,19 @@
 .signedNode {
     fill: green;
+    background: green;
 }
 
 .unsignedNode {
     fill: lightgrey;
+    background: lightgrey;
 }
 
 .rejectedNode {
     fill: red;
+    background: red;
 }
 
 .naNode {
     fill: darkgrey;
+    background: darkgrey;
 }

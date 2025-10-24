@@ -9,7 +9,7 @@ function ShowSig(props) {
     const [sig, setSig] = useState();
 
     // save props
-    const uid = props.data
+    const uid = props.data;
 
 
     useEffect(() => {
@@ -44,7 +44,7 @@ function ShowSig(props) {
             <>
             <div className='sig-circle'>
                 <span className={sig.isSigned+'Check'}></span>
-                    <div className='sig-box'>
+                    <div className={`sig-box ${sig.isSigned}Node`}>
                         <p>User: {user.firstName + " " + user.lastName}</p>
                         <p>Status: {sig.isSigned}</p>
                         {// check if there is a signature date, if so then show it

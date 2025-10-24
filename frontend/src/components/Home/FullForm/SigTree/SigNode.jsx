@@ -9,6 +9,7 @@ function SigNode(props) {
     const [red, setRed] = useState(false);
     const [sig, setSig] = useState();
     const [disp, setDisp] = useState(false);
+    // get prop data
     const uid = props.data.data;
     const x = props.data.x;
     const y = props.data.y;
@@ -36,14 +37,18 @@ function SigNode(props) {
         fetchSig(uid);
     }, []);
 
+    // when a node is clicked change display of information
     const changeDisp = (e) => {
+        console.log(e.target.parentNode.parentNode)
         if (!disp) {
             e.target.parentNode.parentNode.appendChild(e.target.parentNode);
         }
         setDisp(!disp);
-        
-
+    
     };
+
+    const windth = 0.8 * window.innerWidth;
+
 
     // console.log(sig)
     /* --------------- RENDER -------------------------*/
@@ -51,24 +56,12 @@ function SigNode(props) {
     if (red){
         return (
             <>  
-            <g>
-                <circle className={sig.isSigned+'Node'} onClick={changeDisp}></circle>
-                
-                    {/*
-                    NEED TO FIGURE OUT WHERE TO PUT THIS AND HOW TO IMPLEMENT WITH HOVER OF CIRCLE
-                    <div className='sig-circle'>
-                    <span className={sig.isSigned+'Check'}></span>
-                        <div className='sig-box'>
-                            <p>User: {ui.firstName + " " + ui.lastName}</p>
-                            <p>Status: {sig.isSigned}</p>
-                            {/*I Find this so disturbing for some reason still
-                                sig.signatureDate && <p>Date: {new Date(sig.signatureDate).toLocaleString()}</p>
-                            }
-                    </div>
-                </div>*/}
+            <g onClick={changeDisp}>
+                <circle cx={x} cy={y} className={sig.isSigned+'Node'} ></circle>
+                <text x={x + 35} y={y}>{ui.role}</text>
             </g>
             {disp && 
-                <SigSide data={sig} x={x} y={y}/>}
+                <SigSide data={sig} us={ui} x={x} y={y}/>}
             </>
         )
     }

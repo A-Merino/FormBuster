@@ -11,7 +11,7 @@ const User = new mongoose.Schema({
     password: {type:String, required:true},
     role: {type:String, required:false},
     major: {type:String, required:false},
-    advisor: {type:String, required:false},
+    advisor: {type:Number, required:false},
     forms : {type:[String]}
     });
 

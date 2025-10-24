@@ -15,7 +15,6 @@ function Inbox() {
     const { user, loggedIn } = useContext(User);
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
-
     useEffect(() => {
         if (account?.id) {
             fetchInbox(account.id);

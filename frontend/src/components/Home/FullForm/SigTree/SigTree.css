@@ -1,6 +1,6 @@
 .graph {
     height: 100%;
-    width: 80%;
+    /*width: 80%;*/
     /*overflow-x: hidden;*/
     margin: auto;
     border: 3px solid gray;
@@ -12,9 +12,18 @@
 */}
 
 circle {
-    r: 2em;
+    r: 30;
 }
 
 .visx-group {
     /*width: 100%;*/
+}
+
+rect {
+    border: 2px solid black;
+}
+
+.g-email {
+    color: -webkit-link;
+    text-decoration: underline;
 }

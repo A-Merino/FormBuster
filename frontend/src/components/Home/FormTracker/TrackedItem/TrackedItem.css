@@ -29,6 +29,50 @@
 }
 
 
+.ellip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 25%;
+}
+
+.ellip svg {
+    font-size: 3em;
+    padding-right: 0.5em;
+}
+
+.ellip svg:hover {
+    cursor: pointer;
+}
+
+.end-bar {
+    position: relative;
+    background: var(--gray);
+    border: 2px solid black;
+    border-radius: 0.5em;
+
+}
+
+.end-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.end-bar ul li {
+    margin: 0;
+    padding: 1em;
+    border-bottom: 1px solid black;
+}
+
+.end-bar ul li:hover {
+    cursor: pointer;
+}
+
+.end-bar ul li a {
+
+    text-decoration: none;
+}
 
 .trackerHeader {
     font-size: 2.5rem;
@@ -43,8 +87,8 @@
 .form-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    align-items: left;
+    width: 25%;
 }
 
 .trackedForm {
@@ -54,6 +98,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
     justify-content: space-between;
 
     margin-bottom: 0.3rem;
@@ -63,10 +108,18 @@
 
 .trackedForm a{
     color: var(--blue);
-    margin-right: 1em;
-}
+/*    padding-right: 1%;
+    width: 24%;
+    display: flex;
+    justify-content: flex-end;
+*/}
 
 .signatures {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
     height: 100%;
 
 
@@ -77,5 +130,9 @@
     position: relative;
 }
 
+.warn {
 
+    font-size: 3em;
+    color: red;
 
+}

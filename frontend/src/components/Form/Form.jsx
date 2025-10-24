@@ -90,7 +90,10 @@ function Form() {
                     break;
                 case 'date':
                     input.value = getDate();
-                    break;    
+                    break;
+                case 'email':
+                    input.value = account.email;
+                    break;
                 default:
                     break;
             };        });

@@ -5,7 +5,7 @@ function SigLink(props) {
     // grab props data
     const source = props.source;
     const dest = props.dest;
-    console.log(source)
+    // console.log(source)
 
     // create state variables
     const [ready, setReady] = useState(false);
