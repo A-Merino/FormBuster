@@ -26,17 +26,8 @@
 }
 
 #form-container li {
-    margin-left: 0rem;
     padding: 0.25rem;
     width: 90%;
-}
-
-#form-container h2 {
-    margin-top: 0rem;
-}
-
-#form-container p {
-    padding: 0rem;
 }
 
 #form-container input {
@@ -50,18 +41,34 @@
 }
 
 #form-container button {
-    padding: 0rem;
-    margin: 0rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     max-width: 2rem;
+}
+
+#form {
+    margin: 0 2.5rem 0 2.5rem;
+}
+
+#submit {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit-button {
+    margin-bottom: 1rem;
+    margin-right: 11rem;
+    align-self: flex-end;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 20rem;
+    height: 4rem;
 }
 
 .input-field-titled {
     display: flex;
     flex-direction: row;
 }
-
 .parent-text {
     font-weight: 500;
 }

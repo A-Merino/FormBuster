@@ -99,7 +99,7 @@ function FormBuilder() {
                         </option>
                     ))}
                 </select>
-                <label>Create new form:
+                <label>Create a new form:
                     <input
                         name="name"
                         type="text"

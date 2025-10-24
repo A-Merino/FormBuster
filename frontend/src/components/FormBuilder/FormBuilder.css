@@ -6,9 +6,9 @@
 
     position: relative;
     
-    width: 80%;
+    width: 90%;
     height: 100%;
-    margin: 7vh auto 2vh auto;
+    margin: 1vh auto 2vh auto;
     
     box-sizing: border-box;
 }
@@ -17,7 +17,25 @@
     display: flex;
     flex-direction: column;
     flex: auto;
-    margin: 5vh auto 2vh auto;
+    margin: 0 auto 10vh auto;
+}
+
+#form-selector select {
+    align-self: flex-start;
+}
+
+#form-selector label {
+    margin-top: 8vh;
+}
+
+#form-selector input {
+    margin-left: 0.2vw;
+}
+
+#form-selector button {
+    margin-top: 2vh;
+    width: 40%;
+    align-self: center;
 }
 
 #form-editor {

@@ -111,10 +111,12 @@ function Form() {
             <TopBar/>
             <Menu/>
             <div id="form-submission-container">
-                <form ref={formRef} id="currentForm">
+                <form ref={formRef} id="form-container">
                     <div id="form" dangerouslySetInnerHTML={{ __html: form.data }}/>
                 </form>
-                <button onClick={handleSubmit}>Submit</button>
+                <div id="submit">
+                    <button id="submit-button" onClick={handleSubmit}>Submit</button>
+                </div>
                 <div id="bottom-padding"></div>
             </div>
         {autoFill()}

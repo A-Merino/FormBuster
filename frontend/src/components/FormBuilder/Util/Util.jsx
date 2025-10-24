@@ -13,12 +13,12 @@ export function convertToDB (data) {
         const type = element.getAttribute('data-type');
         const placeholder = element.getAttribute('data-placeholder');
 
-        const input = document.createElement('input');
+        const input = doc.createElement('input');
         // save it as an html input tag 
         input.setAttribute('name', name);
         input.setAttribute('type', type || 'text');
         input.setAttribute('placeholder', placeholder || '');
-        input.setAttribute('id', 'custom-input');
+        input.setAttribute('class', 'custom-input');
 
         element.parentNode.replaceChild(input, element);
     })
@@ -48,7 +48,7 @@ export function convertToEditor (data) {
         p.setAttribute('data-placeholder', placeholder);
         p.setAttribute('class', 'custom-input');
 
-        p.textContent = '<${name} Input Placeholder>';
+        p.textContent = `<${name} Input Placeholder>`;
         
         element.parentNode.replaceChild(p, element);
     })
