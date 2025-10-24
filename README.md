@@ -20,8 +20,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Standardize inputs for autofill of user information
     - Standardize form format
     - Remove submit buttons from inside of forms (the ones that dont work)
-1. **Inbox/InboxInteractionbar.jsx**
-    - Make the *refresh* and *mark all* buttons do something
 1. **FormBuilder/Editor.jsx**
     - Luka, document your code and explain what is going on
 1. **Account/Information.jsx**
@@ -55,4 +53,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
         - doesnt show up if already signed
 1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
+1. **Inbox/InboxInteractionbar.jsx**
+    - Make the *refresh* and *mark all* buttons do something
 
