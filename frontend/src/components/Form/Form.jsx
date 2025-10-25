@@ -45,9 +45,9 @@ function Form() {
         e.preventDefault();
 
         // create variables from web document
-        const formElement = document.querySelector('#currentForm');
-        const formData = new FormData(formElement);
-        const data = Object.fromEntries(formData.entries());
+        const formElement = document.querySelector('#form-container');
+        const formDatar = new FormData(formElement);
+        const data = Object.fromEntries(formDatar.entries());
         const parsedData = {
             formData: data,
             formType: form.id,
@@ -74,10 +74,10 @@ function Form() {
             // const tag  = input.querySelector('input');
             switch (input.name) {
                 case 'lname':
-                    input.value = account.firstName;
+                    input.value = account.lastName;
                     break;
                 case 'fname':
-                    input.value = account.lastName;
+                    input.value = account.firstName;
                     break;
                 case 'sid':
                     input.value = account.id;

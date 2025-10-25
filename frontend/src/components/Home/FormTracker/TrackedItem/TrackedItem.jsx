@@ -109,13 +109,26 @@ function TrackedItem(props) {
     }
 
     let signButton
+    let warning
+    const time = new Date() - new Date(form.creationDate);
+    const days = parseInt(time / (1000 * 60 * 60 * 24))
     if (signed) {
         signButton = <li>
             <Link to={`/sign/${formID}`}>Sign Here</Link></li>
+        if (days > 2) {
+            warning = <div className="warn-box">
+                        <FontAwesomeIcon className='warn' icon={faExclamation}/>
+                            <p>Please sign this form! Days since signature required: {days}</p>
+                        </div>
+
+        } else {
+            warning = <div className="warn-box"></div>
+        }
+    } else {
+        warning = <div className="warn-box"></div>
+
     }
 
-    let warning
-    warning = <FontAwesomeIcon className='warn' icon={faExclamation}/>
 
     const showNav = (e) => {
         setDisp(!disp)
@@ -130,7 +143,7 @@ function TrackedItem(props) {
 
                 <div className="form-info">
                     <h3 className='trackerHeader'>{formName}</h3>
-                    <p>Date Created: {new Date(form.creationDate).toLocaleString()}</p>
+                    <p className='show-date'><strong>Date Created:</strong> {new Date(form.creationDate).toLocaleString()}</p>
                 </div>
 
                 <div className="signatures">

@@ -57,6 +57,8 @@ function SigBox(props) {
                         // get the response to see if all is well
                         const data = await resp.json();
                         setMsg(data.msg);
+                        lastStep();
+
                     } catch (err) {
                         console.log(err);
                     }
@@ -74,18 +76,23 @@ function SigBox(props) {
                         // get the response to see if all is well
                         const data = await resp.json();
                         setMsg(data.msg);
+                        lastStep();
+                        console.log(data.msg);
                     } catch (err) {
                         console.log(err);
                     }
                 }
                 decSig(); // driver for above function
             }
-            // if a success go to /home
-            if (msg[0] === "S") {
-                nav('/home');
-            } else { // reload page and pop alert that something went wrong
-                alert(msg);
-                nav(useLocation().pathname);
+            const lastStep = () => {
+
+                // if a success go to /home
+                if (msg[0] === "S") {
+                    nav('/home');
+                } else { // reload page and pop alert that something went wrong
+                    alert(msg);
+                    nav(useLocation().pathname);
+                }
             }
         }
     }

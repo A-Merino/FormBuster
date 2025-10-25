@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 25%;
+    width: 10%;
 }
 
 .ellip svg {
@@ -46,6 +46,7 @@
 }
 
 .end-bar {
+
     position: relative;
     background: var(--gray);
     border: 2px solid black;
@@ -98,8 +99,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
 
-    justify-content: space-between;
 
     margin-bottom: 0.3rem;
     padding: 0.4rem 0rem;
@@ -119,7 +120,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 25%;
+    width: 40%;
     height: 100%;
 
 
@@ -132,7 +133,20 @@
 
 .warn {
 
-    font-size: 3em;
+    font-size: 3rem;
     color: red;
 
+}
+
+
+.warn-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 25%;
+}
+
+.show-date, .warn-box p {
+    padding-left: 1em;
 }
