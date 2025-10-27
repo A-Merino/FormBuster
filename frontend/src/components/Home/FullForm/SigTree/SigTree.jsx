@@ -71,9 +71,7 @@ function SigTree(props) {
     const goLink = (link) => {
         return <SigLink source={link.source} dest={link.target}/>
     }
-    console.log(links.length)
-
-      
+  
 
     /* RENDER-------------------------------------*/
     return (

@@ -4,6 +4,8 @@ import {useLocation, useNavigate, Link} from "react-router-dom";
 import User from './../User/User.jsx';
 import './SignForm.css';
 import SigBox from './SigBox.jsx';
+import TopBar from "../TopBar/TopBar.jsx";
+import Menu from "../Menu/Menu.jsx";
 
 function SignForm() {
 
@@ -74,7 +76,7 @@ function SignForm() {
 
     const inputAnswers = () => {
         let inputs = document.querySelectorAll('#form-container input');
-        inputs = [...inputs]
+        inputs = [...inputs];
         inputs.map(input => {
 
             const inType = input.name;
@@ -118,6 +120,9 @@ function SignForm() {
         inputAnswers()
         return (
             <>
+            <TopBar/>
+            <Menu/>
+            <div id='sign-page'>
             <div ref={formRef} id="form-container" dangerouslySetInnerHTML={{__html: temp}}></div>
             <div className="choicePicks">
                 <button id='sign-button' name="sign" onClick={displaySig}>Sign</button>
@@ -127,6 +132,7 @@ function SignForm() {
             <SigBox disp={sigDisp} fid={FID} ac={account.id}/>
 
         }
+        </div>
             </>
         )
     }

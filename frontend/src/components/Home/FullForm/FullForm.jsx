@@ -21,11 +21,11 @@ function FullForm() {
 
     const [form, setForm] = useState({});
     const [good, setGood] = useState(false);
-    const [g, setG] = useState({});
+    const [sig, setSig] = useState({});
     const [fn, setFN] = useState("");
     // Form id from url
     const FID = useLocation().pathname.split('/').at(-1);
-
+    const SID = FID + '_' + account.id;
 
     useEffect( () => {
         // console.log(account.id)
@@ -35,6 +35,22 @@ function FullForm() {
         // if (!account.forms.includes(FID)) {
         //     nav('/home')
         // }
+         const fetchSig = async (uid) => {
+                // post call
+                await fetch(`http://localhost:3000/api/getSig`, {
+                    method: "POST",
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({id: uid})
+                })
+                .then(data => data.json())
+                .then(res => {
+                    setSig(res.sig)
+                    setGood(true);
+                })
+                .catch(e => console.log(e));
+        }
+        
+        // get both signatures seperately  
 
 
         // calls api and sets response to form var
@@ -47,7 +63,7 @@ function FullForm() {
                         })
                 const data = await resp.json();
                 setForm(data.form);
-                setGood(true);
+                fetchSig(SID);
             } catch (err) {
                 console.log(err);
             }
@@ -75,6 +91,12 @@ function FullForm() {
     }
 
     if(good){
+        let signLink;
+        console.log(sig)
+        if (sig.isSigned === 'unsigned') {
+            signLink = <Link to={`/sign/${FID}`}>Sign Here</Link>
+        }
+
         // get the form name
         getFormName()
         return (
@@ -83,11 +105,16 @@ function FullForm() {
             <Menu/>
             <div className='full-form'>
             <h1>{fn}</h1>
-            <h3>Form ID: {FID}</h3>
-            <h3>Date created: {new Date(form.creationDate).toLocaleString()}</h3>
-            
-            <Link to={`/sign/${FID}`}>Sign Here</Link>
-            <Link to={`/form/${FID}/display`}>View Form here</Link>
+            <div id='full-info'>
+                <div>
+                    <h3>Form ID: {FID}</h3>
+                    <h3>Date created: {new Date(form.creationDate).toLocaleString()}</h3>
+                </div>
+                <div id='full-links'>
+                    <Link to={`/display/${FID}`}>View Form here</Link>
+                    {signLink}
+                </div>
+            </div>
                 <div className='canvas-n-hover'>
                     <SigTree data={form.signatures}/>
                 </div>

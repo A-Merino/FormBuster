@@ -2,7 +2,6 @@ import { useState, useContext, useEffect } from 'react'
 import './TrackedItem.css'
 import {Link} from 'react-router'
 import ShowSig from './ShowSig/ShowSig.jsx'
-import Warning from './../Warning/Warning.jsx'
 import User from "./../../../User/User.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEllipsis,faExclamation } from '@fortawesome/free-solid-svg-icons'
@@ -118,7 +117,7 @@ function TrackedItem(props) {
         if (days > 2) {
             warning = <div className="warn-box">
                         <FontAwesomeIcon className='warn' icon={faExclamation}/>
-                            <p>Please sign this form! Days since signature required: {days}</p>
+                            <p><strong>Please sign this form! Days since signature required: {days}</strong></p>
                         </div>
 
         } else {
@@ -160,7 +159,6 @@ function TrackedItem(props) {
                     as well as if you are a user who hasn't signed*/}
 
 
-                {/*<Warning formID={formID} data={new Date() - new Date(form.creationDate)}/>*/}
                 {warning}
                 <div className='ellip'>
                 <FontAwesomeIcon onClick={showNav} icon={faEllipsis}/>

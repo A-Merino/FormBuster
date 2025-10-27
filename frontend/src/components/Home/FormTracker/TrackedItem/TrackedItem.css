@@ -148,5 +148,10 @@
 }
 
 .show-date, .warn-box p {
-    padding-left: 1em;
+    padding-left: 0.9em;
+}
+
+.warn-box p {
+    font-size: 1.3em;
+    text-align: center;
 }

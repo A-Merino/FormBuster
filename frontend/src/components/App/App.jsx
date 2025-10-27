@@ -22,6 +22,7 @@ import Form from "./../Form/Form.jsx"
 import FormBuilder from "../FormBuilder/FormBuilder.jsx";
 import FullForm from "./../Home/FullForm/FullForm.jsx";
 import SignForm from './../SignForm/SignForm.jsx';
+import Display from './../Form/Display/Display.jsx'
 
 import User from './../User/User.jsx'
 import './App.css'  // root css
@@ -79,6 +80,7 @@ function App() {
             <Route path="/*" element={<LandingPage/>} />
             <Route path="/form/*" element={<FullForm/>}/>
             <Route path="/sign/*" element={<SignForm/>}/>
+            <Route path="/display/*" element={<Display/>}/>
         </Routes>
     </User.Provider>
     </BrowserRouter>

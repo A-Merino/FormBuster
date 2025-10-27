@@ -49,8 +49,6 @@ function SigNode(props) {
 
     const windth = 0.8 * window.innerWidth;
 
-
-    // console.log(sig)
     /* --------------- RENDER -------------------------*/
     // if data is loaded show
     if (red){

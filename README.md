@@ -5,11 +5,9 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 ### Frontend
 1. **Inbox/Inbox.jsx**
-    - Hook the inbox up to the new Signing system
     - Display comments when clicking on a message (outlook style)
     - Add notification popup on menu
 1. **Home/FullForm/SigSide.jsx**
-    - Figure out how to implement the information to show in this component when the graph is hovered
     - Add the rest of the classes for *SigLink* component
 1. **Home/FullForm/SigTree.jsx**
     - Find a way to mathematically center the graph in the svg
@@ -25,19 +23,38 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 1. **Account/Information.jsx**
     - Decrypt the password on Show Password
 1. **SignForm/SignForm.jsx**
-    - make disabled inputs look better (checkbox in specific)
     - check if Signature matches first and last name
 1. **Auth/Register.jsx**
     - possibly better way to store input data in *handleChange()*
+
+### GUI/CSS
+1. **SignForm/SignForm.css**
+    - Group some inputs together to make the form shorter
+    - automatically scroll down when sign/decline is clicked
+    - make disabled inputs look better (checkbox in specific)
 1. **LandingPage/LandingPage.jsx**
     - Describe our product better
         - More Features
         - More words for each feature
     - make it prettier
+1. **Home/FormTracker/TrackedItem/ShowSig/Showsig.css**
+    - change hover box to relative (i think)
+        - different postion style because broken on scroll
+    - bold Warning text
+1. **TopBar/TopBar.css**
+    - fix display/position to sticky (maybe)
+        - topbar disappears after scrolling down too far
 
 
 ### Backend
-1. **Add 
+1. **Add paused forms as a schema**
+    - maybe not even new schema
+    - add boolean to form objects
+    - if false then paused
+    - or enumerate (probably recommended)
+        - active
+        - finished
+        - paused
 1. **controllers/currentFormFunctions.js *defaultSignature()***
     - Create logic to determine which faculty/admin have to sign a particular form
     - also mean that the forms templates themselves would have to carry that data possibly
@@ -55,4 +72,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Make it so only the necessary messages show up
 1. **Inbox/InboxInteractionbar.jsx**
     - Make the *refresh* and *mark all* buttons do something
-
+1. **Home/FullForm/SigSide.jsx**
+    - Figure out how to implement the information to show in this component when the graph is hovered
+1. **SignForm/SignForm.css**
+    - fix half of the form off screen
