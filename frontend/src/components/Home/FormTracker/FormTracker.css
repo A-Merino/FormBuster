@@ -14,8 +14,13 @@
 #tracker h2 {
     text-align: center;
     font-size: 3rem;
-    margin: 0.3rem;
+    margin-top: 2rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+    text-decoration: underline var(--gold);
 }
+
+
 
 @media (max-width: 768px) {
     #tracker {

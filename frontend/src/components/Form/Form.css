@@ -56,12 +56,12 @@
 #submit {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #submit-button {
     margin-bottom: 1rem;
     margin-right: 11rem;
-    align-self: flex-end;
     font-size: 2rem;
     font-weight: bold;
     width: 20rem;

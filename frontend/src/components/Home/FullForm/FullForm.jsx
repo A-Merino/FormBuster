@@ -87,6 +87,7 @@ function FullForm() {
             <h3>Date created: {new Date(form.creationDate).toLocaleString()}</h3>
             
             <Link to={`/sign/${FID}`}>Sign Here</Link>
+            <Link to={`/form/${FID}/display`}>View Form here</Link>
                 <div className='canvas-n-hover'>
                     <SigTree data={form.signatures}/>
                 </div>

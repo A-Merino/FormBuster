@@ -118,7 +118,7 @@ function SignForm() {
         inputAnswers()
         return (
             <>
-            <div ref={formRef} className="filled-form" dangerouslySetInnerHTML={{__html: temp}}></div>
+            <div ref={formRef} id="form-container" dangerouslySetInnerHTML={{__html: temp}}></div>
             <div className="choicePicks">
                 <button id='sign-button' name="sign" onClick={displaySig}>Sign</button>
                 <button id='decline-button' name="decline" onClick={displaySig}>Decline</button>

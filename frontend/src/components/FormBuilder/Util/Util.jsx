@@ -4,7 +4,7 @@ export function convertToDB (data) {
     const doc = parser.parseFromString(data, "text/html");
 
     // get all custom inputs
-    const customInputs = doc.querySelectorAll("p.custom-input");
+    const customInputs = doc.querySelectorAll("p.custom");
 
     // go through each input
     customInputs.forEach((element) => {
@@ -18,7 +18,7 @@ export function convertToDB (data) {
         input.setAttribute('name', name);
         input.setAttribute('type', type || 'text');
         input.setAttribute('placeholder', placeholder || '');
-        input.setAttribute('class', 'custom-input');
+        input.setAttribute('class', 'custom');
 
         element.parentNode.replaceChild(input, element);
     })
@@ -33,7 +33,7 @@ export function convertToEditor (data) {
     const doc = parser.parseFromString(data, "text/html");
 
     // grab inputs from doc
-    const inputs = doc.querySelectorAll("input.custom-input");
+    const inputs = doc.querySelectorAll("input.custom");
 
     // go through each input and get name, type, placeholder
     inputs.forEach((element) => {
@@ -46,7 +46,7 @@ export function convertToEditor (data) {
         p.setAttribute('data-name', name);
         p.setAttribute('data-type', type);
         p.setAttribute('data-placeholder', placeholder);
-        p.setAttribute('class', 'custom-input');
+        p.setAttribute('class', 'custom');
 
         p.textContent = `<${name} Input Placeholder>`;
         
