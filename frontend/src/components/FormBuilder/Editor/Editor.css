@@ -4,6 +4,15 @@
     flex-direction: column;
 }
 
+#editor button {
+    margin: 1.3vh;
+    position: relative;
+    width: 8vw;
+    font-size: 1.4rem;
+    font-weight: bold;
+    align-self: center;
+}
+
 #insert-menu {
     top: inherit;
     position: fixed;

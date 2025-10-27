@@ -14,9 +14,12 @@
     flex-direction: column;
 }
 
-#form-container {
-    margin: 5rem auto 2rem auto;
+#margin-container {
     width: 80%;
+    margin: 5vh auto 2vh auto;
+}
+
+#form-container {
     display: flex;
     flex-direction: column;
     background-color: lightgray;

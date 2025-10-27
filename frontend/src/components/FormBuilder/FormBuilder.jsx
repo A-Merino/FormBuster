@@ -113,13 +113,11 @@ function FormBuilder() {
                 <div id="form-editor">
                     <Editor
                         initialValue={form.data}
+                        submitButton={handleSubmit}
                         ref={editorRef}
                         id="form-editor"
                         key={form.name}
                     />
-                    <button onClick={handleSubmit}>
-                        Save Form
-                    </button>
                 </div>
             )}
         </div>

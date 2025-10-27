@@ -27,7 +27,7 @@ Quill.register(customPlaceholder, true);
 
 // Disable warnings from the linter, this is only a problem if you have ESLint set up
 // eslint-disable-next-line react/display-name,react/prop-types
-const Editor = forwardRef(({initialValue}, ref) => {
+const Editor = forwardRef(({initialValue, submitButton}, ref) => {
 
 
     const [showInsertMenu, setShowInsertMenu] = useState(false);
@@ -101,7 +101,7 @@ const Editor = forwardRef(({initialValue}, ref) => {
 
         const inputHTML = `<p class='custom-input' data-name="${insertData.name.replace(/\s+/g, '')}"` +
             ` data-type="${insertData.type}" data-placeholder="${insertData.placeholder}">` +
-            `&{insertData.name} Input Placeholder</p>`;
+            `&lt;${insertData.name} Input Placeholder&gt;</p>`;
 
         const quill = quillRef.current.getEditor();
         // Replace the selected text if there was any, otherwise append
@@ -150,14 +150,17 @@ const Editor = forwardRef(({initialValue}, ref) => {
             />
             { !showPreview && (
                 <div id="editor">
-                <ReactQuill
-                    ref={quillRef}
-                    theme="snow"
-                    value={value}
-                    onChange={setValue}
-                    modules={modules}
-                    formats={formats}
-                />
+                    <ReactQuill
+                        ref={quillRef}
+                        theme="snow"
+                        value={value}
+                        onChange={setValue}
+                        modules={modules}
+                        formats={formats}
+                    />
+                    <button onClick={submitButton}>
+                        Save Form
+                    </button>
                 </div>
             )}
 
