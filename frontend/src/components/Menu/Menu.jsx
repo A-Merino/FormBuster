@@ -53,7 +53,7 @@ function Menu() {
                             <FontAwesomeIcon icon={faGear}/>
                             </Link>
                         </li>
-                        {account.role === 'admin' ||
+                        {account.role === 'admin' &&
 
                         <li>
                             <Link to="/form-builder">
