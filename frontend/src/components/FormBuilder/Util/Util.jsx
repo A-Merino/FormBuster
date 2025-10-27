@@ -4,7 +4,7 @@ export function convertToDB (data) {
     const doc = parser.parseFromString(data, "text/html");
 
     // get all custom inputs
-    const customInputs = doc.querySelectorAll("p.custom");
+    const customInputs = doc.querySelectorAll("p.custom-input");
 
     // go through each input
     customInputs.forEach((element) => {
@@ -46,7 +46,7 @@ export function convertToEditor (data) {
         p.setAttribute('data-name', name);
         p.setAttribute('data-type', type);
         p.setAttribute('data-placeholder', placeholder);
-        p.setAttribute('class', 'custom');
+        p.setAttribute('class', 'custom-input');
 
         p.textContent = `<${name} Input Placeholder>`;
         
