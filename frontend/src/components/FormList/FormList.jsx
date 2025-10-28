@@ -41,15 +41,16 @@ function FormList(props) {
         <>
             <TopBar/>
             <Menu/>
+            <div id='form-back'>
+            </div>
             <div id="form-list">
                 <h2>Start a New Form</h2>
-                <ul>
+
                     {
                         // go through each form and create a link
                         formsAndLinks.map(f => {
-                        return <li key={f[1]}><Link to={f[1]}>{f[0]}</Link></li>
+                        return <Link to={f[1]}>{f[0]}</Link>
                     })}
-                </ul>
             </div>
 
         </>

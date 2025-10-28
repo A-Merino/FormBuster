@@ -78,6 +78,8 @@ function Register() {
     if (disp === 'student') {
         return (
         <>
+        <div id='auth-full'>
+        </div>
         <div id="reg-box">
             <h2>Student Registration</h2>
             <form onSubmit={handleSubmit}>
@@ -126,6 +128,8 @@ function Register() {
     } else if (disp === 'staff' || disp === 'admin') {
         return (
         <>
+        <div id='auth-full'>
+        </div>
         <div id="reg-box">
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
@@ -165,7 +169,9 @@ function Register() {
     } else {
         
         return (
-        <>
+        <>  
+            <div id='auth-full'>
+            </div>
             <div id="reg-pick">
                 <h2>Are you a...</h2>
                 <div id="user-list">

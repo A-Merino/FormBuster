@@ -1,48 +1,48 @@
 #form-list {
     height: 100%;
     width: 40%;
-    
-    margin: 2vh auto;
+    top:50%;
+    right:50%;
+    transform: translate(50%, -50%); 
+
+    z-index: 3;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    border: 3px solid black;
 
-    background: var(--gray);
+    background: white;
+    position: absolute;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#form-list::-webkit-scrollbar {
+    display: none;
 }
 
 #form-list h2 {
-    font-size: 3vw;
+    padding-top: 0.4em;
+    font-size: 3em;
+    color: var(--red);
+    text-decoration: underline var(--gold);
 }
 
-
-#form-list ul {
-    
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: flex-start;
+#form-list h2:hover {
+    cursor: default;
 }
 
-#form-list li {
-    list-style: none;
+#form-list a {
+    display: block;
     width: 70%;
-
-}
-
-#form-list li a {
     background: var(--gold);
 
     color: black;
     text-align: center;
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 1.4rem;
+    font-weight: bold;
 
     border-radius: 0.5em;
     border: 3px solid black;
@@ -51,9 +51,23 @@
 
     padding: 1.5rem;
     margin-bottom: 2rem;
+    transition: 0.3s;
 }
 
-#form-list li a:hover {
-    cursor: pointer;
+/*The background for this page*/
+#form-back{
+    height: 100%;
+    width: 100%;
+    background: url('./../../assets/images/login-background.jpg');
+    filter: blur(1rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#form-list a:hover {
+    padding: 1.5rem 1.75rem;
+    transition: 0.3s;
+    box-shadow: 3px 3px 2px 2px black;
 
 }

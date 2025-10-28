@@ -1,18 +1,20 @@
 /*Big red box*/
 #reg-box {
-    color: white;
+
     background: var(--red);
-    border-radius: 0.5rem;
-    
     margin: auto;
-    padding: 0.5rem;
-    
     width: 40%;
-    height: 50%;
-    
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+    left: 50%;
+    top: 50%; 
+    z-index: 3;
+    position: fixed;
+    transform: translate(-50%, -50%);
     
 }
 
@@ -24,14 +26,17 @@
     align-items: flex-end;
 }
 
+#reg-sub {
+}
+
 /*Input inside form inside box*/
 #reg-box input {
-    border: 2px black solid;
     border-radius: 0.3rem;
-    
-    padding: 0.2rem;
-    margin-left: 1rem;
+    padding: 0.5rem 0.3rem;
     margin-bottom: 0.5rem;
+    border: 2px black solid;
+    margin-left: 1rem;
+    font-size: 1.1rem;
 }
 
 #reg-note {
@@ -55,11 +60,11 @@
     border-radius: 0.3rem;
     border: 2px solid black;
 
+    padding: 0.5rem 0.3rem;
     display:block;
+    margin: 0 0.2rem 0.2rem;
 
-    position: relative;
-    bottom: 0;
-    left: 0;
+    align-self: flex-start;
 }
 
 
@@ -78,7 +83,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    left: 50%;
+    top: 50%; 
+    z-index: 3;
+    position: fixed;
+    transform: translate(-50%, -50%);
+
 }
+
 
 #reg-pick h2, #reg-box h2 {
     font-size: 3vw;

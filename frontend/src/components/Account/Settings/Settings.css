@@ -1,24 +1,43 @@
 #setting-list {
-    border: 2px solid gray;
-    border-radius: 10px;
-    background-color: lightgray;
-    width: 60%;
-    margin: auto;
-    padding: 1rem;
+    padding: 1rem 3rem;
+
 }
 
-.settings-container button {
-    margin-left: 2rem;
-    height: 2.5rem;
+.settings-container button,  #information-div button{
+    padding: 0.4em 1em;
+    border-radius: 0.3em;
+    padding: 0.6em 1em;
+    border: 1px solid gray;
 }
 
 .settings-container {
     display: flex;
     flex-direction: row;
-    margin-left: -1rem;
+    align-items: center;
+
     padding-bottom: 1rem;
 }
 
 .button-only button {
     margin-left: 1rem;
+}
+
+.settings-container p {
+    font-size: 1.3rem; 
+}
+
+#notif-bl {
+    margin-left: 1rem;
+    border-radius: 0.3em;
+    padding: 0.6em 1em;
+}
+
+.not-en {
+    background: #29a729;
+    border: 1px solid #20d820;
+}
+
+.not-ds {
+    border: 1px solid #9a0101;
+    background: #f23131;
 }

@@ -4,7 +4,6 @@ import {Link, useNavigate} from "react-router"
 import User from "./../../User/User.jsx"
 import './LogIn.css'
 
-
 function LogIn() {
     // create naviagtor
     const navigate = useNavigate();
@@ -48,6 +47,8 @@ function LogIn() {
     /* RENDER ------------------------------ */
     return (
     <>
+    <div id='auth-full'>
+    </div>
     <div id="login-box">
         
         <h2>Log In</h2>

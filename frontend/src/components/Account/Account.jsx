@@ -15,8 +15,10 @@ function Account() {
     <>
         <TopBar/>
         <Menu/>
-        <Outlet/>
+        <div id='ac-back'>
+        </div>
         <div id="main-div">
+        <Outlet/>
         
         </div>
     </>

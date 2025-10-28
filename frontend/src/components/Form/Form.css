@@ -53,6 +53,11 @@
     margin: 0 2.5rem 0 2.5rem;
 }
 
+#form div div {
+    display: flex;
+    flex-direction: row;
+}
+
 #submit {
     display: flex;
     flex-direction: column;

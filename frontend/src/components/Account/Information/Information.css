@@ -1,23 +1,15 @@
 #information-div {
-    border: 2px solid gray;
-    border-radius: 10px;
-    background-color: lightgray;
-    width: 60%;
-    margin: auto;
-    padding: 1rem;
+    padding: 1rem 3rem;
 }
 
 #password-info {
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin-top: -1rem;
     margin-bottom: -1rem;
 }
 
-#password-info h3 {
-    padding: 0;
-    height: 20px;
-}
 
 #show-password {
     margin-left: 1rem;
@@ -29,8 +21,17 @@
     font-weight: 500;
 }
 
-#information-div h1 {
+#information-div h1, #setting-list h1 {
     margin-top: 0;
+    text-align: center;
+}
+
+#information-div h1:after, #setting-list h1:after {
+    content: '';
+    width: 100%;
+    display: block;
+    border-top: 2px solid lightgray;
+
 }
 
 #information-div h3 {
@@ -42,7 +43,6 @@
 }
 
 #information-div p {
-    padding-left: 1rem;
-    margin-top: auto;
-    margin-bottom: auto;
+    font-size: 1.3rem;
+
 }
