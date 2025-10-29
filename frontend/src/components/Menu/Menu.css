@@ -1,5 +1,5 @@
 /*Big div of menu when open*/
-#ham-menu {
+#ham-menu, #ham-menu-move {
     background: var(--red);
 
     position:fixed;
@@ -8,10 +8,17 @@
     width: 20%;
 
     box-shadow: -1px 0 20px 10px;
+    transition: 0.5s;
+    transform: translate(0%); 
+
+}
+#ham-menu-move {
+    transform: translate(-110%); 
+
 }
 
 
-#ham-menu, #menu-button {
+#ham-menu, #ham-menu-move {
     z-index: 100;
 
 }
@@ -34,6 +41,8 @@
     position: relative;
     top: 1vw;
     left: 80%;
+
+    transition: 0.3s;
 
 }
 
@@ -58,17 +67,31 @@
     /* Position on page */
     position: fixed;
     top: 6vh;
-    left: 1vw; 
+    left: 1vw;
+
+    transition: 0.3s;
+    z-index: 99;
+
 }
 
 #menu-button svg, #menu-back svg {
-    height: 2.2rem;
-    width: 2.2rem;
+    font-size: 2.2rem;
+    transition: 0.3s;
+
+}
+
+#menu-button:hover svg, #menu-back:hover svg {
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 2.4rem;
 }
 
 #menu-button:hover, #menu-back:hover {
-    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.5rem;
 }
+
+
 
 
 /*the list of links you can go to in menu*/
@@ -152,4 +175,13 @@
     font-size: 1.7rem;
 
 
+}
+
+#page-cover {
+    position:absolute;
+
+    width: 80%;
+    left: 20%;
+    height: 100%;
+    z-index: 35;
 }

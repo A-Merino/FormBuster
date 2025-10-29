@@ -17,13 +17,29 @@ function Menu() {
     const [account, setAccount] = user;
     const [signedIn, setSignedIn] = loggedIn;
 
+    const changeDisp = () => {
+        const nothing = document.querySelector('#page-cover');
+        if (open) {
+            const bigMenu = document.querySelector('#ham-menu');
+            nothing.style.display = 'none';
+            bigMenu.id = 'ham-menu-move';
 
-    /* OPEN RENDER ------------------------*/
-    if (open) {
+        } else {
+            const bigMenu = document.querySelector('#ham-menu-move');
+            nothing.style.display = 'block';
+            bigMenu.id = 'ham-menu';
+
+        }
+        setOpen(!open);
+    }
+
+
+    /* RENDER ------------------------*/
         return (
             <>
-            <div id="ham-menu">
-                <div onClick={() => {setOpen(!open)}} id="menu-back">
+            <div id='page-cover' onClick={changeDisp}></div>
+            <div id="ham-menu-move">
+                <div onClick={changeDisp} id="menu-back">
                     <FontAwesomeIcon icon={faChevronLeft}/>
                 </div>
                 <div id="menu-options">
@@ -66,21 +82,12 @@ function Menu() {
 
                 </div>
             </div>
-            </>
-        )
-
-    } else { 
-    /* CLOSED RENDER ------------------------*/
-        return (
-            <>
-            <div onClick={() => {setOpen(!open)}} id="menu-button">
+            <div onClick={changeDisp} id="menu-button">
                 <FontAwesomeIcon icon={faBars}/>
                 
             </div>
             </>
         )
-    }
-
 }
 
 export default Menu 
