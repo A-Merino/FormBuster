@@ -97,6 +97,13 @@ function SigBox(props) {
         }
     }
 
+    const moveWind = () => {
+        window.scrollTo(0, document.body.scrollHeight);
+        console.log('MOVE THE WINDOW');
+    }
+
+
+
     /* --------- RENDER ---------------------------------*/
     if (which) {
         return (
@@ -109,6 +116,7 @@ function SigBox(props) {
                 </form>
                 <button onClick={submitSig}>Submit</button>
             </div>
+            {moveWind()}
 
             </>
         )
@@ -127,6 +135,8 @@ function SigBox(props) {
                 </form>
                     <button onClick={submitSig}>Submit</button>
             </div>
+            {moveWind()}
+
             </>
         )
     }

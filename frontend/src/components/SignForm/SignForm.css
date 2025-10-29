@@ -1,4 +1,4 @@
-.input-field-titled input[type='checkbox']:disabled {
+.custom input[type='checkbox']:disabled {
     background-color: white;
     color: white;
     opacity: 1 !important;
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 2em; 
 
 }
 

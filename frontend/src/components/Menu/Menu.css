@@ -179,6 +179,7 @@
 
 #page-cover {
     position:absolute;
+    display: none;
 
     width: 80%;
     left: 20%;

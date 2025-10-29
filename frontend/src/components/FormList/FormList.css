@@ -60,7 +60,7 @@
 #form-back{
     height: 100%;
     width: 100%;
-    background: url('./../../assets/images/login-background.jpg');
+    background: url('./../../assets/images/list-background.jpg');
     filter: blur(1rem);
     background-position: center;
     background-repeat: no-repeat;

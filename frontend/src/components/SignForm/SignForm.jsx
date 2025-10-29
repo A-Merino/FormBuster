@@ -99,21 +99,22 @@ function SignForm() {
 
     const displaySig = (e) => {
 
+        const s = document.querySelector('#sign-button');
+        const d = document.querySelector('#decline-button');
         if (e.target.name === "sign") {
             setSigDisp(true);
-            const s = document.querySelector('#sign-button');
             s.style.backgroundColor = '#1b651b'
-            const d = document.querySelector('#decline-button');
             d.style.backgroundColor = "var(--gray)"
         } else {
             setSigDisp(false);
 
-            const s = document.querySelector('#sign-button');
             s.style = 'background-color:var(--gray);'
-            const d = document.querySelector('#decline-button');
             d.style = "background-color: var(--red);"
         }
+
     }
+
+
 
     /* ----------- RENDER --------------------------*/
     if (good) {
@@ -123,16 +124,22 @@ function SignForm() {
             <TopBar/>
             <Menu/>
             <div id='sign-page'>
-            <div ref={formRef} id="form-container" dangerouslySetInnerHTML={{__html: temp}}></div>
+            <div id="margin-container">
+            <form id='form-container'>
+            <div ref={formRef} id="form" dangerouslySetInnerHTML={{__html: temp}}></div>
+            </form>
             <div className="choicePicks">
                 <button id='sign-button' name="sign" onClick={displaySig}>Sign</button>
                 <button id='decline-button' name="decline" onClick={displaySig}>Decline</button>
+            </div>
             </div>
             {sigDisp !== null &&
             <SigBox disp={sigDisp} fid={FID} ac={account.id}/>
 
         }
+
         </div>
+
             </>
         )
     }
