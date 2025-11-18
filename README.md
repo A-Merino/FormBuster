@@ -10,14 +10,12 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 1. **Home/FullForm/SigSide.jsx**
     - Add the rest of the classes for *SigLink* component
 1. **Home/FullForm/SigTree.jsx**
-    - Find a way to mathematically center the graph in the svg
     - Also to mathematically determine x and y coords of a node based on parent and amount of children
         - logic dependent still
     - Add user role to Graph in the node/ beside node
 1. **Form/Form.jsx**
     - Standardize inputs for autofill of user information
     - Standardize form format
-    - Remove submit buttons from inside of forms (the ones that dont work)
 1. **FormBuilder/Editor.jsx**
     - Luka, document your code and explain what is going on
 1. **Account/Information.jsx**
@@ -76,3 +74,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
     - Figure out how to implement the information to show in this component when the graph is hovered
 1. **SignForm/SignForm.css**
     - fix half of the form off screen
+1. **Home/FullForm/SigTree.jsx**
+    - Find a way to mathematically center the graph in the svg
+1. **Form/Form.jsx**
+    - Remove submit buttons from inside of forms (the ones that dont work)
