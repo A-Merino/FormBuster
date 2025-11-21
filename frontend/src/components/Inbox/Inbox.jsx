@@ -10,6 +10,8 @@ import User from "./../User/User.jsx";
 function Inbox() {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedNotif, setSelectedNotif] = useState(null);
+    const [formDetails, setFormDetails] = useState(null);
 
     // Get the user context
     const { user, loggedIn } = useContext(User);
@@ -20,6 +22,41 @@ function Inbox() {
             fetchInbox(account.id);
         }
     }, [account?.id]);
+
+    async function openNotifPopup(notif) {
+        setSelectedNotif(notif);
+        getFormData(notif.formID);
+
+        // Mark as read when opened
+        await fetch("http://localhost:3000/api/markSingleRead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messageId: notif.id })
+        });
+
+        // Refresh inbox list to update UI
+        fetchInbox(account.id);
+    }
+
+    function closeNotifPopup() {
+        setSelectedNotif(null);
+        setFormDetails(null);
+    }
+
+    // calls api and sets response to form var
+    const getFormData = async (formID) => {
+        try {
+            const resp = await fetch(`http://localhost:3000/api/getActive`, {
+                        method :"POST",
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({id:formID})
+                    });
+            const data = await resp.json();
+            setFormDetails(data.form);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     const fetchInbox = async (userID) => {
         try {
@@ -97,19 +134,65 @@ function Inbox() {
                             <p>No messages found</p>
                         ) : (
                             messages.map((msg) => (
-                                <InboxMessage
+                                <div
+                                    className="inbox-message-wrapper"
                                     key={msg.id}
-                                    formName={msg.formName}
-                                    formID={msg.formID}
-                                    rejected={msg.rejected}
-                                    reason={msg.reason}
-                                    read={msg.read}
-                                    type={msg.type}
-                                />
+                                    onClick={() => openNotifPopup(msg)}>
+                                    <InboxMessage
+                                        key={msg.id}
+                                        formName={msg.formName}
+                                        formID={msg.formID}
+                                        rejected={msg.rejected}
+                                        reason={msg.reason}
+                                        read={msg.read}
+                                        type={msg.type}
+                                    />
+                                </div>
                             ))
                         )}
                     </div>
                 </div>
+
+                {selectedNotif && (
+                    <div className="notif-popup-overlay" onClick={closeNotifPopup}>
+                        <div className="notif-popup" onClick={(e) => e.stopPropagation()}>
+                            <h2>Notification Details</h2>
+
+                            <p><strong>Form ID:</strong> {selectedNotif.formID}</p>
+
+                            {selectedNotif.type === "approval" && (
+                                <p>
+                                    <strong>Status:</strong> {selectedNotif.rejected === "True" ? "Rejected" : "Approved"}
+                                </p>
+                            )}
+
+                            {selectedNotif.reason && (
+                                <p><strong>Reason:</strong> {selectedNotif.reason}</p>
+                            )}
+
+                            <hr />
+
+                            {loading && <p>Loading form info…</p>}
+
+                            {formDetails && (
+                                <>
+                                    <h3>Form Comments</h3>
+                                    {formDetails.comments?.length > 0 ? (
+                                        <ul>
+                                            {formDetails.comments.map((c, index) => (
+                                                <li key={index}>{c}</li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <p>No comments</p>
+                                    )}
+                                </>
+                            )}
+
+                            <button onClick={closeNotifPopup}>Close</button>
+                        </div>
+                    </div>
+                )}
             </div>
         </>
     );

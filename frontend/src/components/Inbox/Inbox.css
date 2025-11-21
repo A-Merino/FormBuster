@@ -32,3 +32,52 @@
     overflow-x: hidden;
     padding: 0.5rem;
 }
+
+.notif-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.notif-popup {
+    background: white;
+    border: 3px solid var(--red);
+    padding: 1.5rem;
+    width: 32rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    animation: popup-in 0.2s ease-out;
+}
+
+@keyframes popup-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.notif-popup button {
+    background: var(--gold);
+    border: 2px solid var(--gray);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-top: 1.2rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+}
+
+.inbox-message-wrapper {
+    cursor: pointer;
+}
+
+.notif-popup ul {
+    list-style-position: inside;   /* bring bullets inside the block */
+    padding-left: 0;               /* remove default browser offset */
+    text-align: center;            /* center text + bullets */
+}

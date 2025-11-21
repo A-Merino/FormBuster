@@ -39,6 +39,24 @@ exports.markAllRead = async (req, res) => {
   }
 };
 
+exports.markSingleRead = async (req, res) => {
+  try {
+    const { messageId } = req.body;
+
+    const msg = await InboxMessage.findOne({ id: messageId });
+    if (!msg) return res.status(404).json({ message: "Message not found" });
+
+    await InboxMessage.updateOne(
+      { id: messageId },
+      { $set: { read: "True" } }
+    );
+
+    res.json({ success: true, message: "Message marked as read" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 exports.deleteAllRead = async (req, res) => {
   try {
     const { userId } = req.body;

@@ -5,7 +5,6 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
 
 ### Frontend
 1. **Inbox/Inbox.jsx**
-    - Display comments when clicking on a message (outlook style)
     - Add notification popup on menu
 1. **Home/FullForm/SigSide.jsx**
     - Add the rest of the classes for *SigLink* component
@@ -68,6 +67,7 @@ Source Code for the Form Buster Senior project http://a-merino.github.io/FormBus
         - doesnt show up if already signed
 1. **Inbox/Inbox.jsx**
     - Make it so only the necessary messages show up
+    - Display comments when clicking on a message (outlook style)
 1. **Inbox/InboxInteractionbar.jsx**
     - Make the *refresh* and *mark all* buttons do something
 1. **Home/FullForm/SigSide.jsx**
