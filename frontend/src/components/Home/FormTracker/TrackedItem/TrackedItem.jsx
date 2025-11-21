@@ -134,7 +134,7 @@ function TrackedItem(props) {
     }
 
     /* RENDER -------------------------------------------------------------------------------- */
-    if (ready) {
+    if (ready && props.ftype === form.status) {
         getFormName() // if api call is done, get the form name
     return (
         <>

@@ -187,6 +187,7 @@ exports.getActive = async (req, res) => {
     }
 }
 
+// return the signature data and the user associated with the signature
 exports.getSigUser = async (req, res) => {
     try {
         // get the active form from the database 
@@ -201,3 +202,12 @@ exports.getSigUser = async (req, res) => {
     }
 }
 
+
+exports.setFormStatus = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Form status could not be updated", error: err.message });
+    }
+}

@@ -20,3 +20,38 @@
         justify-content: space-around;
     }
 }*/
+
+.select-ftype {
+    margin: 0em 0.5em 1.5em 0em;
+
+    /*border: 2px solid var(--gold);*/
+    color: var(--gray);
+    text-decoration: underline var(--gray);
+
+    font-size: 1.5rem;
+    font-family: Verdana, sans-serif;
+}
+
+.select-ftype:hover {
+    cursor: pointer;
+}
+
+#active-sel {
+
+    color: var(--red);
+    text-decoration: underline var(--gold);
+}
+
+#headers {
+
+    margin: auto;
+    width: 50%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+

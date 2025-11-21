@@ -7,7 +7,7 @@ import TrackedItem from './TrackedItem/TrackedItem.jsx'
 import User from "./../../User/User.jsx"
 
 
-function FormTracker() {
+function FormTracker(props) {
 
     // Get the user context
     const {user, loggedIn} = useContext(User);
@@ -25,7 +25,7 @@ function FormTracker() {
             try {
                 const response = await fetch(`http://localhost:3000/api/getAllActive`, {
                     method: "GET",
-                    headers: {'Content-Type': 'application/json'}
+                    headers: {'Content-Type': 'application/json'},
                 });
                 // wait for response
                 const data = await response.json();
@@ -41,41 +41,60 @@ function FormTracker() {
         }
     }, [])
 
+
+    let type = props.ftype;
+    if (type === 'Tracked') {
+        type = "Pending"
+    } 
+
+
+    const checkChilds = () => {
+        
+        const tracker = document.getElementById(divID);
+        console.log(tracker)
+            if (tracker.childElementCount < 2) {
+                
+                tracker.style.display = 'none';
+            } else {
+                tracker.style.display = 'flex';
+
+            }
+            return <></>
+    }
+
     /* RENDER ------------------------------ */
     // if admin and forms are loaded
+
+    const [items, setItems] = useState(false)
+
+
     if (ready) {
 
         return (<>
-            <div id="tracker">
-                
-                <h2>Form Tracker</h2>
 
-                <div id='track-holder'>
                 {/* Check if the account has forms, if so then display them */}
-                {forms.map((formid) => {
-                    
-                    return <TrackedItem key={formid} data={formid}/>
-                })}
+                <div id='track-holder'>
+                
+                    {forms.map((formid) => {
+                        
+                        return <TrackedItem key={formid} data={formid} ftype={type}/>
+                    })}
+        
                 </div>
-
-            </div>
         </>)
-    } else {
-
+    }else {
         return (<>
-            <div id="tracker">
                 
-                <h2>Form Tracker</h2>
 
-                <div id='track-holder'>
                 {/* Check if the account has forms, if so then display them */}
-                {account.forms.length > 0 && account.forms.map((formid) => {
-                    
-                    return <TrackedItem key={formid} data={formid}/>
-                })}
+                <div id='track-holder'>
+                
+                    {account.forms.map((formid) => {
+                        
+                        return <TrackedItem key={formid} data={formid} ftype={type}/>
+                    })}
+                
                 </div>
-
-            </div>
         </>)
     }
 }

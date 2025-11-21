@@ -32,6 +32,7 @@ exports.updateSig = async (req, res) => {
 
             let formStarter = null;
             let earliestSignDate = null;
+
             // go through each signature and check if all are signed
             allSigs.map(sig => {
                 if (formStarter === null) {
@@ -51,7 +52,7 @@ exports.updateSig = async (req, res) => {
                     formStarter = null;
                 }
             })
-            // do something if all are, do something else when not
+            // change form status and send notifsif all are signed, do nothing when not completely done
             if (done) {
                 const account = await User.findOne({id: formStarter});
 
@@ -75,13 +76,20 @@ exports.updateSig = async (req, res) => {
                     {upsert: true}
                 )
 
+                // get form object from database
+                // and update status to complete
+                const compForm = await ActForm.updateOne({id: formID}, {$set:{status: "Complete"}});
+
+
+
+
                 res.status(201).json({msg: 'Signature was successfully updated'})
             } else {
                 res.status(201).json({msg: 'Signature was successfully updated'})
             }
         } else {
 
-            // if not, then we must be declining
+            // if no comment, then we must be declining
             const uppers = {$set: {
                 signatureDate: new Date(),
                 isSigned: 'rejected'
