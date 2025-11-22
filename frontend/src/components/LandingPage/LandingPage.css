@@ -1,7 +1,6 @@
 /*The big header at the top of page*/
 #lp-header {
     text-align: center;
-    margin-top: 1rem;
 }
 
 
@@ -13,13 +12,16 @@
     flex-direction: column;
     font-size: 20px;
     width: 50%;
-/*    background: #d7c693;*/
-/*    border-radius: 2rem;*/
-    border-right: 3px gray solid;
-    border-left: 3px gray solid;
+    background: #f9f9f9;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 0.5rem;
     align-items: flex-start;
-    margin-top: 1rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: #333;
 }
 
 /* Any numbered lists in blurb */
@@ -27,7 +29,7 @@
     text-align: left;
     width: 100%;
     margin: 0em;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
 
@@ -35,6 +37,11 @@
     margin: 0em;
     margin-left: 2rem;
     width: 80%;
+    padding-top: 1rem;
+}
+
+#main-blurb ol ul {
+    padding-top: 0.5rem;
 }
 
 /*Any headers in div*/
@@ -42,6 +49,7 @@
     font-size: 30px;
     display: flex;
     flex-direction: column;
+    color: #2f3642;
 }
 
 /*Creates the underline for titles*/
@@ -49,6 +57,14 @@
     content: "";
     margin-top:0.1rem;
     border-top: 7px solid grey;
+}
+
+.feature-block {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 768px) {
