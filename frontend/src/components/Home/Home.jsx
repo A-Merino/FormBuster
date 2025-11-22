@@ -42,7 +42,7 @@ function Home() {
         // add color to one clicked
         e.target.setAttribute('id', 'active-sel')
 
-
+        
 
     } 
 

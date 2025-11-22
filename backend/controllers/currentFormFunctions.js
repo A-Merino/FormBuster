@@ -111,6 +111,33 @@ exports.deleteForm = async (req, res) => {
     }
 }
 
+exports.pauseForm = async (req, res) => {
+    try {
+        const formID = req.body.id;
+        await ActForm.updateOne({'id':formID, {$set: {status: "Paused"}}});
+        
+        res.status(201).json({msg: "Form Deleted Successfully"})
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({msg: "An Error has occurred", error: error.message});
+    }
+}
+
+exports.unpauseForm = async (req, res) => {
+    try {
+        const formID = req.body.id;
+        await ActForm.updateOne({'id':formID, {$set: {status: "Pending"}}});
+        
+        res.status(201).json({msg: "Form Deleted Successfully"})
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({msg: "An Error has occurred", error: error.message});
+    }
+}
+
+
 exports.getAllActive = async (req, res) => {
     try {
         const forms = await ActForm.find({});

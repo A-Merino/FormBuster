@@ -78,7 +78,7 @@ exports.updateSig = async (req, res) => {
 
                 // get form object from database
                 // and update status to complete
-                const compForm = await ActForm.updateOne({id: formID}, {$set:{status: "Complete"}});
+                await ActForm.updateOne({id: formID}, {$set:{status: "Complete"}});
 
 
 
@@ -145,6 +145,10 @@ exports.updateSig = async (req, res) => {
                 {$push: {messageIDs: newNotif.id}},
                 {upsert: true}
             )
+
+            // change the form status to rejected
+            await ActForm.updateOne({id: formID}, {$set:{status: "Rejected"}});
+
 
             res.status(201).json({msg: "Signature was successfully updated"})
         }
