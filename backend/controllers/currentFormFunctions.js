@@ -114,7 +114,7 @@ exports.deleteForm = async (req, res) => {
 exports.pauseForm = async (req, res) => {
     try {
         const formID = req.body.id;
-        await ActForm.updateOne({'id':formID, {$set: {status: "Paused"}}});
+        await ActForm.updateOne({'id':formID}, {$set: {status: "Paused"}});
         
         res.status(201).json({msg: "Form Deleted Successfully"})
 
@@ -127,7 +127,7 @@ exports.pauseForm = async (req, res) => {
 exports.unpauseForm = async (req, res) => {
     try {
         const formID = req.body.id;
-        await ActForm.updateOne({'id':formID, {$set: {status: "Pending"}}});
+        await ActForm.updateOne({'id':formID}, {$set: {status: "Pending"}});
         
         res.status(201).json({msg: "Form Deleted Successfully"})
 
