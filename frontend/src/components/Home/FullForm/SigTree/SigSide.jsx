@@ -11,33 +11,6 @@ function SigSide(props) {
 
     const sig = props.data;
     const ui = props.us;
-    console.log(props)
-
-    // useEffect(() => {
-
-    //     const fetchSig = async (uid, setter, amReady) => {
-            
-    //             // post call
-    //             await fetch(`http://localhost:3000/api/getSig`, {
-    //                 method: "POST",
-    //                 headers: {'Content-Type': 'application/json'},
-    //                 body: JSON.stringify({id: uid})
-    //             })
-    //             .then(data => data.json())
-    //             .then(res => {
-    //                 setter(res.sig)
-    //                 if (amReady !== null) {
-    //                     setReady(true)
-
-    //                 }
-    //                 })
-    //             .catch(e => console.log(e));
-    //     }
-  
-    //     fetchSig(source.data, setSrc, null);
-    //     fetchSig(dest.data, setDes, 0);
-    // }, []);
-
 
     const windth = 0.8 * window.innerWidth - 350;
 

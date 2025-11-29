@@ -48,26 +48,11 @@ function FormTracker(props) {
     } 
 
 
-    const checkChilds = () => {
-        
-        const tracker = document.getElementById(divID);
-        console.log(tracker)
-            if (tracker.childElementCount < 2) {
-                
-                tracker.style.display = 'none';
-            } else {
-                tracker.style.display = 'flex';
-
-            }
-            return <></>
-    }
 
     /* RENDER ------------------------------ */
     // if admin and forms are loaded
 
-    const [items, setItems] = useState(false)
-
-
+    // administrator forms
     if (ready) {
 
         return (<>
@@ -82,7 +67,7 @@ function FormTracker(props) {
         
                 </div>
         </>)
-    }else {
+    }else { // student/staff forms
         return (<>
                 
 

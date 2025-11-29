@@ -58,9 +58,6 @@ function SigTree(props) {
 
     }
 
-    // create the graph
-    const graph = {nodes, links}
-
     // function to return a SigNode with appropriate data
     const goNode = (node) => {
 

@@ -61,10 +61,7 @@ function Home() {
                             <div title='sel-2' className="select-ftype" onClick={updateType}>Paused Forms</div>
                             <div title='sel-3' className="select-ftype" onClick={updateType}>Complete Forms</div>
                     </div>
-                    <FormTracker ftype={types[curInd]}/>{/*
-                    <FormTracker ftype={"Rejected"}/>
-                    <FormTracker ftype={"Paused"}/>
-                    <FormTracker ftype={"Complete"}/>*/}
+                    <FormTracker ftype={types[curInd]}/>
 
                 </div>
             </div>

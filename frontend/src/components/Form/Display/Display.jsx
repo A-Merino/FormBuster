@@ -95,23 +95,6 @@ function Display() {
         });
     }
 
-    const displaySig = (e) => {
-
-        if (e.target.name === "sign") {
-            setSigDisp(true);
-            const s = document.querySelector('#sign-button');
-            s.style.backgroundColor = '#1b651b'
-            const d = document.querySelector('#decline-button');
-            d.style.backgroundColor = "var(--gray)"
-        } else {
-            setSigDisp(false);
-
-            const s = document.querySelector('#sign-button');
-            s.style = 'background-color:var(--gray);'
-            const d = document.querySelector('#decline-button');
-            d.style = "background-color: var(--red);"
-        }
-    }
 
     /* ----------- RENDER --------------------------*/
     if (good) {
